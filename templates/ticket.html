@@ -1,0 +1,59 @@
+<form action="/ticket" method="POST">
+    <p>Department</p>
+    <select name="department">
+        {{ for each in department }}
+            <option value="{{ each }}">{{ each }}</option>
+        {{ endfor }}
+    <p>Roll Number</p>
+    <input type="text" name="roll" placeholder="Enter Roll Number">
+    <p>Name</p>
+    <input type="text" name="name" placeholder="Enter Name">
+    <p>Date of Registration</p>
+    <input type="date" name="date">
+    <p>Gate/Net/TA</p>
+    <input type="radio" name="gate" value="yes"> Yes
+    <input type="radio" name="gate" value="no"> No
+    <p>Title of PhD Work</p>
+    <input type="text" name="title" placeholder="Enter Title">
+    <p>Date of IRB Approval</p>
+    <input type="date" name="irb">
+    <p>Date of Progress Presentation</p>
+    <input type="date" name="progress">
+    <p>Name of Supervisor X</p>
+    <select name="supervisorX">
+    {{ for each in supervisors }}
+        <option value="{{ each }}">{{ each }}</option>
+    {{ endfor }}
+    <p>Name of Supervisor Y</p>
+    <select name="supervisorY">
+    {{ for each in supervisors }}
+        <option value="{{ each }}">{{ each }}</option>
+    {{ endfor }}
+    <p>Name of Supervisor Z</p>
+    <select name="supervisorZ">
+    {{ for each in supervisors }}
+        <option value="{{ each }}">{{ each }}</option>
+    {{ endfor }}
+    <p>Name of Committee Member X</p>
+    <select name="committeeX">
+    {{ for each in committee }}
+        <option value="{{ each }}">{{ each }}</option>
+    {{ endfor }}
+    <p>Name of Committee Member Y</p>
+    <select name="committeeY">
+    {{ for each in committee }}
+        <option value="{{ each }}">{{ each }}</option>
+    {{ endfor }}
+    <p>Name of Committee Member Z</p>
+    <select name="committeeZ">
+    {{ for each in committee }}
+        <option value="{{ each }}">{{ each }}</option>
+    {{ endfor }}
+    <p>Attachment of Presentation</p>
+    <input type="file" name="attachment">
+    <p>SCI/Scopus</p>
+    <input type="text" name="scopus" placeholder="Enter SCI/Scopus">
+    <p>Conference Presentation</p>
+    <input type="text" name="conference" placeholder="Enter Conference Presentation">
+    <input type="submit" value="Submit">
+</form>
