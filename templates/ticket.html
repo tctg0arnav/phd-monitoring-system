@@ -1,24 +1,24 @@
 <form action="/ticket" method="POST">
-    <p>Department</p>
-    <select name="department">
-        {{ for each in department }}
+    <p>AU</p>
+    <select name="AU">
+        {{ for each in AU_list }}
             <option value="{{ each }}">{{ each }}</option>
         {{ endfor }}
     <p>Roll Number</p>
-    <input type="text" name="roll" placeholder="Enter Roll Number">
+    <input type="text" name="studentid" placeholder="Enter Roll Number">
     <p>Name</p>
     <input type="text" name="name" placeholder="Enter Name">
     <p>Date of Registration</p>
-    <input type="date" name="date">
+    <input type="date_of_registration" name="date">
     <p>Gate/Net/TA</p>
     <input type="radio" name="gate" value="yes"> Yes
     <input type="radio" name="gate" value="no"> No
     <p>Title of PhD Work</p>
-    <input type="text" name="title" placeholder="Enter Title">
+    <input type="text" name="project_title" placeholder="Enter Title">
     <p>Date of IRB Approval</p>
-    <input type="date" name="irb">
+    <input type="date_of_irb" name="irb">
     <p>Date of Progress Presentation</p>
-    <input type="date" name="progress">
+    <input type="date_of_progress_present" name="progress">
     <p>Name of Supervisor X</p>
     <select name="supervisorX">
     {{ for each in supervisors }}
@@ -50,9 +50,9 @@
         <option value="{{ each }}">{{ each }}</option>
     {{ endfor }}
     <p>Attachment of Presentation</p>
-    <input type="file" name="attachment">
+    <input type="file" name="file">
     <p>SCI/Scopus</p>
-    <input type="text" name="scopus" placeholder="Enter SCI/Scopus">
+    <input type="text" name="publications" placeholder="Enter SCI/Scopus">
     <p>Conference Presentation</p>
     <input type="text" name="conference" placeholder="Enter Conference Presentation">
     <input type="submit" value="Submit">
