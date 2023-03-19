@@ -4,22 +4,22 @@
         {{ for each in AU_list }}
             <option value="{{ each }}">{{ each }}</option>
         {{ endfor }}
-    <p>Roll Number</p>
+    <label>Roll Number</label>
     <input type="text" name="studentid" placeholder="Enter Roll Number">
-    <p>Name</p>
+    <label>Name</label>
     <input type="text" name="name" placeholder="Enter Name">
-    <p>Date of Registration</p>
+    <label>Date of Registration</label>
     <input type="date_of_registration" name="date">
-    <p>Gate/Net/TA</p>
+    <label>Gate/Net/TA</label>
     <input type="radio" name="gate" value="yes"> Yes
     <input type="radio" name="gate" value="no"> No
-    <p>Title of PhD Work</p>
+    <label>Title of PhD Work</label>
     <input type="text" name="project_title" placeholder="Enter Title">
-    <p>Date of IRB Approval</p>
+    <label>Date of IRB Approval</label>
     <input type="date_of_irb" name="irb">
-    <p>Date of Progress Presentation</p>
+    <label>Date of Progress Presentation</label>
     <input type="date_of_progress_present" name="progress">
-    <p>Name of Supervisor X</p>
+    <label>Name of Supervisor X</label>
     <select name="supervisorX">
     {{ for each in supervisors }}
         <option value="{{ each }}">{{ each }}</option>
