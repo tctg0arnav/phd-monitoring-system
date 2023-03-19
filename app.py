@@ -198,8 +198,21 @@ def supervisor_dash_project(projectid):
             elif supervisors.query.filter_by(projectid=projectid).first().supervisorZ == session.get('user'):
                 supervisors.query.filter_by(projectid=projectid).update(dict(supervisorZ='approved'))
                 db.session.commit()
+            return redirect(url_for('supervisor_dash'))
         elif request.form['submit'] == 'Reject':
-            return 0
+            return redirect(url_for('supervisor_dash'))
+    #get project data from projects table in database for projectid = projectid in url
+    project = project.query.filter_by(projectid=projectid).first()
+    #get name from Users table in database for studentid in project table
+    #get committeeX, committeeY, committeeZ and committeeA from committee table in database for projectid = projectid in url
+    #append name, committeeX, committeeY, committeeZ and committeeA to project data
+    project.__dict__.update({'name': User.query.filter_by(studentid=project.studentid).first().name})
+    project.__dict__.update({'committeeX': committee.query.filter_by(projectid=projectid).first().committeeX})
+    project.__dict__.update({'committeeY': committee.query.filter_by(projectid=projectid).first().committeeY})
+    project.__dict__.update({'committeeZ': committee.query.filter_by(projectid=projectid).first().committeeZ})
+    project.__dict__.update({'committeeA': committee.query.filter_by(projectid=projectid).first().committeeA})
+    #pass project data to supervisor dashboard project template
+    return render_template('supervisor_dashboard_project.html', project=project)
 
 @app.route('/committee_dash', methods=['GET', 'POST'])
 def committee_dash():
