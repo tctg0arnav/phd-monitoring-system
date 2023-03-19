@@ -1,0 +1,17 @@
+<!-- 
+    title, name, rollno, date_of_progress_presentation, date_of_irb, date_of_submission
+-->
+
+<table>
+{{ for each in data}}
+<tr>
+    <td><a href="{{ each[file_path] }}"><img src="" alt=""></a></td>
+    <td><p>Title:{{ each[project_title] }}</p></td>
+    <td><p>Name: {{ each[name] }}</p></td>
+    <td><p>Roll No: {{ each[studentid] }}</p></td>   
+    <td><p>Date of Submission: {{ each[date_of_registration] }}</p></td>
+    <td><p>Date of Progress Presentation: {{ each[date_of_progress_present] }}</p></td>
+    <td><p>Date of IRB: {{ each[date_of_irb] }}</p></td>
+</tr>
+{{ end }}
+</table>

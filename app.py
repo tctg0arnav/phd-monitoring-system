@@ -161,8 +161,13 @@ def supervisor_dash():
         for project in project.query.all():
             if supervisors.query.filter_by(projectid=project.projectid).first().supervisorX == session.get('user') or supervisors.query.filter_by(projectid=project.projectid).first().supervisorY == session.get('user') or supervisors.query.filter_by(projectid=project.projectid).first().supervisorZ == session.get('user'):
                 projects.append(project)
-        #pass projects list to supervisor dashboard template
-        return render_template('supervisor_dashboard.html', projects=projects)
+        #for each project in list get data dictionary from project table and add to list. pass list to template
+        #add name from Users table to data dictionary for each project in list matching studentid in project table with studentid in Users table
+        data = []
+        for project in projects:
+            project.__dict__.update({'name': User.query.filter_by(studentid=project.studentid).first().name})
+            data.append(project.__dict__)
+        return render_template('supervisor_dashboard.html', data=data)
     return redirect(url_for('dashboard'))
 
 @app.route('/supervisor_dash/<int:projectid>', methods=['GET', 'POST'])
