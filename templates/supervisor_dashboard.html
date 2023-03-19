@@ -12,6 +12,7 @@
     <td><p>Date of Submission: {{ each[date_of_registration] }}</p></td>
     <td><p>Date of Progress Presentation: {{ each[date_of_progress_present] }}</p></td>
     <td><p>Date of IRB: {{ each[date_of_irb] }}</p></td>
+    <td><a href="/dashboard/{{ each[projectid] }}"><button>Open</button></a></td>
 </tr>
 {{ end }}
 </table>
