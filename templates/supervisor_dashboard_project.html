@@ -15,13 +15,110 @@ worktillnow
 -->
 
 <!-- {{ project[] }} -->
+<!DOCTYPE html>
+<html lang="en">
 
-<p>Project ID: {{ project[projectID] }}</p>
-<p>AU: {{ project[AU] }}</p>
-<p>ROLL NO.: {{ project[studentID] }}</p>
-<p>Date of registration: {{ project[date_of_registration] }}</p>
-<p>Gate/NET/TA: {{ project[GATE] }}</p>
-<p>Project Title: {{ project[project_title] }}</p>
-<p>Date of IRB: {{ project[date_of_irb] }}</p>
-<p>Date of progress presentation: {{ project[date_of_progress_present] }}</p>
-<p>view file: {{ project[file_path] }}</p>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PhD-progress-monitoring-system</title>
+  <link rel="stylesheet" href="../css templates/supervisorproject.css">
+
+</head>
+
+<body>
+  <div class="main">
+    <h2>Submitted work</h2>
+    <h4>Project ID:</h4>
+    <p>
+      {{ project[projectID] }}
+    </p>
+    <br>
+    <h4>Academic Unit:</h4>
+    <p>
+      {{ project[AU] }}
+    </p>
+    <br>
+    <h4>ROLL NO.:</h4>
+    <p>
+      {{ project[studentID] }}
+    </p>
+    <br>
+    <h4>Date of registration:</h4>
+    <p>
+      {{ project[date_of_registration] }}
+    </p>
+    <br>
+    <h4>Gate/NET/TA:</h4>
+    <p>
+      {{ project[GATE] }}
+    </p>
+    <br>
+    <h4>Project Title:</h4>
+    <p>
+      {{ project[project_title] }}
+    </p>
+    <br>
+    <h4>Date of IRB:</h4>
+    <p>
+      {{ project[date_of_irb] }}
+    </p>
+    <br>
+    <h4>Date of progress presentation:</h4>
+    <p>
+      {{ project[date_of_progress_present] }}
+    </p>
+    <br>
+    <h4>presentation as PDF</h4>
+   <div> <a href="{{ project[file_path] }}"> <img class="viewfile" src="../Images/viewfile.png" alt=""></a>
+    </div>
+    <h4>Name of Supervisor:</h4>
+    <p>
+      {{ data[supervisorX] }}
+      {{ data[supervisorY] }}
+      {{ data[supervisorZ] }}
+    </p>
+    <br>
+    <h4>Members of Doctoral Committee: </h4>
+    <div class="committee">
+      
+      <div>  <p>i.
+        {{ data[committeeX] }}
+      </p>
+<br>
+      <p>ii.
+        {{ data[committeeY] }}
+      </p>
+    </div>
+
+    <div>
+
+      <p>iii.
+        {{ data[committeeZ] }}
+      </p>
+      <br>
+
+      <p>iv.
+        {{ data[committeeA] }}
+      </p></div>
+    </div>
+
+
+
+
+    <h4>Remarks</h4>
+
+    <form action="">
+        <textarea class="input" name="" id=""  placeholder="add your remarks"></textarea>
+    </form>
+<div class="btn-grp">
+
+ <button class="scn-btn">NOT SATISFIED</button>
+    <button class="pri-btn">SATISFIED</button></div>
+   
+    
+  </div>
+</body>
+
+</html>
