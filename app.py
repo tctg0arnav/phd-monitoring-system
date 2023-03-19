@@ -10,18 +10,6 @@ app = Flask(__name__)
 app.secret_key = 'secretkey'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-
-
-
-# users = {
-#     'student': ['student',1],
-#     'supervisor': ['supervisor',2],
-#     'doc_comm': ['doc_comm',3],
-#     'hoau': ['hoau',4],
-#     'adordc': ['adordc',5],
-#     'dr_a': ['dr_a',6]
-# }
-
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 db = SQLAlchemy(app)
 
@@ -96,7 +84,7 @@ def dashboard():
     if session.get('user'):
         #if tier in database for username = username in session is 1 then redirect to student dashboard
         if User.query.filter_by(username=session.get('user')).first().tier == 1:
-            return redirect(url_for('ticket'))
+            return redirect(url_for('student_dash'))
         elif User.query.filter_by(username=session.get('user')).first().tier == 2:
             return redirect(url_for('supervisor_dash'))
         elif User.query.filter_by(username=session.get('user')).first().tier == 3:
@@ -110,6 +98,15 @@ def dashboard():
         else:
             return render_template('login.html')
     return redirect(url_for('login'))
+
+@app.route('/student_dash')
+def student_dash():
+    #if studentid exists in projcet table then render student_progress template with data from project table
+    if project.query.filter_by(studentid=User.query.filter_by(username=session.get('user')).first().studentid).first():
+        #passing data from project table, supervisor table and committee table to template as dictionary where key is column name and value is data from database
+        return render_template('student_progress.html', data=project.query.filter_by(studentid=User.query.filter_by(username=session.get('user')).first().studentid).first().__dict__, data1=supervisors.query.filter_by(projectid=project.query.filter_by(studentid=User.query.filter_by(username=session.get('user')).first().studentid).first().projectid).first().__dict__, data2=committee.query.filter_by(projectid=project.query.filter_by(studentid=User.query.filter_by(username=session.get('user')).first().studentid).first().projectid).first().__dict__)
+    else:
+        return render_template('student_dashboard.html')
 
 #ticket route that checks if tier in database for username = username in session is 1 and redirects to dashboard if not
 @app.route('/ticket', methods=['GET', 'POST'])
