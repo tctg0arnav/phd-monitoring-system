@@ -1,0 +1,76 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;900&display=swap');
+
+.main{
+    border: 1px solid black;
+    padding: 2rem;
+    line-height: 3em;
+}
+
+h2{
+    font-family: 'Times New Roman', Times, serif;
+    color: #640000;
+}
+h4{
+    display: inline;
+}
+
+p{
+    display: inline;
+}
+.viewfile{
+    height: 2rem;
+   
+}
+.committee{
+    display: flex;
+    flex-wrap: wrap;
+   
+}
+.input{
+    width: 60%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+}
+
+.btn-grp{
+   text-align: center;
+}
+.back img{
+    height: 2rem;
+    
+}
+
+.scn-btn{
+    color: #640000;
+    background-color: white;
+    width: 9rem;
+    height: 2.5rem;
+    box-shadow: none;
+    border: 1px solid #640000;
+    margin-right:0.5rem ;
+    font-family: 'poppins';
+    font-weight: 500;
+    font-size: 0.7em ;
+    letter-spacing: 0.2rem;
+    padding-left: 5px;
+}
+.pri-btn{
+    color: white;
+    background-color: #640000;
+    width: 9rem;
+    height: 2.5rem;
+    box-shadow: none;
+    border: 1px solid #640000;
+    margin-left:0.5rem ;
+    font-family: 'poppins';
+    font-weight: 500;
+    font-size: 0.7em ;
+    letter-spacing: 0.2rem;
+    padding-left: 5px;
+}
