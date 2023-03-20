@@ -9,13 +9,27 @@
 </head>
 <body>
     <div class="navbar">
-        <img class="navbar-logo" src="../Images/Tiet-logo2.png" alt="">
+        <img class="navbar-logo" src="../Images/TIET-logo.png" alt="" />
         <p class="navbar-name">PhD PROGRESS MONITORING SYSTEM</p>
-        <div class="navbar-profile">
-            <img src="../Images/User.png" alt="" class="profile-pic">
-            <!-- <p class="profile-name">Name</p> -->
+    
+        <div class="action">
+          <div class="profile" onclick="menuToggle();">
+            <img src="../Images/User.png" />
+          </div>
+          <div class="menu">
+            <h3>Sk Sayan</h3>
+            <ul>
+              <li>
+                <img src="../Images/download.png" /><a href="#"
+                  >change password</a
+                >
+              </li>
+              <li><img src="../Images/logout.png" /><a href="#">logout</a></li>
+            </ul>
+          </div>
         </div>
-    </div>
+      </div>
+
     <div class="main-heading1-dash">
         <p class="heading1-dash">SCHOLAR’S PROGRESS WINDOW</p>
     </div>
@@ -23,4 +37,10 @@
         <a class="main-button-div" href="/ticket"><button class="main-button-dash">+ Submit Your Work</button></a>
     <!-- </div> -->
 </body>
+<script>
+    function menuToggle() {
+      const toggleMenu = document.querySelector(".menu");
+      toggleMenu.classList.toggle("active");
+    }
+  </script>
 </html>
