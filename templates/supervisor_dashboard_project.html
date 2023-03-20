@@ -28,59 +28,93 @@ worktillnow
 </head>
 
 <body>
+  <div class="navbar">
+    <img class="navbar-logo" src="../Images/TIET-logo.png" alt="" />
+    <p class="navbar-name">PhD PROGRESS MONITORING SYSTEM</p>
+
+    <div class="action">
+      <div class="profile" onclick="menuToggle();">
+        <img src="../Images/User.png" />
+      </div>
+      <div class="menu">
+        <h3>umar shaikh</h3>
+        <ul>
+          <li>
+            <img src="../Images/download.png" /><a href="#"
+              >change password</a
+            >
+          </li>
+          <li><img src="../Images/logout.png" /><a href="#">logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="navbar">
+    <img class="navbar-logo" src="../Images/Tiet-logo2.png" alt="">
+    <p class="navbar-name">PhD PROGRESS MONITORING SYSTEM</p>
+    
+    <div class="navbar-profile">
+        <img src="../Images/User.png" alt="" class="profile-pic">
+        <p class="profile-name">{Name}</p>
+    </div>
+</div> -->
   <div class="main">
-    <h2>Submitted work</h2>
-    <h4>Project ID:</h4>
+    <div>
+      <a class="back" href="#"><img src="../Images/back.png" alt="">    Back</a>
+    </div>
+    <h1>Submitted work</h1>
+    <span class="heading"> Project ID:</span>
     <p>
       {{ project[projectID] }}
     </p>
     <br>
-    <h4>Academic Unit:</h4>
+    <span class="heading">Academic Unit: </span>
     <p>
       {{ project[AU] }}
     </p>
     <br>
-    <h4>ROLL NO.:</h4>
+    <span class="heading">ROLL NO.: </span>
     <p>
       {{ project[studentID] }}
     </p>
     <br>
-    <h4>Date of registration:</h4>
+    <span class="heading">Date of registration: </span>
     <p>
       {{ project[date_of_registration] }}
     </p>
     <br>
-    <h4>Gate/NET/TA:</h4>
+    <span class="heading">Gate/NET/TA: </span>
     <p>
       {{ project[GATE] }}
     </p>
     <br>
-    <h4>Project Title:</h4>
+    <span class="heading">Project Title: </span>
     <p>
       {{ project[project_title] }}
     </p>
     <br>
-    <h4>Date of IRB:</h4>
+    <span class="heading">Date of IRB: </span>
     <p>
       {{ project[date_of_irb] }}
     </p>
     <br>
-    <h4>Date of progress presentation:</h4>
+    <span class="heading">Date of progress presentation: </span>
     <p>
       {{ project[date_of_progress_present] }}
     </p>
     <br>
-    <h4>presentation as PDF</h4>
+    <span class="heading">presentation as PDF</span>
    <div> <a href="{{ project[file_path] }}"> <img class="viewfile" src="../Images/viewfile.png" alt=""></a>
     </div>
-    <h4>Name of Supervisor:</h4>
+    <span class="heading">Name of Supervisor:</span>
     <p>
       {{ data[supervisorX] }}
       {{ data[supervisorY] }}
       {{ data[supervisorZ] }}
     </p>
     <br>
-    <h4>Members of Doctoral Committee: </h4>
+    <span class="heading">Members of Doctoral Committee:</span>
     <div class="committee">
       
       <div>  <p>i.
@@ -107,7 +141,7 @@ worktillnow
 
 
 
-    <h4>Remarks</h4>
+    <span class="heading">Remarks</span>
 
     <form action="">
         <textarea class="input" name="" id=""  placeholder="add your remarks"></textarea>
@@ -120,5 +154,11 @@ worktillnow
     
   </div>
 </body>
+<script>
+  function menuToggle() {
+    const toggleMenu = document.querySelector(".menu");
+    toggleMenu.classList.toggle("active");
+  }
+</script>
 
 </html>

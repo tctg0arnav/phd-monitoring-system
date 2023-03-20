@@ -1,13 +1,35 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins';
+    
+}
 .main{
     border: 1px solid black;
     padding: 2rem;
     line-height: 3em;
+    margin: 5%;
+}
+.heading{
+    font-weight: 600;
 }
 
-h2{
+.back img{
+    height: 1rem;
+}
+
+.back{
+    text-decoration: none;
+    color: #640000;
+    margin-bottom: 200px
+}
+h1
+{
     font-family: 'Times New Roman', Times, serif;
     color: #640000;
 }
@@ -18,6 +40,140 @@ h4{
 p{
     display: inline;
 }
+.navbar {
+    display: flex;
+    flex-direction: row;
+    gap: 20%;
+    background-color: #d9d9d9;
+    margin-bottom: 16px;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 5%;
+    text-align: center;
+  }
+  
+  .navbar-logo {
+    width: 90px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  .navbar-profile {
+    text-align: center;
+  }
+  .navbar-name {
+    color: #640000;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 1.6em;
+  }
+  .profile-pic {
+    width: 50px;
+    margin-top: 1rem;
+    /* margin-bottom: 1rem; */
+  }
+  
+  .profile-name {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  .action .profile {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  
+  .action .profile img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .action .menu {
+    position: absolute;
+    top: 120px;
+    right: 5%;
+    padding: 10px 20px;
+    background: #d9d9d9;
+    border: 1px solid black;
+    width: 230px;
+    box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
+    transition: 0.5s;
+    visibility: hidden;
+    text-align: right;
+    opacity: 0;
+  }
+  
+  .action .menu.active {
+    top: 80px;
+    right: 5%;
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .action .menu h3 {
+    width: 100%;
+    text-align: right;
+    font-size: 18px;
+    padding: 20px 0;
+    font-weight: 500;
+    color: #555;
+    line-height: 1.5em;
+  }
+  
+  .action .menu h3 span {
+    font-size: 14px;
+    color: #cecece;
+    font-weight: 300;
+  }
+  .action .menu ul{
+    text-align: right;
+  }
+  .action .menu ul li {
+    list-style: none;
+    padding: 16px 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  
+  .action .menu ul li img {
+    width: 20px;
+    margin-right: 10px;
+    opacity: 0.5;
+    transition: 0.5s;
+  }
+  
+  .action .menu ul li:hover img {
+    opacity: 1;
+  }
+  
+  .action .menu ul li a {
+    display: inline-block;
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    transition: 0.5s;
+  }
+  
+  .action .menu ul li:hover a {
+    color: #640000;
+  }
+
+
+
+
+
+
+
+
 .viewfile{
     height: 2rem;
    
@@ -41,10 +197,7 @@ p{
 .btn-grp{
    text-align: center;
 }
-.back img{
-    height: 2rem;
-    
-}
+
 
 .scn-btn{
     color: #640000;
@@ -73,4 +226,23 @@ p{
     font-size: 0.7em ;
     letter-spacing: 0.2rem;
     padding-left: 5px;
+}
+
+
+@media screen and (max-width:780px) {
+
+    .navbar-name{
+       font-size: 1rem;
+    }
+
+    
+}
+@media screen and (max-width:590px) {
+
+    .navbar-name{
+        font-size: 10px;
+      visibility: hidden;
+    }
+
+    
 }
