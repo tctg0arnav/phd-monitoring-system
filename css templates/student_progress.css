@@ -107,7 +107,7 @@
 }
 @media screen and (max-width: 777px) {
     body {
-      background-color: lightgreen;
+      /* background-color: lightgreen; */
     }
     .main-submission{
         display: flex;
@@ -115,4 +115,37 @@
         flex-direction: column;
         align-items: center;   
     }
+    .navbar-name{
+        display: none;
+    }
   }
+
+  /* Student dashboard css */
+  .heading1-dash{
+    color: #640000;
+    font-size: 1.6em;
+    font-weight: 500;
+    margin-bottom: 2.2rem;
+    margin-left: 10%;
+    margin-top: 3rem;
+}
+.main-button-div{
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+}
+.main-button-dash{
+    float: none;
+    display: block;
+    color: white;
+    background-color: #640000;
+    width: 80%;
+    height: 7rem;
+    box-shadow: none;
+    border: 1px solid #640000;
+    margin-top: 1.5rem;
+    font-size: 1.5em ;
+    padding-left: 5px;
+}
