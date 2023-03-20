@@ -1,10 +1,52 @@
-#jinja2 template for student progress. 
-<p>Title: {{ data[project_title] }}</p>
-<p>Date of IRB: {{ data[date_of_IRB] }} </p>
-<p>Date of Progress Presentation: {{ data[date_of_progress_present] }}</p>
-<p>Name of Supervisor {{ data[supervisorX] }} {{ data[supervisorY] }} {{ data[supervisorZ] }}</p>
-<p>Members of Doctoral Committee:</p>
-<p>i. {{ data[committeeX] }} </p>
-<p>ii. {{ data[committeeY] }} </p>
-<p>iii. {{ data[committeeZ] }} </p>
-<p>iv. {{ data[committeeA] }} </p>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css templates/student_progress.css">
+    <title>Student Progress</title>
+</head>
+
+<body>
+    <div class="navbar">
+        <img class="navbar-logo" src="../Images/Tiet-logo2.png" alt="">
+        <p class="navbar-name">PhD PROGRESS MONITORING SYSTEM</p>
+        <div class="navbar-profile">
+            <img src="../Images/User.png" alt="" class="profile-pic">
+            <p class="profile-name">Name</p>
+        </div>
+    </div>
+
+    
+    <div class="main-heading1">
+        <p class="heading1">SCHOLAR’S PROGRESS WINDOW</p>
+    </div>
+
+    <div class="main-heading2">
+        <p class="heading2">Work Submitted</p>
+    </div>
+    <div class="main-div">
+        <div class="main-submission">
+            <div class="main-submission-left">
+                <a class="main-left-img" href="http://"><img class="main-left-img" src="../Images/Cover.png" alt="COVER"></a>
+            </div>
+            <div class="main-submission-center">
+                <p class="center-para-1">Title: {{ data[project_title] }}</p>
+                <p class="center-para-2">Date of IRB: {{ data[date_of_IRB] }} </p>
+                <p class="center-para-3">Date of Progress Presentation: {{ data[date_of_progress_present] }}</p>
+                <p class="center-para-4">Name of Supervisor {{ data[supervisorX] }} {{ data[supervisorY] }} {{ data[supervisorZ] }}</p>
+            </div>
+            <div class="main-submission-right">
+                <p class="right-para-1">Members of Doctoral Committee:</p>
+                <p class="right-para-2">i. {{ data[committeeX] }} </p>
+                <p class="right-para-3">ii. {{ data[committeeY] }} </p>
+                <p class="right-para-4">iii. {{ data[committeeZ] }} </p>
+                <p class="right-para-5">iv. {{ data[committeeA] }} </p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
