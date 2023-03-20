@@ -1,59 +1,94 @@
-<form action="/ticket" method="POST">
-    <p>AU</p>
-    <select name="AU">
-        {{ for each in AU_list }}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css templates/ticket.css">
+    <title>Submission Form</title>
+</head>
+<body>
+<div class="ticket-container1">
+    <div class="heading1">
+        <img class="logo-1" src="/Images/TIET-logo.png">
+        <h2>PHD MONITORING SYSTEM</h2>
+        <div class="heading2">
+        <img class="logo-2" src="/Images/User.png>">
+        <p>Name</p>
+        </div>
+    </div>
+</div>
+<div class="ticket-container2">
+    <div class="submission-form">
+    <form action="/ticket" method="POST">
+    <div class="submission-form-2">
+        <div class="text-1">Thesis Submission</div>
+    <div class="credentials">
+        <label>Name</label>
+        <input type="text" name="name" placeholder="Enter Name">
+        <label>Roll Number</label>
+        <input type="text" name="studentid" placeholder="Enter Roll Number">
+        <p>Academic Unit</p>
+        <select name="AU">
+            {{ for each in AU_list }}
+                <option value="{{ each }}">{{ each }}</option>
+            {{ endfor }}
+        
+        <label>Date of Registration</label>
+        <input type="date_of_registration" name="date">
+        <label>Gate/Net/TA</label>
+        <input type="radio" name="gate" value="yes"> Yes
+        <input type="radio" name="gate" value="no"> No
+        <label>Title of PhD Work</label>
+        <input type="text" name="project_title" placeholder="Enter Title">
+        <label>Date of IRB Approval</label>
+        <input type="date_of_irb" name="irb">
+        <label>Date of Progress Presentation</label>
+        <input type="date_of_progress_present" name="progress">
+        <label>Name of Supervisor X</label>
+        <select name="supervisorX">
+        {{ for each in supervisors }}
             <option value="{{ each }}">{{ each }}</option>
         {{ endfor }}
-    <label>Roll Number</label>
-    <input type="text" name="studentid" placeholder="Enter Roll Number">
-    <label>Name</label>
-    <input type="text" name="name" placeholder="Enter Name">
-    <label>Date of Registration</label>
-    <input type="date_of_registration" name="date">
-    <label>Gate/Net/TA</label>
-    <input type="radio" name="gate" value="yes"> Yes
-    <input type="radio" name="gate" value="no"> No
-    <label>Title of PhD Work</label>
-    <input type="text" name="project_title" placeholder="Enter Title">
-    <label>Date of IRB Approval</label>
-    <input type="date_of_irb" name="irb">
-    <label>Date of Progress Presentation</label>
-    <input type="date_of_progress_present" name="progress">
-    <label>Name of Supervisor X</label>
-    <select name="supervisorX">
-    {{ for each in supervisors }}
-        <option value="{{ each }}">{{ each }}</option>
-    {{ endfor }}
-    <p>Name of Supervisor Y</p>
-    <select name="supervisorY">
-    {{ for each in supervisors }}
-        <option value="{{ each }}">{{ each }}</option>
-    {{ endfor }}
-    <p>Name of Supervisor Z</p>
-    <select name="supervisorZ">
-    {{ for each in supervisors }}
-        <option value="{{ each }}">{{ each }}</option>
-    {{ endfor }}
-    <p>Name of Committee Member X</p>
-    <select name="committeeX">
-    {{ for each in committee }}
-        <option value="{{ each }}">{{ each }}</option>
-    {{ endfor }}
-    <p>Name of Committee Member Y</p>
-    <select name="committeeY">
-    {{ for each in committee }}
-        <option value="{{ each }}">{{ each }}</option>
-    {{ endfor }}
-    <p>Name of Committee Member Z</p>
-    <select name="committeeZ">
-    {{ for each in committee }}
-        <option value="{{ each }}">{{ each }}</option>
-    {{ endfor }}
-    <p>Attachment of Presentation</p>
-    <input type="file" name="file">
-    <p>SCI/Scopus</p>
-    <input type="text" name="publications" placeholder="Enter SCI/Scopus">
-    <p>Conference Presentation</p>
-    <input type="text" name="conference" placeholder="Enter Conference Presentation">
-    <input type="submit" value="Submit">
-</form>
+        <p>Name of Supervisor Y</p>
+        <select name="supervisorY">
+        {{ for each in supervisors }}
+            <option value="{{ each }}">{{ each }}</option>
+        {{ endfor }}
+        <p>Name of Supervisor Z</p>
+        <select name="supervisorZ">
+        {{ for each in supervisors }}
+            <option value="{{ each }}">{{ each }}</option>
+        {{ endfor }}
+        <p>Name of Committee Member X</p>
+        <select name="committeeX">
+        {{ for each in committee }}
+            <option value="{{ each }}">{{ each }}</option>
+        {{ endfor }}
+        <p>Name of Committee Member Y</p>
+        <select name="committeeY">
+        {{ for each in committee }}
+            <option value="{{ each }}">{{ each }}</option>
+        {{ endfor }}
+        <p>Name of Committee Member Z</p>
+        <select name="committeeZ">
+        {{ for each in committee }}
+            <option value="{{ each }}">{{ each }}</option>
+        {{ endfor }}
+        <p>Attachment of Presentation as PDF</p>
+        <input type="file" name="file">
+        <p>Scopus Publication (if any)</p>
+        <input type="text" name="publications" placeholder="Add text here">
+        <p>Conference Presentation (if any)</p>
+        <input type="text" name="conference" placeholder="Add text here">
+        </div>
+        <div class="buttons">
+        <div class="cancel-button"><button class="cancel">Cancel</button></div>
+        <div class="submit-button"><button class="submit">Submit</button></div>
+    </div>
+    </div>
+    </form>
+    </div>
+</div>
+</body>
