@@ -48,11 +48,11 @@
             <option value="{{ each }}">{{ each }}</option>
             {{ endfor }}
 
-        <span class="labels"><label>Date of Registration</label></span>
-        <input class="label2" type="date_of_registration" name="date">
+        <label class="labels">Date of Registration</label>
+        <input class="label2" type="date_of_registration" name="date" placeholder="dd/mm/yyyy">
 
-        <div class="flex labels">
-            <p class="label1">Gate/Net/TA</p>
+        <div class="flex">
+            <p class="labels">Gate/Net/TA</p>
             <input class="radio" type="radio" name="gate" value="yes"> Yes
             <input class="radio" type="radio" name="gate" value="no"> No
         </div>
@@ -90,25 +90,28 @@
             {{ for each in committee }}
             <option value="{{ each }}">{{ each }}</option>
             {{ endfor }}
+            </select>
             <p>Name of Committee Member Y</p>
             <select name="committeeY">
             {{ for each in committee }}
                 <option value="{{ each }}">{{ each }}</option>
             {{ endfor }}
+            </select>
             <p>Name of Committee Member Z</p>
             <select name="committeeZ">
             {{ for each in committee }}
                 <option value="{{ each }}">{{ each }}</option>
             {{ endfor }}
+            </select>
         </div>
 
-        <p class="labels label1">Attachment of Presentation as PDF</p>
-        <label class="custom-file-upload flex"><input class="choose-file" type="file" name="file">Upload File  <img src="/Images/Group 62.png"></label>
+        <p class="labels">Attachment of Presentation as PDF</p>
+        <label class="custom-file-upload flex"><input class="choose-file" type="file" name="file">Upload File<img src="/Images/Group 62.png"></label>
 
-        <p class="labels label1">Scopus Publication <span>(if any)</span></p>
+        <p class="labels">Scopus Publication <span>(if any)</span></p>
         <textarea class="label2" type="text" name="publications" placeholder="Add text here"></textarea>
 
-        <p class="labels label1">Conference Presentation <span>(if any)</span></p>
+        <p class="labels">Conference Presentation <span>(if any)</span></p>
         <textarea class="label2" type="text" name="conference" placeholder="Add text here"></textarea>
         </div>
         <div class="buttons flex">
