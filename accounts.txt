@@ -1,6 +1,0 @@
-phd student
-supervisor (X,[Y],[Z])
-Doctoral Committee (X,Y,Z,A)
-HEad of Academic Unit
-ADoRDC
-DR_A
