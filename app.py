@@ -83,7 +83,6 @@ def ticket_submit():
     file.save(FilePath)
     Publications = request.form.get('Publications')
     Conferences = request.form.get('Conferences')
-    print(request.form)
     #store data in database
     new_ticket = Ticket(RollNo=RollNo, AU=AU, DateOfRegistration=DateOfRegistration, GATE=GATE, ProjectTitle=ProjectTitle, DateOfIRB=DateOfIRB, DateOfProgressPresentation=DateOfProgressPresentation, Supervisor1=Supervisor1, Supervisor1_email=Supervisor1_email, Supervisor2=Supervisor2, Supervisor2_email=Supervisor2_email, Supervisor3=Supervisor3, Supervisor3_email=Supervisor3_email, Committee1=Committee1, Committee1_email=Committee1_email, Committee2=Committee2, Committee2_email=Committee2_email, Committee3=Committee3, Committee3_email=Committee3_email, Committee4=Committee4, Committee4_email=Committee4_email, FilePath=FilePath, Publications=Publications, Conferences=Conferences)
     db.session.add(new_ticket)
@@ -93,7 +92,6 @@ def ticket_submit():
 
 @app.route('/view', methods=['GET', 'POST'])
 def view():
-    #get data from database
     tickets = Ticket.query.all()
     return render_template('view.html', tickets=tickets)
 
