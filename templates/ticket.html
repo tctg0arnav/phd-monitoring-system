@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,9 +8,6 @@
     <title>Submission Form</title>
 </head>
 <body>
-    <div class="navbar">
-        <img class="navbar-logo" src="../Images/TIET-logo.png" alt="" />
-        <p class="navbar-name">PhD PROGRESS MONITORING SYSTEM</p>
     
         <div class="action">
           <div class="profile" onclick="menuToggle();">
@@ -39,90 +35,6 @@
         <label class="labels">Name</label>
         <input class="label2" type="text" name="name">
 
-        <label class="labels">Roll Number</label>
-        <input class="label2" type="text" name="studentid">
-
-        <p class="labels label1">Academic Unit</p>
-        <select class="label2" name="AU">
-            {{ for each in AU_list }}
-            <option value="{{ each }}">{{ each }}</option>
-            {{ endfor }}
-
-        <label class="labels">Date of Registration</label>
-        <input class="label2" type="date_of_registration" name="date" placeholder="dd/mm/yyyy">
-
-        <div class="flex">
-            <p class="labels">Gate/Net/TA</p>
-            <input class="radio" type="radio" name="gate" value="yes"> Yes
-            <input class="radio" type="radio" name="gate" value="no"> No
-        </div>
-
-        <label class="labels">Title of PhD Work</label>
-        <input class="label2" type="text" name="project_title">
-
-        <label class="labels">Date of IRB Approval</label>
-        <input class="label2" type="date_of_irb" name="irb">
-
-        <label class="labels">Date of Progress Presentation</label>
-        <input class="label2" type="date_of_progress_present" name="progress">
-
-        <div class="supervisors">
-            <label class="labels">Name of Supervisor X</label>
-            <select class="input" name="supervisorX">
-            {{ for each in supervisors }}
-                <option value="{{ each }}">{{ each }}</option>
-            {{ endfor }}
-            <p class="labels">Name of Supervisor Y <span>(if any)</span></p>
-            <select class="label2" name="supervisorY">
-            {{ for each in supervisors }}
-                <option value="{{ each }}">{{ each }}</option>
-            {{ endfor }}
-            <p class="labels">Name of Supervisor Z <span>(if any)</span></p>
-            <select class="label2" name="supervisorZ">
-            {{ for each in supervisors }}
-                <option value="{{ each }}">{{ each }}</option>
-            {{ endfor }}
-        </div>
-
-        <div class="comittee-member">
-            <p class="labels">Name of Committee Member X</p>
-            <select name="committeeX">
-            {{ for each in committee }}
-            <option value="{{ each }}">{{ each }}</option>
-            {{ endfor }}
-            </select>
-            <p>Name of Committee Member Y</p>
-            <select name="committeeY">
-            {{ for each in committee }}
-                <option value="{{ each }}">{{ each }}</option>
-            {{ endfor }}
-            </select>
-            <p>Name of Committee Member Z</p>
-            <select name="committeeZ">
-            {{ for each in committee }}
-                <option value="{{ each }}">{{ each }}</option>
-            {{ endfor }}
-            </select>
-        </div>
-
-        <p class="labels">Attachment of Presentation as PDF</p>
-        <label class="custom-file-upload flex"><input class="choose-file" type="file" name="file">Upload File<img src="/Images/Group 62.png"></label>
-
-        <p class="labels">Scopus Publication <span>(if any)</span></p>
-        <textarea class="label2" type="text" name="publications" placeholder="Add text here"></textarea>
-
-        <p class="labels">Conference Presentation <span>(if any)</span></p>
-        <textarea class="label2" type="text" name="conference" placeholder="Add text here"></textarea>
-        </div>
-        <div class="buttons flex">
-        <div class="cancel-button"><button class="cancel">Cancel</button></div>
-        <div class="submit-button"><button class="submit">Submit</button></div>
-        </div>
-    </div>
-    </form>
-    </div>
-</div>
-</body>
 <script>
     function menuToggle() {
       const toggleMenu = document.querySelector(".menu");
