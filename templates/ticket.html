@@ -37,14 +37,16 @@
         </div>
         <div class="ticket-form">
             <form action="" method="post" enctype=multipart/form-data>
+                <div class="ticket-form-boxes">
                 <div class="form-sections">
                     <label class="ticket-form-label">Name</label>
                     <input class="ticket-form-input" type="text" name="Name" required>
                 </div>
                 <br>
-                <div class="form-sections">
+                <div class="form-sections-email">
                     <label class="ticket-form-label">RollNo</label>
                     <input class="ticket-form-input" type="text" name="RollNo" required>
+                </div>
                 </div>
                 <br>
                 <div class="form-sections">
@@ -79,75 +81,91 @@
                     <input class="ticket-form-input" type="date" name="DateOfProgressPresentation" required>
                 </div>
                 <br>
-                <div class="form-sections">
-                    <label class="ticket-form-label">Supervisor1</label>
-                    <input class="ticket-form-input" type="text" name="Supervisor1" required>
+                <div class="ticket-form-boxes flex-row">
+                    <div class="form-sections">
+                        <label class="ticket-form-label">Supervisor1</label>
+                        <input class="ticket-form-input" type="text" name="Supervisor1" required>
+                    </div>
+                    <br>
+                    <div class="form-sections-email">
+                        <label class="ticket-form-label">Email ID</label>
+                        <input class="ticket-form-input" type="text" name="Supervisor1_email" required>
+                    </div>
                 </div>
                 <br>
-                <div class="form-sections">
-                    <label class="ticket-form-label">Email ID</label>
-                    <input class="ticket-form-input" type="text" name="Supervisor1_email" required>
+                <div class="ticket-form-boxes flex-row">
+                    <div class="form-sections">
+                        <label class="ticket-form-label">Supervisor2</label>
+                        <input class="ticket-form-input" type="text" name="Supervisor2">
+                    </div>
+                    <br>
+                    <div class="form-sections-email">
+                        <label class="ticket-form-label">Email ID</label>
+                        <input class="ticket-form-input" type="text" name="Supervisor2_email">
+                    </div>
                 </div>
                 <br>
-                <div class="form-sections">
-                    <label class="ticket-form-label">Supervisor2</label>
-                    <input class="ticket-form-input" type="text" name="Supervisor2">
+                <div class="ticket-form-boxes flex-row">
+                    <div class="form-sections">
+                        <label class="ticket-form-label">Supervisor3</label>
+                        <input class="ticket-form-input" type="text" name="Supervisor3">
+                    </div>
+                    <br>
+                    <div class="form-sections-email">
+                        <label class="ticket-form-label">Email ID</label>
+                        <input class="ticket-form-input" type="text" name="Supervisor3_email">
+                    </div>
                 </div>
                 <br>
-                <div class="form-sections">
-                    <label class="ticket-form-label">Email ID</label>
-                    <input class="ticket-form-input" type="text" name="Supervisor2_email">
+                
+                <div class="ticket-form-boxes flex-row">
+                    <div class="form-sections flex-row">
+                        <label class="ticket-form-label">Committee1</label>
+                        <input class="ticket-form-input" type="text" name="Committee1" required>
+                    </div>
+                    <br>
+                    <div class="form-sections-email">
+                        <label class="ticket-form-label">Email ID</label>
+                        <input class="ticket-form-input" type="text" name="Committee1_email" required>
+                    </div>
                 </div>
                 <br>
-                <div class="form-sections">
-                    <label class="ticket-form-label">Supervisor3</label>
-                    <input class="ticket-form-input" type="text" name="Supervisor3">
+                <div class="ticket-form-boxes flex-row">
+                    <div class="form-sections">
+                        <label class="ticket-form-label">Committee2</label>
+                        <input class="ticket-form-input" type="text" name="Committee2" required>
+                    </div>
+                    <br>
+                    <div class="form-sections-email">
+                        <label class="ticket-form-label">Email ID</label>
+                        <input class="ticket-form-input" type="text" name="Committee2_email" required>
+                    </div>
                 </div>
                 <br>
-                <div class="form-sections">
-                    <label class="ticket-form-label">Email ID</label>
-                    <input class="ticket-form-input" type="text" name="Supervisor3_email">
+                <div class="ticket-form-boxes flex-row">
+                    <div class="form-sections">
+                        <label class="ticket-form-label">Committee3</label>
+                        <input class="ticket-form-input" type="text" name="Committee3" required>
                 </div>
                 <br>
-                <div class="form-sections">
-                    <label class="ticket-form-label">Committee1</label>
-                    <input class="ticket-form-input" type="text" name="Committee1" required>
-                </div>
-                <br>
-                <div class="form-sections">
-                    <label class="ticket-form-label">Email ID</label>
-                    <input class="ticket-form-input" type="text" name="Committee1_email" required>
-                </div>
-                <br>
-                <div class="form-sections">
-                    <label class="ticket-form-label">Committee2</label>
-                    <input class="ticket-form-input" type="text" name="Committee2" required>
-                </div>
-                <br>
-                <div class="form-sections">
-                    <label class="ticket-form-label">Email ID</label>
-                    <input class="ticket-form-input" type="text" name="Committee2_email" required>
-                </div>
-                <br>
-                <div class="form-sections">
-                    <label class="ticket-form-label">Committee3</label>
-                    <input class="ticket-form-input" type="text" name="Committee3" required>
-                </div>
-                <br>
-                <div class="form-sections">
+                <div class="form-sections-email">
                     <label class="ticket-form-label">Email ID</label>
                     <input class="ticket-form-input" type="text" name="Committee3_email" required>
                 </div>
-                <br>
-                <div class="form-sections">
-                    <label class="ticket-form-label">Committee4</label>
+            </div>
+            <br>
+            
+            <div class="ticket-form-boxes flex-row">
+            <div class="form-sections">
+                <label class="ticket-form-label">Committee4</label>
                     <input class="ticket-form-input" type="text" name="Committee4" required>
                 </div>
                 <br>
-                <div class="form-sections">
+                <div class="form-sections-email">
                     <label class="ticket-form-label">Email ID</label>
                     <input class="ticket-form-input" type="text" name="Committee4_email" required>
                 </div>
+            </div>
                 <br>
                 <div class="form-sections">
                     <p class="labels">Attachment of Presentation as PDF</p>
