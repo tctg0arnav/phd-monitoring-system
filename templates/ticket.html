@@ -16,7 +16,7 @@
         <img class="navbar-logo" src="../archived-for-now/Images/TIET-logo.png" alt="" />
         <p class="navbar-name">PhD PROGRESS MONITORING SYSTEM</p>
 
-        <div class="action">
+        <!-- <div class="action">
             <div class="profile" onclick="menuToggle();">
                 <img src="../archived-for-now/Images/User.png" />
             </div>
@@ -29,7 +29,7 @@
                     <li><img src="../archived-for-now/Images/logout.png" /><a href="#">logout</a></li>
                 </ul>
             </div>
-        </div>
+        </div> -->
     </div>
     <div class="ticket-container">
         <div class="ticket-name-div">
@@ -37,84 +37,138 @@
         </div>
         <div class="ticket-form">
             <form action="" method="post" enctype=multipart/form-data>
-                <label class="ticket-form-label">Name</label>
-                <input type="text" name="Name" required>
+                <div class="form-sections">
+                    <label class="ticket-form-label">Name</label>
+                    <input class="ticket-form-input" type="text" name="Name" required>
+                </div>
                 <br>
-                <label class="ticket-form-label">RollNo</label>
-                <input type="text" name="RollNo" required>
+                <div class="form-sections">
+                    <label class="ticket-form-label">RollNo</label>
+                    <input class="ticket-form-input" type="text" name="RollNo" required>
+                </div>
                 <br>
-                <label class="ticket-form-label">AU</label>
-                <input type="text" name="AU" required>
+                <div class="form-sections">
+                    <label class="ticket-form-label">AU</label>
+                    <input class="ticket-form-input" type="text" name="AU" required>
+                </div>
                 <br>
-                <label class="ticket-form-label">DateOfRegistration</label>
-                <input type="date" name="DateOfRegistration" required>
+                <div class="form-sections">
+                    <label class="ticket-form-label">DateOfRegistration</label>
+                    <input class="ticket-form-input" type="date" name="DateOfRegistration" required>
+                </div>
                 <br>
-                <label class="ticket-form-label">GATE</label>
-                <input type="radio" name="GATE" value="Yes" required>Yes
-                <input type="radio" name="GATE" value="No" required>No
+                <div class="form-sections-radio">
+                    <label class="ticket-form-label">GATE</label>
+                    <input class="ticket-form-radio" type="radio" name="GATE" value="Yes" required>Yes
+                    <input class="ticket-form-radio" type="radio" name="GATE" value="No" required>No
+                </div>
                 <br>
-                <label class="ticket-form-label">ProjectTitle</label>
-                <input type="text" name="ProjectTitle" required>
+                <div class="form-sections">
+                    <label class="ticket-form-label">ProjectTitle</label>
+                    <input class="ticket-form-input" type="text" name="ProjectTitle" required>
+                </div>
                 <br>
-                <label class="ticket-form-label">DateOfIRB</label>
-                #date picker for date of IRB
-                <input type="date" name="DateOfIRB" required>
+                <div class="form-sections">
+                    <label class="ticket-form-label">DateOfIRB</label>
+                    #date picker for date of IRB
+                    <input class="ticket-form-input" type="date" name="DateOfIRB" required>
+                </div>
                 <br>
-                <label class="ticket-form-label">DateOfProgressPresentation</label>
-                <input type="date" name="DateOfProgressPresentation" required>
+                <div class="form-sections">
+                    <label class="ticket-form-label">DateOfProgressPresent</label>
+                    <input class="ticket-form-input" type="date" name="DateOfProgressPresentation" required>
+                </div>
                 <br>
-                <label class="ticket-form-label">Supervisor1</label>
-                <input type="text" name="Supervisor1" required>
+                <div class="form-sections">
+                    <label class="ticket-form-label">Supervisor1</label>
+                    <input class="ticket-form-input" type="text" name="Supervisor1" required>
+                </div>
                 <br>
-                <label class="ticket-form-label">Email ID</label>
-                <input type="text" name="Supervisor1_email" required>
+                <div class="form-sections">
+                    <label class="ticket-form-label">Email ID</label>
+                    <input class="ticket-form-input" type="text" name="Supervisor1_email" required>
+                </div>
                 <br>
-                <label class="ticket-form-label">Supervisor2</label>
-                <input type="text" name="Supervisor2">
+                <div class="form-sections">
+                    <label class="ticket-form-label">Supervisor2</label>
+                    <input class="ticket-form-input" type="text" name="Supervisor2">
+                </div>
                 <br>
-                <label class="ticket-form-label">Email ID</label>
-                <input type="text" name="Supervisor2_email">
+                <div class="form-sections">
+                    <label class="ticket-form-label">Email ID</label>
+                    <input class="ticket-form-input" type="text" name="Supervisor2_email">
+                </div>
                 <br>
-                <label class="ticket-form-label">Supervisor3</label>
-                <input type="text" name="Supervisor3">
+                <div class="form-sections">
+                    <label class="ticket-form-label">Supervisor3</label>
+                    <input class="ticket-form-input" type="text" name="Supervisor3">
+                </div>
                 <br>
-                <label class="ticket-form-label">Email ID</label>
-                <input type="text" name="Supervisor3_email">
+                <div class="form-sections">
+                    <label class="ticket-form-label">Email ID</label>
+                    <input class="ticket-form-input" type="text" name="Supervisor3_email">
+                </div>
                 <br>
-                <label class="ticket-form-label">Committee1</label>
-                <input type="text" name="Committee1" required>
+                <div class="form-sections">
+                    <label class="ticket-form-label">Committee1</label>
+                    <input class="ticket-form-input" type="text" name="Committee1" required>
+                </div>
                 <br>
-                <label class="ticket-form-label">Email ID</label>
-                <input type="text" name="Committee1_email" required>
+                <div class="form-sections">
+                    <label class="ticket-form-label">Email ID</label>
+                    <input class="ticket-form-input" type="text" name="Committee1_email" required>
+                </div>
                 <br>
-                <label class="ticket-form-label">Committee2</label>
-                <input type="text" name="Committee2" required>
+                <div class="form-sections">
+                    <label class="ticket-form-label">Committee2</label>
+                    <input class="ticket-form-input" type="text" name="Committee2" required>
+                </div>
                 <br>
-                <label class="ticket-form-label">Email ID</label>
-                <input type="text" name="Committee2_email" required>
+                <div class="form-sections">
+                    <label class="ticket-form-label">Email ID</label>
+                    <input class="ticket-form-input" type="text" name="Committee2_email" required>
+                </div>
                 <br>
-                <label class="ticket-form-label">Committee3</label>
-                <input type="text" name="Committee3" required>
+                <div class="form-sections">
+                    <label class="ticket-form-label">Committee3</label>
+                    <input class="ticket-form-input" type="text" name="Committee3" required>
+                </div>
                 <br>
-                <label class="ticket-form-label">Email ID</label>
-                <input type="text" name="Committee3_email" required>
+                <div class="form-sections">
+                    <label class="ticket-form-label">Email ID</label>
+                    <input class="ticket-form-input" type="text" name="Committee3_email" required>
+                </div>
                 <br>
-                <label class="ticket-form-label">Committee4</label>
-                <input type="text" name="Committee4" required>
+                <div class="form-sections">
+                    <label class="ticket-form-label">Committee4</label>
+                    <input class="ticket-form-input" type="text" name="Committee4" required>
+                </div>
                 <br>
-                <label class="ticket-form-label">Email ID</label>
-                <input type="text" name="Committee4_email" required>
+                <div class="form-sections">
+                    <label class="ticket-form-label">Email ID</label>
+                    <input class="ticket-form-input" type="text" name="Committee4_email" required>
+                </div>
                 <br>
-                <label class="ticket-form-label">FilePath</label>
-                <input type="file" name="FilePath" required>
+                <div class="form-sections">
+                    <p class="labels">Attachment of Presentation as PDF</p>
+                    <label class="custom-file-upload flex"><input class="choose-file" type="file" name="file">Upload
+                        File<img src="../archived-for-now/Images/Group 62.png"></label>
+                </div>
                 <br>
-                <label class="ticket-form-label">Publications</label>
-                <input type="text" name="Publications">
+                <div class="form-sections">
+                    <label class="ticket-form-label">Publications</label>
+                    <input class="ticket-form-write" type="text" name="Publications">
+                </div>
                 <br>
-                <label class="ticket-form-label">Conferences</label>
-                <input type="text" name="Conferences">
+                <div class="form-sections">
+                    <label class="ticket-form-label">Conferences</label>
+                    <input class="ticket-form-write" type="text" name="Conferences">
+                </div>
                 <br>
-                <input type="submit" value="Submit">
+                <div class="form-buttons">
+                    <!-- <button class="ticket-form-button1"> Cancel</button> -->
+                    <input class="ticket-form-button2" type="submit" value="Submit">
+                </div>
             </form>
         </div>
     </div>
@@ -131,4 +185,5 @@
         alert("Ticket Submitted");
     }
 </script>
+
 </html>

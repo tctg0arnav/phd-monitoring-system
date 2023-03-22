@@ -12,7 +12,7 @@
     background-color: #d9d9d9;
     margin-bottom: 16px;
     align-items: center;
-    justify-content: space-around;
+    /* justify-content: space-around; */
     padding: 0 5%;
     text-align: center;
   }
@@ -22,19 +22,23 @@
     margin-top: 20px;
     margin-bottom: 10px;
     text-align: center;
-  }
-  .navbar-profile {
+}
+.navbar-profile {
     text-align: center;
-  }
-  .navbar-name {
+    visibility: hidden;
+}
+.navbar-name {
     color: #640000;
     font-family: "Times New Roman", Times, serif;
     font-size: 1.6em;
+    /* text-align: center; */
+    margin-left: 30px;
   }
   .profile-pic {
     width: 50px;
     margin-top: 1rem;
     /* margin-bottom: 1rem; */
+    visibility: hidden;
   }
   
   .profile-name {
@@ -135,7 +139,7 @@
   .ticket-name{
     font-family: 'Times New Roman';
     font-weight: 400;
-    font-size: 34px;
+    font-size: 2.2em;
     line-height: 121.99%;
     color: #640000;
     margin-bottom: 3rem;
@@ -144,9 +148,98 @@
     display: flex;
     flex-direction: column;
     border: 2px solid black;
-    margin: 5rem;
-    padding: 4rem;
+    margin: 6%;
+    padding: 5%;
 }
 .ticket-form-label{
     font-family: 'Poppins';
+    font-weight: 500;
+    font-size: 1.2em;
+    margin-bottom: 1%;
+}
+.form-sections{
+    display: flex;
+    flex-direction: column;
+}
+.ticket-form-input{
+    width: 40%;
+    padding: 0.8%;
+    border-radius: 6px;
+    margin-bottom: 1%;
+}
+.ticket-form-radio{
+    margin-left: 5%;
+    font-size: 1.2em;
+    font-weight: 500;
+}
+.ticket-form-write{
+    width: 40%;
+    padding: 4% 0.8%;
+    border-radius: 6px;
+    margin-bottom: 1%;
+}
+/* .ticket-form-button1{
+    padding: 0.8% 5%;
+    border-radius: 0px;
+    border: 1.5px solid #640000;
+    background-color: white;
+    color: #640000;
+    letter-spacing: 7px;
+    font-family: 'Poppins';
+    font-size: 1.2em;
+    font-weight: 500;
+} */
+.form-buttons{
+    display: flex;
+    justify-content: center;
+    margin: 5% 0%;
+}
+.ticket-form-button2{
+    padding: 0.8% 5%;
+    border-radius: 0px;
+    border: 1.5px solid #640000;
+    background-color: #640000;
+    color: white;
+    letter-spacing: 7px;
+    font-family: 'Poppins';
+    font-size: 1.4em;
+    font-weight: 500;
+}
+.custom-file-upload{
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    padding: 12px 12px 12px;
+    background-color: #D9D9D9;
+    width: 13%;
+    cursor: pointer;
+    justify-content: space-around;
+}
+.custom-file-upload img{
+    height: 1.8em;
+    width: 1.8em;
+    /* margin-left: 2.2rem; */
+}
+.choose-file{
+    content: 'Upload file';
+    font-weight: 500;
+    /* width: 13%; */
+    cursor: pointer;
+    background: #D9D9D9;
+}
+@media screen and (max-width: 780px) {
+
+    .navbar-name{
+        font-size: 1rem;
+     }
+  }
+  @media screen and (max-width:590px) {
+
+    .navbar-name{
+        font-size: 10px;
+      visibility: hidden;
+    }
+
+    
 }
