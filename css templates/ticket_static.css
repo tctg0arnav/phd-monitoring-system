@@ -1,0 +1,140 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins';
+    
+}
+.main{
+    border: 1px solid black;
+    padding: 2rem;
+    line-height: 3em;
+    margin: 5%;
+}
+.heading{
+    font-weight: 600;
+}
+
+.back img{
+    height: 1rem;
+}
+
+.back{
+    text-decoration: none;
+    color: #640000;
+    margin-bottom: 200px
+}
+h1
+{
+    font-family: 'Times New Roman', Times, serif;
+    color: #640000;
+}
+h4{
+    display: inline;
+}
+
+p{
+    display: inline;
+}
+.navbar {
+    display: flex;
+    flex-direction: row;
+    gap: 20%;
+    background-color: #d9d9d9;
+    margin-bottom: 16px;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 5%;
+    text-align: center;
+    box-shadow: 0px 2px 5px grey;
+  }
+  
+  .navbar-logo {
+    width: 90px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  .navbar-profile {
+    text-align: center;
+  }
+  .navbar-name {
+    color: #640000;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 1.6em;
+  }
+  
+
+
+
+
+
+
+
+
+.viewfile{
+    height: 45px;
+   
+}
+.committee{
+    display: flex;
+    flex-wrap: wrap;
+   
+}
+
+.publication{
+    display: flex;
+    margin-top: 10px;
+    gap: 50px;
+    
+}
+.publication-content{
+    display: flex;
+    flex-direction: column;
+
+}
+.width{
+  width: 35%;
+}
+.flex-container{
+  display: flex;
+  gap: 40px;
+}
+.flex-container-2{
+  display: flex;
+  flex-direction: column;
+  line-height: normal;
+}
+
+
+
+
+
+
+@media screen and (max-width:780px) {
+
+    .navbar-name{
+       font-size: 1rem;
+    }
+
+    
+}
+@media screen and (max-width:750px) {
+
+    .navbar-name{
+        font-size: 10px;
+      visibility: hidden;
+    }
+    .flex-container{
+        flex-direction: column;
+        gap: 0;
+    }
+    .width{
+      width: max-content;
+    }
+    
+}
