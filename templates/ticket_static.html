@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='ticket.css') }}"">
+    <title>Ticket</title>
+</head>
+<body>
+    
+</body>
+</html>
+<form action="" method="post" enctype=multipart/form-data>
+    <label>ProjectID</label>
+    <input type="text" name="ProjectID" value={{ Ticket['projectid'] }}>
+    <br>
+    <label>RollNo</label>
+    <input type="text" name="RollNo" value={{ Ticket['RollNo'] }}>
+    <br>
+    <label>AU</label>
+    <input type="text" name="AU" value={{ Ticket['AU'] }}>
+    <br>
+    <label>DateOfRegistration</label>
+    <input type="date" name="DateOfRegistration" value= {{ Ticket['DateOfRegistration'] }}>
+    <br>
+    <label>GATE</label>
+    <input type="radio" name="GATE" value="Yes" {{ Ticket['gate_yes'] }}>Yes
+    <input type="radio" name="GATE" value="No" {{ Ticket['gate_no'] }}>No
+    <br>
+    <label>ProjectTitle</label>
+    <input type="text" name="ProjectTitle" value={{ Ticket['ProjectTitle'] }} >
+    <br>
+    <label>DateOfIRB</label>
+    #date picker for date of IRB
+    <input type="date" name="DateOfIRB" value={{ Ticket['DateOfIRB'] }}>
+    <br>
+    <label>DateOfProgressPresentation</label>
+    <input type="date" name="DateOfProgressPresentation" value={{ Ticket['DateOfProgressPresentation']}}>
+    <br>
+    <label>Supervisor1</label>
+    <input type="text" name="Supervisor1" value={{ Ticket['Supervisor1']}}>
+    <br>
+    <label>Supervisor1_email</label>
+    <input type="text" name="Supervisor1_email" value={{ Ticket['Supervisor1_email']}}>
+    <br>
+    <label>Supervisor2</label>
+    <input type="text" name="Supervisor2" value={{ Ticket['Supervisor2']}}>
+    <br>
+    <label>Supervisor2_email</label>
+    <input type="text" name="Supervisor2_email" value={{ Ticket['Supervisor2_email']}}>
+    <br>
+    <label>Supervisor3</label>
+    <input type="text" name="Supervisor3" value={{ Ticket['Supervisor3']}}>
+    <br>
+    <label>Supervisor3_email</label>
+    <input type="text" name="Supervisor3_email" value={{ Ticket['Supervisor3_email']}}>
+    <br>
+    <label>Committee1</label>
+    <input type="text" name="Committee1" value={{ Ticket['Committee1']}}>
+    <br>
+    <label>Committee1_email</label>
+    <input type="text" name="Committee1_email" value={{ Ticket['Committee1_email']}}>
+    <br>
+    <label>Committee2</label>
+    <input type="text" name="Committee2" value={{ Ticket['Committee2']}}>
+    <br>
+    <label>Committee2_email</label>
+    <input type="text" name="Committee2_email" value={{ Ticket['Committee2_email']}}>
+    <br>
+    <label>Committee3</label>
+    <input type="text" name="Committee3" value={{ Ticket['Committee3']}}>
+    <br>
+    <label>Committee3_email</label>
+    <input type="text" name="Committee3_email" value={{ Ticket['Committee3_email']}}>
+    <br>
+    <label>Committee4</label>
+    <input type="text" name="Committee4" value={{ Ticket['Committee4']}}>
+    <br>
+    <label>Committee4_email</label>
+    <input type="text" name="Committee4_email" value={{ Ticket['Committee4_email']}}>
+    <br>
+    <label>Presentation Attachment</label><p>{{ Ticket['FilePath']}}</p>
+    <label>Publications</label>
+    <input type="text" name="Publications" value={{ Ticket['Publications']}}>
+    <br>
+    <label>Conferences</label>
+    <input type="text" name="Conferences" value={{ Ticket['Conferences']}}>
+    <br>
+</form>
+
+</body>
+</html>
