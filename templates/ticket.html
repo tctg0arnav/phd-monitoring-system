@@ -1,101 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="{{ url_for('static', filename='ticket.css') }}">
+    <link rel="stylesheet" href="/css templates/ticket.css">
     <title>Ticket</title>
 </head>
-<body>
-    
-</body>
-</html>
-<form action="" method="post" enctype=multipart/form-data>
-    <label>RollNo</label>
-    <input type="text" name="RollNo" required>
-    <br>
-    <label>AU</label>
-    <input type="text" name="AU" required>
-    <br>
-    <label>DateOfRegistration</label>
-    <input type="date" name="DateOfRegistration" required>
-    <br>
-    <label>GATE</label>
-    <input type="radio" name="GATE" value="Yes" required>Yes
-    <input type="radio" name="GATE" value="No" required>No
-    <br>
-    <label>ProjectTitle</label>
-    <input type="text" name="ProjectTitle" required>
-    <br>
-    <label>DateOfIRB</label>
-    #date picker for date of IRB
-    <input type="date" name="DateOfIRB" required>
-    <br>
-    <label>DateOfProgressPresentation</label>
-    <input type="date" name="DateOfProgressPresentation" required>
-    <br>
-    <label>Supervisor1</label>
-    <input type="text" name="Supervisor1" required>
-    <br>
-    <label>Supervisor1_email</label>
-    <input type="text" name="Supervisor1_email" required>
-    <br>
-    <label>Supervisor2</label>
-    <input type="text" name="Supervisor2">
-    <br>
-    <label>Supervisor2_email</label>
-    <input type="text" name="Supervisor2_email">
-    <br>
-    <label>Supervisor3</label>
-    <input type="text" name="Supervisor3">
-    <br>
-    <label>Supervisor3_email</label>
-    <input type="text" name="Supervisor3_email">
-    <br>
-    <label>Committee1</label>
-    <input type="text" name="Committee1" required>
-    <br>
-    <label>Committee1_email</label>
-    <input type="text" name="Committee1_email" required>
-    <br>
-    <label>Committee2</label>
-    <input type="text" name="Committee2" required>
-    <br>
-    <label>Committee2_email</label>
-    <input type="text" name="Committee2_email" required>
-    <br>
-    <label>Committee3</label>
-    <input type="text" name="Committee3" required>
-    <br>
-    <label>Committee3_email</label>
-    <input type="text" name="Committee3_email" required>
-    <br>
-    <label>Committee4</label>
-    <input type="text" name="Committee4" required>
-    <br>
-    <label>Committee4_email</label>
-    <input type="text" name="Committee4_email" required>
-    <br>
-    <label>FilePath</label>
-    <input type="file" name="FilePath" required>
-    <br>
-    <label>Publications</label>
-    <input type="text" name="Publications">
-    <br>
-    <label>Conferences</label>
-    <input type="text" name="Conferences">
-    <br>
-    <input type="submit" value="Submit">
-</form>
 
+<body>
+    <div class="navbar">
+        <img class="navbar-logo" src="../archived-for-now/Images/TIET-logo.png" alt="" />
+        <p class="navbar-name">PhD PROGRESS MONITORING SYSTEM</p>
+
+        <div class="action">
+            <div class="profile" onclick="menuToggle();">
+                <img src="../archived-for-now/Images/User.png" />
+            </div>
+            <div class="menu">
+                <h3>Sk Sayan</h3>
+                <ul>
+                    <li>
+                        <img src="../archived-for-now/Images/download.png" /><a href="#">change password</a>
+                    </li>
+                    <li><img src="../archived-for-now/Images/logout.png" /><a href="#">logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="ticket-container">
+        <div class="ticket-name-div">
+            <p class="ticket-name">Thesis Submission Form</p>
+        </div>
+        <div class="ticket-form">
+            <form action="" method="post" enctype=multipart/form-data>
+                <label class="ticket-form-label">Name</label>
+                <input type="text" name="Name" required>
+                <br>
+                <label class="ticket-form-label">RollNo</label>
+                <input type="text" name="RollNo" required>
+                <br>
+                <label class="ticket-form-label">AU</label>
+                <input type="text" name="AU" required>
+                <br>
+                <label class="ticket-form-label">DateOfRegistration</label>
+                <input type="date" name="DateOfRegistration" required>
+                <br>
+                <label class="ticket-form-label">GATE</label>
+                <input type="radio" name="GATE" value="Yes" required>Yes
+                <input type="radio" name="GATE" value="No" required>No
+                <br>
+                <label class="ticket-form-label">ProjectTitle</label>
+                <input type="text" name="ProjectTitle" required>
+                <br>
+                <label class="ticket-form-label">DateOfIRB</label>
+                #date picker for date of IRB
+                <input type="date" name="DateOfIRB" required>
+                <br>
+                <label class="ticket-form-label">DateOfProgressPresentation</label>
+                <input type="date" name="DateOfProgressPresentation" required>
+                <br>
+                <label class="ticket-form-label">Supervisor1</label>
+                <input type="text" name="Supervisor1" required>
+                <br>
+                <label class="ticket-form-label">Email ID</label>
+                <input type="text" name="Supervisor1_email" required>
+                <br>
+                <label class="ticket-form-label">Supervisor2</label>
+                <input type="text" name="Supervisor2">
+                <br>
+                <label class="ticket-form-label">Email ID</label>
+                <input type="text" name="Supervisor2_email">
+                <br>
+                <label class="ticket-form-label">Supervisor3</label>
+                <input type="text" name="Supervisor3">
+                <br>
+                <label class="ticket-form-label">Email ID</label>
+                <input type="text" name="Supervisor3_email">
+                <br>
+                <label class="ticket-form-label">Committee1</label>
+                <input type="text" name="Committee1" required>
+                <br>
+                <label class="ticket-form-label">Email ID</label>
+                <input type="text" name="Committee1_email" required>
+                <br>
+                <label class="ticket-form-label">Committee2</label>
+                <input type="text" name="Committee2" required>
+                <br>
+                <label class="ticket-form-label">Email ID</label>
+                <input type="text" name="Committee2_email" required>
+                <br>
+                <label class="ticket-form-label">Committee3</label>
+                <input type="text" name="Committee3" required>
+                <br>
+                <label class="ticket-form-label">Email ID</label>
+                <input type="text" name="Committee3_email" required>
+                <br>
+                <label class="ticket-form-label">Committee4</label>
+                <input type="text" name="Committee4" required>
+                <br>
+                <label class="ticket-form-label">Email ID</label>
+                <input type="text" name="Committee4_email" required>
+                <br>
+                <label class="ticket-form-label">FilePath</label>
+                <input type="file" name="FilePath" required>
+                <br>
+                <label class="ticket-form-label">Publications</label>
+                <input type="text" name="Publications">
+                <br>
+                <label class="ticket-form-label">Conferences</label>
+                <input type="text" name="Conferences">
+                <br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+</body>
+<script>
+    function menuToggle() {
+        const toggleMenu = document.querySelector(".menu");
+        toggleMenu.classList.toggle("active");
+    }
+</script>
 <script>
     // if message = 1 then show alert with text "Ticket Submitted"
     if ({{ message }} == 1) {
         alert("Ticket Submitted");
     }
 </script>
-
-</body>
 </html>
