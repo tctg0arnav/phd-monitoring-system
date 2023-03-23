@@ -98,7 +98,6 @@ def ticket_submit():
 def view():
     tickets = Ticket.query.all()
     projectid = tickets[0].projectid
-    send_student(projectid) 
     return render_template('view.html', tickets=tickets)
 
 @app.route('/view/<int:projectid>', methods=['GET', 'POST'])
@@ -134,10 +133,10 @@ def gen_pdf(projectid):
     os.remove(f'uploads/{rollno}.pdf')
     return 0
 
-def send_student(projectid):
+def send_mail(receiver,subject,body,attachment):
     yag = yagmail.SMTP('tempmail.xlcsgo@gmail.com', 'jjjthrbdtohkiomc')
-    contents = ['Your ticket has been generated.']
-    yag.send('thecrazytechgeek@gmail.com', 'Ticket generated', contents, attachments=f'uploads/ticket_{projectid}.pdf')
+    contents = [body]
+    yag.send(receiver, subject, contents, attachments=attachment)
     return 0
 
 if __name__ == '__main__':

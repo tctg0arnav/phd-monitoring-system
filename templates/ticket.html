@@ -5,15 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='ticket.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/ticket.css') }}">
     <link rel="stylesheet" href="/css templates/ticket.css">
     <title>Ticket</title>
 </head>
 
 <body>
     <div class="navbar">
-        <img class="navbar-logo" src="../archived-for-now/Images/TIET-logo.png" alt="" />
+        <img class="navbar-logo" src="{{ url_for('static', filename='/Images/TIET-logo.png') }}" alt="" />
         <p class="navbar-name">PhD PROGRESS MONITORING SYSTEM</p>
 
         <!-- <div class="action">
