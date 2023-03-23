@@ -75,8 +75,11 @@
     margin-bottom: 1%;
     /* margin-left: 30%; */
 }
-.margin-left{
-    margin-left: 30%;
+.margin-left1{
+    margin-left: 28%;
+}
+.margin-left2{
+    margin-left: 10%;
 }
 .margin-right{
     margin-right: 30%;
@@ -92,15 +95,27 @@
 .form-input-single{
     width: 50%;
 }
-.form-sections-date{
-    margin-left: 25%;
-}
-.ticket-form-input{
-    /* width: 100%; */
-    padding: 7%;
-    border: 1px solid black;
+.form-sections-date1{
+    margin-left: 28%;
+    padding: 4%;
+    border: 2px solid black;
     border-radius: 6px;
     margin-bottom: 1%;
+}
+.form-sections-date2{
+    margin-left: 10%;
+    padding: 4%;
+    border: 2px solid black;
+    border-radius: 6px;
+    margin-bottom: 1%;
+}
+.ticket-form-input{
+    width: 100%;
+    padding: 7% 20%;
+    border: 2px solid black;
+    border-radius: 6px;
+    margin-bottom: 1%;
+    /* padding-right: 50%; */
     /* margin: 30%; */
 }
 .form-sections-email{
@@ -108,7 +123,7 @@
 }
 .ticket-form-radio{
     margin-left: 5%;
-    font-size: 1.2em;
+    font-size: 1.5em;
     font-weight: 500;
 }
 .ticket-form-write{
@@ -195,6 +210,65 @@ textarea{
     .ticket-form-boxes{
         display: flex;
         flex-direction: row;
+    }
+}
+@media screen and (max-width: 1170px){
+    .custom-file-upload{
+        width: 20%;
+        justify-content: space-around;
+    }
+    
+}
+@media screen and (max-width: 1000px){
+    .custom-file-upload{
+        width: 28%;
+        justify-content: space-around;
+    }
+}
+@media screen and (max-width: 848px){
+    .custom-file-upload{
+        width: 40%;
+        justify-content: space-around;
+    }
+}
+
+@media screen and (max-width:590px) {
+
+    .navbar-name{
+    font-size: 10px;
+    visibility: hidden;
+    }
+    .custom-file-upload{
+        width: 70%;
+        justify-content: space-around;
+    }
+}
+@media screen and (max-width: 780px){
+    .navbar-name{
+        font-size: 1rem;
+     }
+    }
+@media screen and (max-width: 714px){
+        .buttons{
+            flex-wrap: wrap;
+         }
+        }
+@media screen and (max-width:390px){
+    .cancel{
+        width: 8rem;
+        letter-spacing: 4px;
+    }
+    .cancel-button{
+        padding: 0.5rem;
+    }
+    .submit{
+        width: 8rem;
+        letter-spacing: 4px;
+
+    }
+    .custom-file-upload{
+        width: 100%;
+        justify-content: space-around;
     }
 }
 
