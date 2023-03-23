@@ -255,23 +255,7 @@ def AU_head_dashboard():
     AU = session['AU']
     #get all projects that have AU field as session AU field
     projects = Ticket.query.filter_by(AU=AU).all()
-    return """
-    <h1>Dashboard</h1>
-    {% for project in projects %}
-        <h3>Project ID: {{project.id}}</h3>
-        <h3>Project Name: {{project.Project_name}}</h3>
-        <h3>Student Name: {{project.Student_name}}</h3>
-        <h3>Roll No: {{project.Roll_no}}</h3>
-        <h3>Supervisor 1: {{project.Supervisor1_email}}</h3>
-        <h3>Supervisor 2: {{project.Supervisor2_email}}</h3>
-        <h3>Supervisor 3: {{project.Supervisor3_email}}</h3>
-        <h3>Committee 1: {{project.Committee1_email}}</h3>
-        <h3>Committee 2: {{project.Committee2_email}}</h3>
-        <h3>Committee 3: {{project.Committee3_email}}</h3>
-        <h3>Committee 4: {{project.Committee4_email}}</h3>
-        <h3>Committee 5: {{project.Committee5_email}}</h3>
-        #link to file saved under /uploads/rollno.pdf
-    """
+    return render_template('AU_head_dashboard.html', projects=projects)
 
 #setup route admin_dashboard that shows all projects
 @app.route('/admin_dashboard')
