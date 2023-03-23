@@ -253,69 +253,40 @@
         </div>
     </div>
 
-    <br>
-    <span class="heading">presentation as PDF</span>
-    <div> <a href="{{ Ticket['FilePath']}}"> <img class="viewfile" src="../Images/viewfile.png" alt=""></a>
-    </div>
-    <br>
-    <div class="">
-        <div class="publication-content">
-            <span class="heading">Scopus Publication </span>
-            <p>
-                {{ Ticket['Publications']}}
-            </p>
-        </div>
-        <div class="publication-content">
-            <span class="heading">Conference Presentation </span>
-            <p>
-                {{ Ticket['Conferences']}}
-            </p>
-        </div>
-    </div>
-    <p class="heading">Supervisor 1 Remarks:</p>
-    <p>
-        {{ Ticket['Supervisor1_remarks']}}
-    </p>
-    {{ if Ticket['Supervisor2_remarks'] }}
-    <p class="heading">Supervisor 2 Remarks:</p>
-    <p>
-        {{ Ticket['Supervisor2_remarks']}}
-    </p>
-    {{ end }}
-    {{ if Ticket['Supervisor3_remarks'] }}
-    <p class="heading">Supervisor 3 Remarks:</p>
-    <p>
-        {{ Ticket['Supervisor3_remarks']}}
-    </p>
-    {{ end }}
-    <br>
-    <div class="percentage-container">
-        <form class="percentage-container" action="" method="post" enctype=multipart/form-data>
-            <p class="heading">Percentage of work done till previous presentation</p>
-            <div class="percentage-input">
-                <input type="text" name="percentage_prev">
-                <p>%</p>
+        <br>
+        <div class="">
+            <div class="publication-content">
+                <span class="heading">Scopus Publication </span>
+                <p>
+                    {{ Ticket['Publications']}}
+                </p>
             </div>
-            <p class="heading">Percentage of work done till present</p>
-            <div class="percentage-input">
-                <input type="text" name="percentage_present">
-                <p>%</p>
+            <div class="publication-content">
+                <span class="heading">Conference Presentation </span>
+                <p>
+                    {{ Ticket['Conferences']}}
+                </p>
             </div>
-            <p class="heading">Total Marks</p>
-            <p> {{ Ticket['Total_Marks'] }} </p>
-            <p class="heading">Add Remarks</p>
-            <textarea class="percentage-container-text" name="remarks" cols="30" rows="6"></textarea>
+        </div>
+        
+        <form action="" method="post" enctype=multipart/form-data>
+        <p class="heading">Percentage of work done till previous presentation</p>
+        <input type="text" name="percentage_prev"><p>%</p>
+        <p class="heading">Percentage of work done till present</p>
+        <input type="text" name="percentage_present"><p>%</p>
+        <p class="heading">Total Marks</p>
+        <p> {{ Ticket['Total_Marks'] }} </p>
+        <p class="heading">Remarks</p>
+        <textarea name="remarks" cols="30" rows="10"></textarea>
+        <p class="heading">Approved</p>
+        <br>
+        <input type="radio" name="approved" value="yes">Yes
+        <input type="radio" name="approved" value="no">No
+        <br>
+        </form>
 
-    </div>
-    <br>
-    <p class="heading">Satisfied</p>
-    <input type="radio" name="approved" value="yes">Yes
-    <input type="radio" name="approved" value="no">No
-    <br>
-    </form>
-    <div class="button-container">
-        <button class="button-submit">Submit</button>
-    </div>
-    </body>
+
+
+        </body>
 
     </html>
