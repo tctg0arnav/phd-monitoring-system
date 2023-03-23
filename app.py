@@ -22,6 +22,8 @@ db = SQLAlchemy(app)
 class Ticket(db.Model):
     projectid = db.Column(db.Integer, primary_key=True)
     RollNo = db.Column(db.Integer)
+    student_name = db.Column(db.String(50))
+    student_email = db.Column(db.String(50))
     AU = db.Column(db.String(10))
     DateOfRegistration = db.Column(db.DateTime)
     GATE = db.Column(db.Boolean)
@@ -30,18 +32,36 @@ class Ticket(db.Model):
     DateOfProgressPresentation = db.Column(db.DateTime)
     Supervisor1 = db.Column(db.String(50))
     Supervisor1_email = db.Column(db.String(50))
+    Supervisor1_remarks = db.Column(db.String(100))
+    Supervisor1_approval = db.Column(db.String(50))
     Supervisor2 = db.Column(db.String(50))
     Supervisor2_email = db.Column(db.String(50))
+    Supervisor2_remarks = db.Column(db.String(100))
+    Supervisor2_approval = db.Column(db.String(50))
     Supervisor3 = db.Column(db.String(50))
     Supervisor3_email = db.Column(db.String(50))
+    Supervisor3_remarks = db.Column(db.String(100))
+    Supervisor3_approval = db.Column(db.String(50))
     Committee1 = db.Column(db.String(50))
     Committee1_email = db.Column(db.String(50))
+    Committee1_remarks = db.Column(db.String(100))
+    Committee1_approval = db.Column(db.String(50))
     Committee2 = db.Column(db.String(50))
     Committee2_email = db.Column(db.String(50))
+    Committee2_remarks = db.Column(db.String(100))
+    Committee2_approval = db.Column(db.String(50))
     Committee3 = db.Column(db.String(50))
     Committee3_email = db.Column(db.String(50))
+    Committee3_remarks = db.Column(db.String(100))
+    Committee3_approval = db.Column(db.String(50))
     Committee4 = db.Column(db.String(50))
     Committee4_email = db.Column(db.String(50))
+    Committee4_remarks = db.Column(db.String(100))
+    Committee4_approval = db.Column(db.String(50))
+    Committee5 = db.Column(db.String(50))
+    Committee5_email = db.Column(db.String(50))
+    Committee5_remarks = db.Column(db.String(100))
+    Committee5_approval = db.Column(db.String(50))
     FilePath = db.Column(db.String(100))
     Publications = db.Column(db.String(100))
     Conferences = db.Column(db.String(100))
@@ -80,6 +100,8 @@ def ticket_submit():
     Committee3_email = request.form['Committee3_email']
     Committee4 = request.form['Committee4']
     Committee4_email = request.form['Committee4_email']
+    Committee5 = request.form.get('Committee5')
+    Committee5_email = request.form.get('Committee5_email')
     file = request.files.get('FilePath', None)
     filename = secure_filename(RollNo + '.pdf')
     FilePath = os.path.join(app.config['UPLOAD_FOLDER'], RollNo + '.pdf')
@@ -87,19 +109,12 @@ def ticket_submit():
     Publications = request.form.get('Publications')
     Conferences = request.form.get('Conferences')
     #store data in database
-    new_ticket = Ticket(RollNo=RollNo, AU=AU, DateOfRegistration=DateOfRegistration, GATE=GATE, ProjectTitle=ProjectTitle, DateOfIRB=DateOfIRB, DateOfProgressPresentation=DateOfProgressPresentation, Supervisor1=Supervisor1, Supervisor1_email=Supervisor1_email, Supervisor2=Supervisor2, Supervisor2_email=Supervisor2_email, Supervisor3=Supervisor3, Supervisor3_email=Supervisor3_email, Committee1=Committee1, Committee1_email=Committee1_email, Committee2=Committee2, Committee2_email=Committee2_email, Committee3=Committee3, Committee3_email=Committee3_email, Committee4=Committee4, Committee4_email=Committee4_email, FilePath=FilePath, Publications=Publications, Conferences=Conferences)
+    new_ticket = Ticket(RollNo=RollNo, AU=AU, DateOfRegistration=DateOfRegistration, GATE=GATE, ProjectTitle=ProjectTitle, DateOfIRB=DateOfIRB, DateOfProgressPresentation=DateOfProgressPresentation, Supervisor1=Supervisor1, Supervisor1_email=Supervisor1_email, Supervisor2=Supervisor2, Supervisor2_email=Supervisor2_email, Supervisor3=Supervisor3, Supervisor3_email=Supervisor3_email, Committee1=Committee1, Committee1_email=Committee1_email, Committee2=Committee2, Committee2_email=Committee2_email, Committee3=Committee3, Committee3_email=Committee3_email, Committee4=Committee4, Committee4_email=Committee4_email, Committee5=Committee5, Committee5_email = Committee5_email, FilePath=FilePath, Publications=Publications, Conferences=Conferences)
     db.session.add(new_ticket)
     db.session.commit()
     projectID = Ticket.query.filter_by(RollNo=RollNo).first().projectid
     _g = gen_pdf(projectID)
     return redirect(url_for('ticket_static', projectid=projectID))
-
-@app.route('/view', methods=['GET', 'POST'])
-def view():
-    tickets = Ticket.query.all()
-    projectid = tickets[0].projectid
-    send_student(projectid) 
-    return render_template('view.html', tickets=tickets)
 
 @app.route('/view/<int:projectid>', methods=['GET', 'POST'])
 def ticket_static(projectid):
@@ -125,20 +140,129 @@ def gen_pdf(projectid):
     output_text = ticket_static(projectid)
     #convert html to pdf
     config = pdfkit.configuration(wkhtmltopdf="/usr/local/bin/wkhtmltopdf")
-    pdf = pdfkit.from_string(output_text, f'uploads/ticket_{projectid}.pdf', options={"enable-local-file-access": ""})
+    pdf = pdfkit.from_string(output_text, f'static/pdfs/ticket_{projectid}.pdf', options={"enable-local-file-access": ""})
     merger = PdfWriter()
-    for pdf in [f'uploads/ticket_{projectid}.pdf', f'uploads/{rollno}.pdf']:
+    for pdf in [f'static/pdfs/ticket_{projectid}.pdf', f'uploads/{rollno}.pdf']:
         merger.append(pdf)
-    merger.write(f'uploads/ticket_{projectid}.pdf')
+    merger.write(f'static/pdfs/ticket_{projectid}.pdf')
     merger.close()
-    os.remove(f'uploads/{rollno}.pdf')
     return 0
 
-def send_student(projectid):
+def send_mail(receiver,subject,body,attachment):
     yag = yagmail.SMTP('tempmail.xlcsgo@gmail.com', 'jjjthrbdtohkiomc')
-    contents = ['Your ticket has been generated.']
-    yag.send('thecrazytechgeek@gmail.com', 'Ticket generated', contents, attachments=f'uploads/ticket_{projectid}.pdf')
+    contents = [body]
+    yag.send(receiver, subject, contents, attachments=attachment)
     return 0
+
+#setup route /supervisor/<int:projectid> that opens pdf file ticket_projectid.pdf in an embed then offers form with a field for supervisor name, email, remarks and button for approve or deny
+@app.route('/supervisor/<int:projectid>', methods=['GET', 'POST'])
+def supervisor(projectid):
+    #if get request, open pdf file in embed
+    if request.method == 'GET':
+        return render_template('supervisor.html', pdf_path=f'/uploads/ticket_{projectid}.pdf')
+    #if post request, store supervisor name, email, remarks and approval status in database
+    else:
+        #get supervisor email from form, match it with database fields supervisor1_email, supervisor2_email, supervisor3_email and get supervisor number
+        supervisor_email = request.form['supervisor_email']
+        if supervisor_email == Ticket.query.get(projectid).Supervisor1_email:
+            #store remarks and approval status in database
+            Ticket.query.get(projectid).Supervisor1_remarks = request.form['supervisor_remarks']
+            #if submit button value is approve, set approval status to true, else set it to false
+            if request.form['submit'] == 'approve':
+                Ticket.query.get(projectid).Supervisor1_approval = True
+            else:
+                Ticket.query.get(projectid).Supervisor1_approval = False
+        elif supervisor_email == Ticket.query.get(projectid).Supervisor2_email:
+            Ticket.query.get(projectid).Supervisor2_remarks = request.form['supervisor_remarks']
+            if request.form['submit'] == 'approve':
+                Ticket.query.get(projectid).Supervisor2_approval = True
+            else:
+                Ticket.query.get(projectid).Supervisor2_approval = False
+        elif supervisor_email == Ticket.query.get(projectid).Supervisor3_email:
+            Ticket.query.get(projectid).Supervisor3_remarks = request.form['supervisor_remarks']
+            if request.form['submit'] == 'approve':
+                Ticket.query.get(projectid).Supervisor3_approval = True
+            else:
+                Ticket.query.get(projectid).Supervisor3_approval = False
+        db.session.commit()
+
+#setup route /committee/<int:projectid> that opens pdf file ticket_projectid.pdf in an embed then offers form with a field for committee name, email, remarks and button for approve or deny
+@app.route('/committee/<int:projectid>', methods=['GET', 'POST'])
+def committee(projectid):
+    #if get request, open pdf file in embed
+    if request.method == 'GET':
+        return render_template('committee.html', pdf_path=f'/uploads/ticket_{projectid}.pdf')
+    #if post request, store committee name, email, remarks and approval status in database
+    else:
+        #get committee email from form, match it with database fields committee1_email, committee2_email, committee3_email, committee4_email and committee5_email and get committee number
+        committee_email = request.form['committee_email']
+        if committee_email == Ticket.query.get(projectid).Committee1_email:
+            #store remarks and approval status in database
+            Ticket.query.get(projectid).Committee1_remarks = request.form['committee_remarks']
+            #if submit button value is approve, set approval status to true, else set it to false
+            if request.form['submit'] == 'approve':
+                Ticket.query.get(projectid).Committee1_approval = True
+            else:
+                Ticket.query.get(projectid).Committee1_approval = False
+        elif committee_email == Ticket.query.get(projectid).Committee2_email:
+            Ticket.query.get(projectid).Committee2_remarks = request.form['committee_remarks']
+            if request.form['submit'] == 'approve':
+                Ticket.query.get(projectid).Committee2_approval = True
+            else:
+                Ticket.query.get(projectid).Committee2_approval = False
+        elif committee_email == Ticket.query.get(projectid).Committee3_email:
+            Ticket.query.get(projectid).Committee3_remarks = request.form['committee_remarks']
+            if request.form['submit'] == 'approve':
+                Ticket.query.get(projectid).Committee3_approval = True
+            else:
+                Ticket.query.get(projectid).Committee3_approval = False
+        elif committee_email == Ticket.query.get(projectid).Committee4_email:
+            Ticket.query.get(projectid).Committee4_remarks = request.form['committee_remarks']
+            if request.form['submit'] == 'approve':
+                Ticket.query.get(projectid).Committee4_approval = True
+            else:
+                Ticket.query.get(projectid).Committee4_approval = False
+        elif committee_email == Ticket.query.get(projectid).Committee5_email:
+            Ticket.query.get(projectid).Committee5_remarks = request.form['committee_remarks']
+            if request.form['submit'] == 'approve':
+                Ticket.query.get(projectid).Committee5_approval = True
+            else:
+                Ticket.query.get(projectid).Committee5_approval = False
+        db.session.commit()
+
+#setup route supervisor_dashboard that shows all projects that have the supervisor listed as supervisor1, supervisor2 or supervisor3
+@app.route('/supervisor_dashboard')
+def supervisor_dashboard():
+    #get supervisor email from session
+    supervisor_email = session['email']
+    #get all projects that have supervisor email as supervisor1, supervisor2 or supervisor3
+    projects = Ticket.query.filter((Ticket.Supervisor1_email == supervisor_email) | (Ticket.Supervisor2_email == supervisor_email) | (Ticket.Supervisor3_email == supervisor_email)).all()
+    return render_template('supervisor_dashboard.html', projects=projects)
+
+#setup route committee_dashboard that shows all projects that have the committee listed as committee1, committee2, committee3, committee4 or committee5
+@app.route('/committee_dashboard')
+def committee_dashboard():
+    #get committee email from session
+    committee_email = session['email']
+    #get all projects that have committee email as committee1, committee2, committee3, committee4 or committee5
+    projects = Ticket.query.filter((Ticket.Committee1_email == committee_email) | (Ticket.Committee2_email == committee_email) | (Ticket.Committee3_email == committee_email) | (Ticket.Committee4_email == committee_email) | (Ticket.Committee5_email == committee_email)).all()
+    return render_template('committee_dashboard.html', projects=projects)
+
+#setup route AU_head dashboard that shows all projects that have the AU field session AU field 
+@app.route('/AU_head_dashboard')
+def AU_head_dashboard():
+    #get AU field from session
+    AU = session['AU']
+    #get all projects that have AU field as session AU field
+    projects = Ticket.query.filter_by(AU=AU).all()
+    return render_template('AU_head_dashboard.html', projects=projects)
+
+#setup route admin_dashboard that shows all projects
+@app.route('/admin_dashboard')
+def admin_dashboard():
+    #get all projects
+    projects = Ticket.query.all()
+    return render_template('admin_dashboard.html', projects=projects)
 
 if __name__ == '__main__':
     app.run(debug=True)
