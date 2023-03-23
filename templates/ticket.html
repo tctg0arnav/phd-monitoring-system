@@ -38,9 +38,10 @@
         <div class="ticket-form">
             <form action="" method="post" enctype=multipart/form-data>
                 <div class="ticket-form-boxes">
-                <div class="form-sections">
+                <div class="form-sections flex-column">
                     <label class="ticket-form-label">Name</label>
                     <input class="ticket-form-input" type="text" name="Name" required>
+                    <!-- <textarea class="ticket-form-write" type="text" name="Publications" rows="2"></textarea> -->
                 </div>
                 <br>
                 <div class="form-sections-email">
@@ -49,14 +50,16 @@
                 </div>
                 </div>
                 <br>
+                <div class="ticket-form-boxes flex-row">
                 <div class="form-sections">
                     <label class="ticket-form-label">AU</label>
                     <input class="ticket-form-input" type="text" name="AU" required>
                 </div>
                 <br>
-                <div class="form-sections">
-                    <label class="ticket-form-label">DateOfRegistration</label>
-                    <input class="ticket-form-input" type="date" name="DateOfRegistration" required>
+                <div class="form-sections-email">
+                    <label class="ticket-form-label">Date Of Registration</label>
+                    <input class="ticket-form-input form-sections-date" type="date" name="DateOfRegistration" required>
+                </div>
                 </div>
                 <br>
                 <div class="form-sections-radio">
@@ -65,25 +68,29 @@
                     <input class="ticket-form-radio" type="radio" name="GATE" value="No" required>No
                 </div>
                 <br>
-                <div class="form-sections">
-                    <label class="ticket-form-label">ProjectTitle</label>
-                    <input class="ticket-form-input" type="text" name="ProjectTitle" required>
-                </div>
-                <br>
-                <div class="form-sections">
-                    <label class="ticket-form-label">DateOfIRB</label>
-                    #date picker for date of IRB
-                    <input class="ticket-form-input" type="date" name="DateOfIRB" required>
-                </div>
-                <br>
-                <div class="form-sections">
-                    <label class="ticket-form-label">DateOfProgressPresent</label>
-                    <input class="ticket-form-input" type="date" name="DateOfProgressPresentation" required>
+                <div class="form-sections flex-column">
+                    <label class="ticket-form-label">Project Title</label>
+                    <textarea class="ticket-form-write" type="text" name="Publications" rows="2"></textarea>
                 </div>
                 <br>
                 <div class="ticket-form-boxes flex-row">
+                     <div class="form-sections">
+                    <label class="ticket-form-label">Date Of IRB</label>
+                    <!-- #date picker for date of IRB -->
+                    <input class="ticket-form-input" type="date" name="DateOfIRB" required>
+                </div>
+                <br>
+                <div class="form-sections-email">
+                    <label class="ticket-form-label">Date Of Progress Present</label>
+                    <!-- #date picker for date of Progress Present -->
+                    <input class="ticket-form-input" type="date" name="DateOfProgressPresentation" required>
+                </div>
+                </div>
+               
+                <br>
+                <div class="ticket-form-boxes flex-row">
                     <div class="form-sections">
-                        <label class="ticket-form-label">Supervisor1</label>
+                        <label class="ticket-form-label">Supervisor 1</label>
                         <input class="ticket-form-input" type="text" name="Supervisor1" required>
                     </div>
                     <br>
@@ -95,7 +102,7 @@
                 <br>
                 <div class="ticket-form-boxes flex-row">
                     <div class="form-sections">
-                        <label class="ticket-form-label">Supervisor2</label>
+                        <label class="ticket-form-label">Supervisor 2 </label>
                         <input class="ticket-form-input" type="text" name="Supervisor2">
                     </div>
                     <br>
@@ -107,7 +114,7 @@
                 <br>
                 <div class="ticket-form-boxes flex-row">
                     <div class="form-sections">
-                        <label class="ticket-form-label">Supervisor3</label>
+                        <label class="ticket-form-label">Supervisor 3</label>
                         <input class="ticket-form-input" type="text" name="Supervisor3">
                     </div>
                     <br>
@@ -120,7 +127,7 @@
                 
                 <div class="ticket-form-boxes flex-row">
                     <div class="form-sections flex-row">
-                        <label class="ticket-form-label">Committee1</label>
+                        <label class="ticket-form-label">Committee 1</label>
                         <input class="ticket-form-input" type="text" name="Committee1" required>
                     </div>
                     <br>
@@ -132,7 +139,7 @@
                 <br>
                 <div class="ticket-form-boxes flex-row">
                     <div class="form-sections">
-                        <label class="ticket-form-label">Committee2</label>
+                        <label class="ticket-form-label">Committee 2</label>
                         <input class="ticket-form-input" type="text" name="Committee2" required>
                     </div>
                     <br>
@@ -144,7 +151,7 @@
                 <br>
                 <div class="ticket-form-boxes flex-row">
                     <div class="form-sections">
-                        <label class="ticket-form-label">Committee3</label>
+                        <label class="ticket-form-label">Committee 3</label>
                         <input class="ticket-form-input" type="text" name="Committee3" required>
                 </div>
                 <br>
@@ -157,7 +164,7 @@
             
             <div class="ticket-form-boxes flex-row">
             <div class="form-sections">
-                <label class="ticket-form-label">Committee4</label>
+                <label class="ticket-form-label">Committee 4</label>
                     <input class="ticket-form-input" type="text" name="Committee4" required>
                 </div>
                 <br>
@@ -168,19 +175,19 @@
             </div>
                 <br>
                 <div class="form-sections">
-                    <p class="labels">Attachment of Presentation as PDF</p>
+                    <p class="labels ticket-form-label">Attachment of Presentation as PDF</p>
                     <label class="custom-file-upload flex"><input class="choose-file" type="file" name="file">Upload
                         File<img src="../archived-for-now/Images/Group 62.png"></label>
                 </div>
                 <br>
-                <div class="form-sections">
+                <div class="form-sections flex-column">
                     <label class="ticket-form-label">Publications</label>
-                    <input class="ticket-form-write" type="text" name="Publications">
+                   <textarea class="ticket-form-write" type="text" name="Publications" rows="5"></textarea>
                 </div>
                 <br>
-                <div class="form-sections">
+                <div class="form-sections flex-column">
                     <label class="ticket-form-label">Conferences</label>
-                    <input class="ticket-form-write" type="text" name="Conferences">
+                    <textarea class="ticket-form-write" type="text" name="Conferences" rows="5"></textarea>
                 </div>
                 <br>
                 <div class="form-buttons">

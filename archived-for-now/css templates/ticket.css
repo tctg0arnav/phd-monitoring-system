@@ -16,7 +16,10 @@
     padding: 0 5%;
     text-align: center;
   }
-  
+  .flex-column{
+    display: flex;
+    flex-direction: column;
+  }
   .navbar-logo {
     width: 90px;
     margin-top: 20px;
