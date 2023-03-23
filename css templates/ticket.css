@@ -53,13 +53,17 @@
     display: block;
     margin-bottom: 0.5rem;
   }
+  .ticket-name-div{
+    margin-bottom: 1rem;
+  }
   .ticket-name{
     font-family: 'Times New Roman';
     font-weight: 400;
     font-size: 2.2em;
     line-height: 121.99%;
     color: #640000;
-    margin-bottom: 3rem;
+    /* padding-bottom: 3rem;
+    margin-bottom: 7rem; */
 }
 .ticket-container{
     display: flex;
@@ -71,7 +75,7 @@
 .ticket-form-label{
     font-family: 'Poppins';
     font-weight: 500;
-    font-size: 1.5em;
+    font-size: 1.2em;
     margin-bottom: 1%;
     /* margin-left: 30%; */
 }
@@ -96,14 +100,14 @@
     width: 50%;
 }
 .form-sections-date1{
-    margin-left: 28%;
+    margin-left: 30%;
     padding: 4%;
     border: 2px solid black;
     border-radius: 6px;
     margin-bottom: 1%;
 }
 .form-sections-date2{
-    margin-left: 10%;
+    margin-left: 11%;
     padding: 4%;
     border: 2px solid black;
     border-radius: 6px;
@@ -111,7 +115,7 @@
 }
 .ticket-form-input{
     width: 100%;
-    padding: 7% 20%;
+    padding: 4% 10%;
     border: 2px solid black;
     border-radius: 6px;
     margin-bottom: 1%;

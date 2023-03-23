@@ -8,6 +8,7 @@
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="{{ url_for('static', filename='ticket.css') }}">
     <link rel="stylesheet" href="/css templates/ticket.css">
+    <link rel="stylesheet" href="/css templates/ticket_static.css">
     <title>Ticket</title>
 </head>
 
@@ -40,25 +41,24 @@
                 <div class="ticket-form-boxes">
                 <div class="flex-column">
                     <label class="ticket-form-label">Name</label>
-                    <input class="ticket-form-input" type="text" name="Name" required>
-                       <!-- <textarea class="ticket-form-write" type="text" name="Conferences" rows="5"></textarea> -->
+                    <input class="ticket-form-input" type="text" name="Name" required style="width: 180%;">
                 </div>
                 <br>
-                <div class="form-sections-email" style="margin-left: 41.5%;">
+                <div class="form-sections-email" style="margin-left: 41%;">
                     <label class="ticket-form-label">RollNo</label>
-                    <input class="ticket-form-input" type="text" name="RollNo" required>
+                    <input class="ticket-form-input" type="text" name="RollNo" required style="width: 115%;">
                 </div>
                 </div>
                 <br>
                 <div class="ticket-form-boxes flex-row">
                 <div class="form-sections">
                     <label class="ticket-form-label">AU</label>
-                    <input class="ticket-form-input" type="text" name="AU" required>
+                    <input class="ticket-form-input" type="text" name="AU" required style="width: 150%;">
                 </div>
                 <br>
                 <div class="form-sections-email">
                     <label class="ticket-form-label margin-left1">Date Of Registration</label>
-                    <input class="form-sections-date1" type="date" name="DateOfRegistration" required style="width: 55%;">
+                    <input class="form-sections-date1" type="date" name="DateOfRegistration" required style="width: 55%; padding: 3%; margin-left: 29%;">
                 </div>
                 </div>
                 <br>
@@ -70,7 +70,8 @@
                 <br>
                 <div class="form-sections flex-column">
                     <label class="ticket-form-label">Project Title</label>
-                    <textarea class="ticket-form-write" type="text" name="Publications" rows="2"></textarea>
+                    <!-- <input class="ticket-form-input" type="text" name="ProjectTitle" required> -->
+                    <textarea class="ticket-form-write" type="text" name="Publications" rows="2" style="width: 25%;"></textarea>
                 </div>
                 <br>
                 <div class="ticket-form-boxes flex-row">
@@ -79,11 +80,10 @@
                     <!-- #date picker for date of IRB -->
                     <input class="ticket-form-input" type="date" name="DateOfIRB" required style="width: 78%;" >
                 </div>
-                <br>
                 <div class="form-sections-email">
                     <label class="ticket-form-label margin-left2">Date Of Progress Present</label>
                     <!-- #date picker for date of Progress Present -->
-                    <input class="form-sections-date2" type="date" name="DateOfProgressPresentation" required style="width: 47%;">
+                    <input class="form-sections-date2" type="date" name="DateOfProgressPresentation" required style="width: 47%; padding: 3%;">
                 </div>
                 </div>
                
