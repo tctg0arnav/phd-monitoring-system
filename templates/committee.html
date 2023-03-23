@@ -267,6 +267,22 @@
                 </p>
             </div>
         </div>
+        <p class="heading">Supervisor 1 Remarks:</p>
+        <p>
+            {{ Ticket['Supervisor1_remarks']}}
+        </p>
+        {{ if Ticket['Supervisor2_remarks'] }}
+        <p class="heading">Supervisor 2 Remarks:</p>
+        <p>
+            {{ Ticket['Supervisor2_remarks']}}
+        </p>
+        {{ end }}
+        {{ if Ticket['Supervisor3_remarks'] }}
+        <p class="heading">Supervisor 3 Remarks:</p>
+        <p>
+            {{ Ticket['Supervisor3_remarks']}}
+        </p>
+        {{ end }}
         <br>
         <form action="" method="post" enctype=multipart/form-data>
         <p class="heading">Remarks</p>
