@@ -17,6 +17,11 @@
 }
 .heading{
     font-weight: 600;
+    /* margin-right: 1%; */
+}
+.heading1{
+    font-weight: 600;
+    margin-right: 1%;
 }
 
 .back img{

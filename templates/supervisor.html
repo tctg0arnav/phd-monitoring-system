@@ -53,7 +53,7 @@
         </div>
     </div>
 
-    <span class="heading">Gate/NET/TA: </span>
+    <span class="heading1">Gate/NET/TA: </span>
     <p>
         <input type="radio" name="GATE" value="Yes" {{ Ticket['gate_yes'] }}>Yes
         <input type="radio" name="GATE" value="No" {{ Ticket['gate_no'] }}>No
@@ -253,40 +253,49 @@
         </div>
     </div>
 
-        <br>
-        <div class="">
-            <div class="publication-content">
-                <span class="heading">Scopus Publication </span>
-                <p>
-                    {{ Ticket['Publications']}}
-                </p>
-            </div>
-            <div class="publication-content">
-                <span class="heading">Conference Presentation </span>
-                <p>
-                    {{ Ticket['Conferences']}}
-                </p>
-            </div>
+    <br>
+    <div class="">
+        <div class="publication-content">
+            <span class="heading">Scopus Publication </span>
+            <p>
+                {{ Ticket['Publications']}}
+            </p>
         </div>
-        
-        <form action="" method="post" enctype=multipart/form-data>
+        <div class="publication-content">
+            <span class="heading">Conference Presentation </span>
+            <p>
+                {{ Ticket['Conferences']}}
+            </p>
+        </div>
+    </div>
+
+    <form class="percentage-container" action="" method="post" enctype=multipart/form-data>
+
         <p class="heading">Percentage of work done till previous presentation</p>
-        <input type="text" name="percentage_prev"><p>%</p>
+        <div class="percentage-input">
+            <input type="text" name="percentage_prev">
+            <p>%</p>
+        </div>
         <p class="heading">Percentage of work done till present</p>
-        <input type="text" name="percentage_present"><p>%</p>
+        <div class="percentage-input">
+            <input type="text" name="percentage_present">
+            <p>%</p>
+        </div>
         <p class="heading">Total Marks</p>
         <p> {{ Ticket['Total_Marks'] }} </p>
         <p class="heading">Remarks</p>
-        <textarea name="remarks" cols="30" rows="10"></textarea>
-        <p class="heading">Approved</p>
+        <textarea class="percentage-container-text" name="remarks" cols="30" rows="8"></textarea>
         <br>
-        <input type="radio" name="approved" value="yes">Yes
-        <input type="radio" name="approved" value="no">No
-        <br>
-        </form>
+    </form>
+    <p class="heading1">Satisfied</p>
+    <input type="radio" name="approved" value="yes">Yes
+    <input type="radio" name="approved" value="no">No
+    <br>
+    <div class="button-container">
+        <button class="button-submit">SUBMIT</button>
+    </div>
 
 
-
-        </body>
+    </body>
 
     </html>
