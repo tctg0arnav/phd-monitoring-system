@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="{{ url_for('static', filename='ticket.css') }}"">
     <link rel=" stylesheet" href="/css templates/ticket_static.css">
     <title>Supervisor</title>
@@ -16,292 +16,306 @@
 </body>
 
 </html>
-    <div class="navbar">
-        <img class="navbar-logo" src="../archived-for-now/Images/TIET-logo.png" alt="" />
-        <p class="navbar-name">PhD PROGRESS MONITORING SYSTEM</p>
-    </div>
-    <div class="main">
-        <h1>Submitted work</h1>
-        <div class="flex-container">
-            <div class="width">
-                <span class="heading"> Project ID:</span>
-                <p>
-                    {{ Ticket['projectid'] }}
-                </p>
-            </div>
-            <div>
-                <span class="heading">Academic Unit: </span>
-                <p>
-                    {{ Ticket['AU'] }}
-                </p>
-            </div>
-        </div>
-        <div class="flex-container">
-            <div class="width">
-                <span class="heading">ROLL NO.: </span>
-                <p>
-                    {{ Ticket['RollNo'] }}
-                </p>
-            </div>
-            <div >
-
-                <span class="heading">Date of registration: </span>
-                <p>
-                    22/02/12
-                    <!-- {{ Ticket['DateOfRegistration'] }} -->
-                </p>
-            </div>
-        </div>
-        
-        <span class="heading">Gate/NET/TA: </span>
-        <p>
-            <input type="radio" name="GATE" value="Yes" {{ Ticket['gate_yes'] }}>Yes
-            <input type="radio" name="GATE" value="No" {{ Ticket['gate_no'] }}>No
-        </p>
-        <br>
-        <span class="heading">Project Title: </span>
-        <p>
-            {{ Ticket['ProjectTitle'] }}
-        </p><br>
-        <div class="flex-container">
+<div class="navbar">
+    <img class="navbar-logo" src="../archived-for-now/Images/TIET-logo.png" alt="" />
+    <p class="navbar-name">PhD PROGRESS MONITORING SYSTEM</p>
+</div>
+<div class="main">
+    <h1>Submitted work</h1>
+    <div class="flex-container">
         <div class="width">
-        <span class="heading">Date of IRB: </span>
-        <p>
-            12/12/12
-            <!-- {{ Ticket['DateOfIRB'] }} -->
-        </p>
+            <span class="heading"> Project ID:</span>
+            <p>
+                {{ Ticket['projectid'] }}
+            </p>
+        </div>
+        <div>
+            <span class="heading">Academic Unit: </span>
+            <p>
+                {{ Ticket['AU'] }}
+            </p>
+        </div>
     </div>
-    <div>
-        <span class="heading">Date of progress presentation: </span>
-        <p>
-            12/12/12
-            <!-- {{ Ticket['DateOfProgressPresentation']}} -->
-        </p>
-    </div></div>
-        <br>
-        <span class="heading">presentation as PDF</span>
+    <div class="flex-container">
+        <div class="width">
+            <span class="heading">ROLL NO.: </span>
+            <p>
+                {{ Ticket['RollNo'] }}
+            </p>
+        </div>
+        <div>
+
+            <span class="heading">Date of registration: </span>
+            <p>
+                22/02/12
+                <!-- {{ Ticket['DateOfRegistration'] }} -->
+            </p>
+        </div>
+    </div>
+
+    <span class="heading">Gate/NET/TA: </span>
+    <p>
+        <input type="radio" name="GATE" value="Yes" {{ Ticket['gate_yes'] }}>Yes
+        <input type="radio" name="GATE" value="No" {{ Ticket['gate_no'] }}>No
+    </p>
+    <br>
+    <span class="heading">Project Title: </span>
+    <p>
+        {{ Ticket['ProjectTitle'] }}
+    </p><br>
+    <div class="flex-container">
+        <div class="width">
+            <span class="heading">Date of IRB: </span>
+            <p>
+                12/12/12
+                <!-- {{ Ticket['DateOfIRB'] }} -->
+            </p>
+        </div>
+        <div>
+            <span class="heading">Date of progress presentation: </span>
+            <p>
+                12/12/12
+                <!-- {{ Ticket['DateOfProgressPresentation']}} -->
+            </p>
+        </div>
+    </div>
+    <br>
+    <!-- <span class="heading">presentation as PDF</span>
         <div> <a href="{{ Ticket['FilePath']}}"> <img class="viewfile" src="../Images/viewfile.png" alt=""></a>
         </div>
-        <br>
+        <br> -->
+    <div class="">
         <div class="">
-            <div class="">
-                <span class="heading">Supervisor(s):</span>
-                <br>
+            <span class="heading">Supervisor(s):</span>
+            <br>
 
+        </div>
+        <div class="flex-container">
+            <div class="flex-container-2 width">
+
+                <p class="heading">Name:</p>
+                <p>
+                    i.
+                    {{ Ticket['Supervisor1']}}
+                </p>
             </div>
-            <div class="flex-container">
-                <div class="flex-container-2 width">
-
-                    <p class="heading">Name:</p>
-                    <p>
-                        i.
-                        {{ Ticket['Supervisor1']}}
-                    </p>
-                </div>
-                <div class="flex-container-2">
-                    <p class="heading">Email-id:
-                    </p>
-                    <p>
-                        i.
-                        {{ Ticket['Supervisor1_email']}}
-                    </p>
-                </div>
+            <div class="flex-container-2">
+                <p class="heading">Email-id:
+                </p>
+                <p>
+                    i.
+                    {{ Ticket['Supervisor1_email']}}
+                </p>
             </div>
         </div>
-        <div>
+    </div>
+    <div>
 
-
-            <div class="flex-container">
-                <div class="flex-container-2 width">
-                    <p class="heading">Name:</p>
-                    <p>
-                        ii.
-                        {{ Ticket['Supervisor2']}}
-                    </p>
-                </div>
-                <div class="flex-container-2">
-                    <p class="heading">Email-id:
-                    </p>
-                    <p>
-                        ii.
-                        {{ Ticket['Supervisor2_email']}}
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div>
-
-
-
-            <div class="flex-container">
-                <div class="flex-container-2 width">
-                    <p class="heading">Name:</p>
-                    <p>
-                        iii.
-                        {{ Ticket['Supervisor3']}}
-                    </p>
-                </div>
-                <div class="flex-container-2">
-                    <p class="heading">Email-id:
-                    </p>
-                    <p>
-                        iii.
-                        {{ Ticket['Supervisor3_email']}}
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <br>
-        <div>
-            <div>
-                <span class="heading">Doctoral Committee:</span>
-                <br>
-            </div>
-            <div class="flex-container">
-                <div class="flex-container-2 width">
-                    <p class="heading">Name:</p>
-                    <p>
-                        i.
-                        {{ Ticket['Committee1']}}
-                    </p>
-                </div>
-                <div class="flex-container-2">
-                    <p class="heading">Email-id:
-                    </p>
-                    <p>
-                        i.
-                        {{ Ticket['Committee1_email']}}
-                    </p>
-                </div>
-            </div>
-        </div>
 
         <div class="flex-container">
             <div class="flex-container-2 width">
                 <p class="heading">Name:</p>
                 <p>
                     ii.
-                    {{ Ticket['Committee2']}}
+                    {{ Ticket['Supervisor2']}}
                 </p>
             </div>
             <div class="flex-container-2">
                 <p class="heading">Email-id:
                 </p>
-                <p>ii.
-                    {{ Ticket['Committee2_email']}}
-                </p>
-            </div>
-        </div>
-
-        <div>
-            <div class="flex-container">
-                <div class="flex-container-2 width">
-                    <p class="heading">Name:</p>
-                    <p>
-                        iii.
-                        {{ Ticket['Committee3']}}
-                    </p>
-                </div>
-                <div class="flex-container-2">
-                    <p class="heading">Email-id:
-                    </p>
-                    <p>
-                        iii.
-                        {{ Ticket['Committee3_email']}}
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div>
-            <div class="flex-container">
-                <div class="flex-container-2 width">
-                    <p class="heading">Name:</p>
-                    <p>
-                        iv.
-                        {{ Ticket['Committee4']}}
-                    </p>
-                </div>
-                <div class="flex-container-2">
-                    <p class="heading">Email-id:
-                    </p>
-                    <p>
-                        iv.
-                        {{ Ticket['Committee4_email']}}
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div>
-            <div class="flex-container">
-                <div class="flex-container-2 width">
-                    <p class="heading">Name:</p>
-                    <p>
-                        v.
-                        {{ Ticket['Committee5']}}
-                    </p>
-                </div>
-                <div class="flex-container-2">
-                    <p class="heading">Email-id:
-                    </p>
-                    <p>
-                        v.
-                        {{ Ticket['Committee5_email']}}
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <br>
-        <div class="">
-            <div class="publication-content">
-                <span class="heading">Scopus Publication </span>
                 <p>
-                    {{ Ticket['Publications']}}
-                </p>
-            </div>
-            <div class="publication-content">
-                <span class="heading">Conference Presentation </span>
-                <p>
-                    {{ Ticket['Conferences']}}
+                    ii.
+                    {{ Ticket['Supervisor2_email']}}
                 </p>
             </div>
         </div>
-        <p class="heading">Supervisor 1 Remarks:</p>
-        <p>
-            {{ Ticket['Supervisor1_remarks']}}
-        </p>
-        {{ if Ticket['Supervisor2_remarks'] }}
-        <p class="heading">Supervisor 2 Remarks:</p>
-        <p>
-            {{ Ticket['Supervisor2_remarks']}}
-        </p>
-        {{ end }}
-        {{ if Ticket['Supervisor3_remarks'] }}
-        <p class="heading">Supervisor 3 Remarks:</p>
-        <p>
-            {{ Ticket['Supervisor3_remarks']}}
-        </p>
-        {{ end }}
-        <br>
-        <form action="" method="post" enctype=multipart/form-data>
-        <p class="heading">Percentage of work done till previous presentation</p>
-        <input type="text" name="percentage_prev"><p>%</p>
-        <p class="heading">Percentage of work done till present</p>
-        <input type="text" name="percentage_present"><p>%</p>
-        <p class="heading">Total Marks</p>
-        <p> {{ Ticket['Total_Marks'] }} </p>
-        <p class="heading">Remarks</p>
-        <textarea name="remarks" cols="30" rows="10"></textarea>
-        <p class="heading">Approved</p>
-        <br>
-        <input type="radio" name="approved" value="yes">Yes
-        <input type="radio" name="approved" value="no">No
-        <br>
-        </form>
+    </div>
+    <div>
 
 
 
-        </body>
+        <div class="flex-container">
+            <div class="flex-container-2 width">
+                <p class="heading">Name:</p>
+                <p>
+                    iii.
+                    {{ Ticket['Supervisor3']}}
+                </p>
+            </div>
+            <div class="flex-container-2">
+                <p class="heading">Email-id:
+                </p>
+                <p>
+                    iii.
+                    {{ Ticket['Supervisor3_email']}}
+                </p>
+            </div>
+        </div>
+    </div>
 
-        </html>
+    <br>
+    <div>
+        <div>
+            <span class="heading">Doctoral Committee:</span>
+            <br>
+        </div>
+        <div class="flex-container">
+            <div class="flex-container-2 width">
+                <p class="heading">Name:</p>
+                <p>
+                    i.
+                    {{ Ticket['Committee1']}}
+                </p>
+            </div>
+            <div class="flex-container-2">
+                <p class="heading">Email-id:
+                </p>
+                <p>
+                    i.
+                    {{ Ticket['Committee1_email']}}
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex-container">
+        <div class="flex-container-2 width">
+            <p class="heading">Name:</p>
+            <p>
+                ii.
+                {{ Ticket['Committee2']}}
+            </p>
+        </div>
+        <div class="flex-container-2">
+            <p class="heading">Email-id:
+            </p>
+            <p>ii.
+                {{ Ticket['Committee2_email']}}
+            </p>
+        </div>
+    </div>
+
+    <div>
+        <div class="flex-container">
+            <div class="flex-container-2 width">
+                <p class="heading">Name:</p>
+                <p>
+                    iii.
+                    {{ Ticket['Committee3']}}
+                </p>
+            </div>
+            <div class="flex-container-2">
+                <p class="heading">Email-id:
+                </p>
+                <p>
+                    iii.
+                    {{ Ticket['Committee3_email']}}
+                </p>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="flex-container">
+            <div class="flex-container-2 width">
+                <p class="heading">Name:</p>
+                <p>
+                    iv.
+                    {{ Ticket['Committee4']}}
+                </p>
+            </div>
+            <div class="flex-container-2">
+                <p class="heading">Email-id:
+                </p>
+                <p>
+                    iv.
+                    {{ Ticket['Committee4_email']}}
+                </p>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="flex-container">
+            <div class="flex-container-2 width">
+                <p class="heading">Name:</p>
+                <p>
+                    v.
+                    {{ Ticket['Committee5']}}
+                </p>
+            </div>
+            <div class="flex-container-2">
+                <p class="heading">Email-id:
+                </p>
+                <p>
+                    v.
+                    {{ Ticket['Committee5_email']}}
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <span class="heading">presentation as PDF</span>
+    <div> <a href="{{ Ticket['FilePath']}}"> <img class="viewfile" src="../Images/viewfile.png" alt=""></a>
+    </div>
+    <br>
+    <div class="">
+        <div class="publication-content">
+            <span class="heading">Scopus Publication </span>
+            <p>
+                {{ Ticket['Publications']}}
+            </p>
+        </div>
+        <div class="publication-content">
+            <span class="heading">Conference Presentation </span>
+            <p>
+                {{ Ticket['Conferences']}}
+            </p>
+        </div>
+    </div>
+    <p class="heading">Supervisor 1 Remarks:</p>
+    <p>
+        {{ Ticket['Supervisor1_remarks']}}
+    </p>
+    {{ if Ticket['Supervisor2_remarks'] }}
+    <p class="heading">Supervisor 2 Remarks:</p>
+    <p>
+        {{ Ticket['Supervisor2_remarks']}}
+    </p>
+    {{ end }}
+    {{ if Ticket['Supervisor3_remarks'] }}
+    <p class="heading">Supervisor 3 Remarks:</p>
+    <p>
+        {{ Ticket['Supervisor3_remarks']}}
+    </p>
+    {{ end }}
+    <br>
+    <div class="percentage-container">
+        <form class="percentage-container" action="" method="post" enctype=multipart/form-data>
+            <p class="heading">Percentage of work done till previous presentation</p>
+            <div class="percentage-input">
+                <input type="text" name="percentage_prev">
+                <p>%</p>
+            </div>
+            <p class="heading">Percentage of work done till present</p>
+            <div class="percentage-input">
+                <input type="text" name="percentage_present">
+                <p>%</p>
+            </div>
+            <p class="heading">Total Marks</p>
+            <p> {{ Ticket['Total_Marks'] }} </p>
+            <p class="heading">Add Remarks</p>
+            <textarea class="percentage-container-text" name="remarks" cols="30" rows="6"></textarea>
+
+    </div>
+    <br>
+    <p class="heading">Satisfied</p>
+    <input type="radio" name="approved" value="yes">Yes
+    <input type="radio" name="approved" value="no">No
+    <br>
+    </form>
+    <div class="button-container">
+        <button class="button-submit">Submit</button>
+    </div>
+    </body>
+
+    </html>

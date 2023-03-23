@@ -99,10 +99,29 @@ p{
   line-height: normal;
 }
 
-
-
-
-
+.percentage-container{
+  display: flex;
+  flex-direction: column;
+}
+.percentage-container-text{
+  width: 50%;
+}
+.button-container{
+  display: flex;
+  justify-content: center;
+}
+.button-submit{
+    color: white;
+    background-color: #640000;
+    /* width: 15%; */
+    /* height: 7rem; */
+    box-shadow: none;
+    border: 1px solid #640000;
+    margin-top: 1.5rem;
+    font-size: 1.5em ;
+    padding: 0.8% 5px 0.8% 16px;
+    letter-spacing: 8px;
+}
 
 @media screen and (max-width:650px) {
 
@@ -135,4 +154,9 @@ p{
       width: max-content;
     }
     
+}
+@media screen and (max-width:900px) {
+  .button-submit{
+    padding: 1.2% 5px 1.2% 16px;
+}
 }
