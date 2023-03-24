@@ -6,14 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='/css/ticket.css') }}">
-    <link rel="stylesheet" href="/css templates/ticket.css">
-    <!-- <link rel="stylesheet" href="/css templates/ticket_static.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Ticket</title>
 </head>
 
 <body>
     <div class="navbar">
-        <img class="navbar-logo" src="../archived-for-now/Images/TIET-logo.png" alt="" />
+        <img class="navbar-logo" src="{{ url_for('static', filename='Images/TIET-logo.png') }}" alt="" />
         <p class="navbar-name">PhD PROGRESS MONITORING SYSTEM</p>
     </div>
 
@@ -79,11 +78,6 @@
                 </div>
             </div>
             <br>
-            <!-- 
-            <span class="heading">presentation as PDF</span>
-            <div> <a href="{{ Ticket['FilePath']}}"> <img class="viewfile" src="../Images/viewfile.png" alt=""></a>
-            </div>
-            <br> -->
             <div class="">
                 <div class="">
                     <span class="heading">Supervisor(s):</span>
@@ -237,11 +231,8 @@
 
             <br>
             <span class="heading">Attach PDF:</span>
-            <div class="upload">
-                <label for="file-input"><img
-                        src="../Images/Upload file.png"></label>
-                        <input class="" id="file-input" type="file" name="file">
-            </div>
+            <br>
+            <input type="file" name="FilePath"/>
 
             <br>
             <div class="publication-container">

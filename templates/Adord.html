@@ -32,33 +32,36 @@
       <div class="main">
         <h1 class="main-heading">ADoRD’s Window</h1>
         <div class="container1">
-            <select name="all_au" class="dropdowns">
-                <option value="volvo">All Academic Units</option>
+          <form action="POST" class="container1">
+            <select name="filter_AU" class="dropdowns">
+                <option value="all" selected>All Academic Units</option>
                 <option value="saab">Saab</option>
                 <option value="mercedes">Mercedes</option>
                 <option value="audi">Audi</option>
               </select>
-              <select name="no_work" class="dropdowns">
-                <option value="volvo">Not approved by committee</option>
-                <option value="saab">Saab</option>
-                <option value="mercedes">Mercedes</option>
-                <option value="audi">Audi</option>
+              <select name="filter_approval" class="dropdowns"></option>
+                <option value="all" selected>All Approval Status</option>
+                <option value="approved">Approved</option>
+                <option value="unapproved">Unapproved</option>
               </select>
-              <button class="">FILTERS</button>
+              <button class="" type="submit">FILTER</button>
+          </form>
         </div>
+        {{ for each in projects }}
         <div class="container2">
             <div class="card">
               <div class="title">
-                <p class="heading">Title</p>
+                <p class="heading">Title : {{ each['ProjectTitle'] }}</p>
                 <div class="card-left">
-                  <p class="card-left-para">Date of IRB :</p>
-                  <p class="card-left-para">Date of Progress Presentation :</p>
-                  <p class="card-left-para">Supervisor(s) Approved :</p>
+                  <!-- date of irb, date of progress presentation, supervisor(s) approved, as keys for project dictionary from flask -->
+                  <p class="card-left-para">Date of IRB :{{ each['DateOfIRB'] }}</p>
+                  <p class="card-left-para">Date of Progress Presentation : {{ each['DateOfProgressPresentation'] }}</p>
+                  <p class="card-left-para">Supervisor(s) Approved : {{ each['approved'] }}</p>
               </div>
             </div>
                 <div class="card-right">
-                    <p class="card-right-para">Name:</p>
-                    <p class="card-right-para">Roll No.:</p>
+                  <p class="card-right-para">Name:{{ each['student_name'] }}</p>
+                  <p class="card-right-para">Roll No.: {{ each['RollNo'] }}</p>
                 </div>
             </div>
         </div>
