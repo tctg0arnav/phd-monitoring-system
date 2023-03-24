@@ -185,6 +185,50 @@
     padding: 1.7% 5%;
     width: 100%;
   }
+  @media screen and (max-width: 1170px){
+    .main-container{
+        width: 45%;
+    }
+    .main-container-date p{
+        font-size: 1.3em;
+    }
+  }
+  @media screen and (max-width: 700px){
+    .main-container{
+        width: 65%;
+    }
+  }
+  @media screen and (max-width: 500px){
+    .main-container-date{
+        flex-direction: column;
+        align-items: center;
+    }
+    input{
+        width: 65%;
+        /* margin: 15% 14% 7% 18%; */
+        padding: 4%;
+    }
+    .main-container{
+        width: 65%;
+    }
+    .main-button{
+        width: 70%;
+        margin-left: 14%;
+    }
+    .main-container button{
+        font-size: 1em;
+        padding: 8% 12%;
+        width: 120%;
+        margin-left: -8%;
+    }
+    .main-container-date p{
+        margin-bottom: 14%;
+        font-size: 1.4em;
+    }
+    .bottom-text p{
+        font-size: 0.7em;
+    }
+  }
 
   @media screen and (max-width: 780px) {
     .navbar-name{
