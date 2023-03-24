@@ -217,18 +217,18 @@
                 </div>
                 <div>
                     <span class="heading">Roll No.</span>
-                    <input class="ticket-form-input" type="text" name="Committee4_email" required>
+                    <input class="ticket-form-input" type="text" name="RollNo" required>
                 </div>
             </div>
             <div class="flex-container">
                 <div class="width">
                     <span class="heading">Academic Unit </span>
-                    <input class="ticket-form-input" type="text" name="Committee4_email" required>
+                    <input class="ticket-form-input" type="text" name="AU" required>
                 </div>
                 <div>
 
                     <span class="heading">Date of registration: </span>
-                    <input class="ticket-form-input" type="text" name="Committee4_email" required>
+                    <input class="ticket-form-input" type="text" name="DateOfRegistration" required>
                 </div>
             </div>
 
@@ -239,21 +239,19 @@
             </p>
             <br>
             <span class="heading">Project Title: </span>
-            <input class="ticket-form-input" type="text" name="Committee4_email" required>
+            <input class="ticket-form-input" type="text" name="ProjectTitle" required>
             <br>
             <div class="flex-container">
                 <div class="width">
                     <span class="heading">Date of IRB: </span>
                     <p>
-                        <!-- 12/12/12 -->
-                        <!-- {{ Ticket['DateOfIRB'] }} -->
+                        <input class="ticket-form-input" type="date" name="DateOfIRB" required >
                     </p>
                 </div>
                 <div>
                     <span class="heading">Date of progress presentation: </span>
                     <p>
-                        <!-- 12/12/12 -->
-                        <!-- {{ Ticket['DateOfProgressPresentation']}} -->
+                        <input class="ticket-form-input" type="date" name="DateOfProgressPresentation" required >
                     </p>
                 </div>
             </div>
@@ -274,14 +272,14 @@
                         <p class="heading">Name:</p>
                         <p>
 
-                            <input class="ticket-form-input" type="text" name="Committee4_email" required>
+                            <input class="ticket-form-input" type="text" name="Supervisor1" required>
                         </p>
                     </div>
                     <div class="flex-container-2">
                         <p class="heading">Email-id:
                         </p>
                         <p>
-                            <input class="ticket-form-input" type="text" name="Committee4_email" required>
+                            <input class="ticket-form-input" type="text" name="Supervisor1_email" required>
                         </p>
                     </div>
                 </div>
@@ -293,14 +291,14 @@
                     <div class="flex-container-2 width">
                         <p class="heading">Name:</p>
                         <p>
-                            <input class="ticket-form-input" type="text" name="Committee4_email" required>
+                            <input class="ticket-form-input" type="text" name="Supervisor2" required>
                         </p>
                     </div>
                     <div class="flex-container-2">
                         <p class="heading">Email-id:
                         </p>
                         <p>
-                            <input class="ticket-form-input" type="text" name="Committee4_email" required>
+                            <input class="ticket-form-input" type="text" name="Supervisor2_email" required>
                         </p>
                     </div>
                 </div>
@@ -310,14 +308,14 @@
                     <div class="flex-container-2 width">
                         <p class="heading">Name:</p>
                         <p>
-                            <input class="ticket-form-input" type="text" name="Committee4_email" required>
+                            <input class="ticket-form-input" type="text" name="Supervisor3" required>
                         </p>
                     </div>
                     <div class="flex-container-2">
                         <p class="heading">Email-id:
                         </p>
                         <p>
-                            <input class="ticket-form-input" type="text" name="Committee4_email" required>
+                            <input class="ticket-form-input" type="text" name="Supervisor3_email" required>
                         </p>
                     </div>
                 </div>
@@ -333,14 +331,14 @@
                     <div class="flex-container-2 width">
                         <p class="heading">Name:</p>
                         <p>
-                            <input class="ticket-form-input" type="text" name="Committee4_email" required>
+                            <input class="ticket-form-input" type="text" name="Committee1" required>
                         </p>
                     </div>
                     <div class="flex-container-2">
                         <p class="heading">Email-id:
                         </p>
                         <p>
-                            <input class="ticket-form-input" type="text" name="Committee4_email" required>
+                            <input class="ticket-form-input" type="text" name="Committee1_email" required>
                         </p>
                     </div>
                 </div>
@@ -350,13 +348,13 @@
                 <div class="flex-container-2 width">
                     <p class="heading">Name:</p>
                     <p>
-                        <input class="ticket-form-input" type="text" name="Committee4_email" required>
+                        <input class="ticket-form-input" type="text" name="Committee2" required>
                     </p>
                 </div>
                 <div class="flex-container-2">
                     <p class="heading">Email-id:
                     </p>
-                    <p><input class="ticket-form-input" type="text" name="Committee4_email" required>
+                    <p><input class="ticket-form-input" type="text" name="Committee2_email" required>
                     </p>
                 </div>
             </div>
@@ -366,7 +364,24 @@
                     <div class="flex-container-2 width">
                         <p class="heading">Name:</p>
                         <p>
-                            <input class="ticket-form-input" type="text" name="Committee4_email" required>
+                            <input class="ticket-form-input" type="text" name="Committee3" required>
+                        </p>
+                    </div>
+                    <div class="flex-container-2">
+                        <p class="heading">Email-id:
+                        </p>
+                        <p>
+                            <input class="ticket-form-input" type="text" name="Committee3_email" required>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="flex-container">
+                    <div class="flex-container-2 width">
+                        <p class="heading">Name:</p>
+                        <p>
+                            <input class="ticket-form-input" type="text" name="Committee4" required>
                         </p>
                     </div>
                     <div class="flex-container-2">
@@ -383,31 +398,14 @@
                     <div class="flex-container-2 width">
                         <p class="heading">Name:</p>
                         <p>
-                            <input class="ticket-form-input" type="text" name="Committee4_email" required>
+                            <input class="ticket-form-input" type="text" name="Committee5" required>
                         </p>
                     </div>
                     <div class="flex-container-2">
                         <p class="heading">Email-id:
                         </p>
                         <p>
-                            <input class="ticket-form-input" type="text" name="Committee4_email" required>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="flex-container">
-                    <div class="flex-container-2 width">
-                        <p class="heading">Name:</p>
-                        <p>
-                            <input class="ticket-form-input" type="text" name="Committee4_email" required>
-                        </p>
-                    </div>
-                    <div class="flex-container-2">
-                        <p class="heading">Email-id:
-                        </p>
-                        <p>
-                            <input class="ticket-form-input" type="text" name="Committee4_email" required>
+                            <input class="ticket-form-input" type="text" name="Committee5_email" required>
                         </p>
                     </div>
                 </div>
