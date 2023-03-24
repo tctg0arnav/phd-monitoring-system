@@ -132,6 +132,13 @@
       letter-spacing: 7px;
       cursor: pointer;
   }
+
+  .upload>input{
+    display: none;
+  }
+  .upload img{
+    height: 50px;
+  }
 @media screen and (max-width: 780px) {
 
     .navbar-name{
