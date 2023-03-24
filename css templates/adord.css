@@ -238,6 +238,8 @@
   margin-right: 7%;
   margin-left: 2%;
 }
+
+
 @media screen and (max-width: 1030px){
   .footer button{
     font-size: 1em;
@@ -316,4 +318,39 @@
       font-size: 0.4em;
       text-align: right;
     }
+}
+/* Academic Unit CSS */
+.container3{
+  width: 100%;
+  /* justify-content: space-around; */
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 2.2rem;
+  margin-left: 2%;
+}
+.container3 button{
+  background-color: white;
+  color: #640000;
+  font-weight: 500;
+  font-size: 1.7em;
+  border: 1px solid #640000;
+  padding: 0.5% 2.7%;
+  margin: 0% 2%;
+ 
+}
+@media screen and (max-width:600px) {
+
+  .container3{
+    display: flex;
+    flex-direction: column-reverse;
+    margin-left: 2%;
+    margin-bottom: 1.2rem;
+  }
+  .container3 button{
+    width: 30%;
+    margin-bottom: 4%;
+    font-size: 1.2em;
+    margin-bottom: 3%;
+    margin-left: 0%;
+  }
 }
