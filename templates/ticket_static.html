@@ -44,7 +44,7 @@
                     {{ Ticket['RollNo'] }}
                 </p>
             </div>
-            <div >
+            <div>
 
                 <span class="heading">Date of registration: </span>
                 <p>
@@ -53,32 +53,41 @@
                 </p>
             </div>
         </div>
-        
-        <span class="heading">Gate/NET/TA: </span>
-        <p>
-            <input type="radio" name="GATE" value="Yes" {{ Ticket['gate_yes'] }}>Yes
-            <input type="radio" name="GATE" value="No" {{ Ticket['gate_no'] }}>No
-        </p>
-        <br>
+        <div class="flex-container">
+            <div class="width">
+                <span class="heading">Email-id: </span>
+                <p>
+                    {{ Ticket['RollNo'] }}
+                </p>
+            </div>
+            <div>
+                <span class="heading">Gate/NET/TA: </span>
+                <p>
+                    <input type="radio" name="GATE" value="Yes" {{ Ticket['gate_yes'] }}>Yes
+                    <input type="radio" name="GATE" value="No" {{ Ticket['gate_no'] }}>No
+                </p>
+            </div>
+        </div> <br>
         <span class="heading">Project Title: </span>
         <p>
             {{ Ticket['ProjectTitle'] }}
-        </p><br>
+        </p><br> <br>
         <div class="flex-container">
-        <div class="width">
-        <span class="heading">Date of IRB: </span>
-        <p>
-            12/12/12
-            <!-- {{ Ticket['DateOfIRB'] }} -->
-        </p>
-    </div>
-    <div>
-        <span class="heading">Date of progress presentation: </span>
-        <p>
-            12/12/12
-            <!-- {{ Ticket['DateOfProgressPresentation']}} -->
-        </p>
-    </div></div>
+            <div class="width">
+                <span class="heading">Date of IRB: </span>
+                <p>
+                    12/12/12
+                    <!-- {{ Ticket['DateOfIRB'] }} -->
+                </p>
+            </div>
+            <div>
+                <span class="heading">Date of progress presentation: </span>
+                <p>
+                    12/12/12
+                    <!-- {{ Ticket['DateOfProgressPresentation']}} -->
+                </p>
+            </div>
+        </div>
         <br>
         <span class="heading">presentation as PDF</span>
         <div> <a href="{{ Ticket['FilePath']}}"> <img class="viewfile" src="../Images/viewfile.png" alt=""></a>

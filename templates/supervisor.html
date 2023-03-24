@@ -54,7 +54,7 @@
     </div>
     <div class="flex-container">
         <div class="width">
-            <span class="heading">ROLL NO.: </span>
+            <span class="heading">Roll No.: </span>
             <p>
                 {{ Ticket['RollNo'] }}
             </p>
@@ -260,7 +260,10 @@
             </div>
         </div>
     </div>
-
+    <br>
+    <span class="heading">presentation as PDF</span>
+    <div> <a href="{{ Ticket['FilePath']}}"> <img class="viewfile" src="../Images/viewfile.png" alt=""></a>
+    </div>
     <br>
     <div class="">
         <div class="publication-content">
