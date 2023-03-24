@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css templates/adord.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="navbar">
+        <img class="navbar-logo" src="../archived-for-now/Images/TIET-logo.png" alt="" />
+        <p class="navbar-name">PhD PROGRESS MONITORING SYSTEM</p>
+    
+        <div class="action">
+          <div class="profile" onclick="menuToggle();">
+            <img src="../archived-for-now/Images/User.png" />
+          </div>
+          <div class="menu">
+            <h3>Sk Sayan</h3>
+            <ul>
+              <li>
+                <img src="../archived-for-now/Images/download.png" /><a href="#"
+                  >change password</a
+                >
+              </li>
+              <li><img src="../archived-for-now/Images/logout.png" /><a href="#">logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="main">
+        <h1 class="main-heading">ADoRD’s Window</h1>
+        <div class="container1">
+            <select name="all_au" class="dropdowns">
+                <option value="volvo">All Academic Units</option>
+                <option value="saab">Saab</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="audi">Audi</option>
+              </select>
+              <select name="no_work" class="dropdowns">
+                <option value="volvo">Work not approved by committee</option>
+                <option value="saab">Saab</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="audi">Audi</option>
+              </select>
+              <button>FILTERS</button>
+        </div>
+        <div class="container2">
+            <div class="card">
+                <div class="card-left">
+                    <p class="heading">Title</p>
+                    <p class="card-left-para">Date of IRB :</p>
+                    <p class="card-left-para">Date of Progress Presentation :</p>
+                    <p class="card-left-para">Supervisor(s) Approved :</p>
+                </div>
+                <div class="card-right">
+                    <p class="card-right-para">Name:</p>
+                    <p class="card-right-para">Roll No.:</p>
+                </div>
+            </div>
+        </div>
+
+      </div>
+    <div class="footer">
+        <button>GENERATE XL/CSV SHEET</button>
+        <p>LAST DATE :</p>
+        <p>15/04/2023</p>
+        <p>*XL SHEET WILL BE AUTOMATICALLY GENERATED AFTER LAST DATE.</p>
+    </div>
+</body>
+<script>
+    function menuToggle() {
+      const toggleMenu = document.querySelector(".menu");
+      toggleMenu.classList.toggle("active");
+    }
+  </script>
+</html>
