@@ -12,10 +12,10 @@
 </head>
 
 <body>
-    <div class="navbar">
-        <img class="navbar-logo" src="{{ url_for('static', filename='/Images/TIET-logo.png') }}" alt="" />
-        <p class="navbar-name">PhD PROGRESS MONITORING SYSTEM</p>
-
+        <div class="navbar">
+            <img class="navbar-logo" src="../archived-for-now/Images/TIET-logo.png" alt="" />
+            <p class="navbar-name">PhD PROGRESS MONITORING SYSTEM</p>
+        </div>
         <!-- <div class="action">
             <div class="profile" onclick="menuToggle();">
                 <img src="../archived-for-now/Images/User.png" />
@@ -30,8 +30,7 @@
                 </ul>
             </div>
         </div> -->
-    </div>
-    <div class="ticket-container">
+    <!-- <div class="ticket-container">
         <div class="ticket-name-div">
             <p class="ticket-name">Thesis Submission Form</p>
         </div>
@@ -69,27 +68,27 @@
                 <br>
                 <div class="form-sections flex-column">
                     <label class="ticket-form-label">Project Title</label>
-                    <!-- <input class="ticket-form-input" type="text" name="ProjectTitle" required> -->
-                    <textarea class="ticket-form-write" type="text" name="Publications" rows="2" style="width: 25%;"></textarea>
+                     <input class="ticket-form-input" type="text" name="ProjectTitle" required> -->
+                    <!-- <textarea class="ticket-form-write" type="text" name="Publications" rows="2" style="width: 25%;"></textarea>
                 </div>
                 <br>
                 <div class="ticket-form-boxes flex-row">
                      <div class="form-sections">
                     <label class="ticket-form-label">Date Of IRB</label>
-                    <!-- #date picker for date of IRB -->
-                    <input class="ticket-form-input" type="date" name="DateOfIRB" required style="width: 78%;" >
+                     #date picker for date of IRB -->
+                    <!-- <input class="ticket-form-input" type="date" name="DateOfIRB" required style="width: 78%;" >
                 </div>
                 <div class="form-sections-email">
-                    <label class="ticket-form-label margin-left2">Date Of Progress Present</label>
+                    <label class="ticket-form-label margin-left2">Date Of Progress Present</label> -->
                     <!-- #date picker for date of Progress Present -->
-                    <input class="form-sections-date2" type="date" name="DateOfProgressPresentation" required style="width: 47%; padding: 3%;">
+                    <!-- <input class="form-sections-date2" type="date" name="DateOfProgressPresentation" required style="width: 47%; padding: 3%;">
                 </div>
                 </div>
                
                 <br>
                 <div class="ticket-form-boxes flex-row">
-                    <div class="form-sections">
-                        <label class="ticket-form-label">Supervisor 1</label>
+                    <div class="form-sections"> -->
+                        <!-- <label class="ticket-form-label">Supervisor 1</label>
                         <input class="ticket-form-input" type="text" name="Supervisor1" required>
                     </div>
                     <br>
@@ -172,6 +171,7 @@
                     <input class="ticket-form-input" type="text" name="Committee4_email" required>
                 </div>
             </div>
+            <br>
             <div class="ticket-form-boxes flex-row">
                 <div class="form-sections">
                     <label class="ticket-form-label">Committee 5</label>
@@ -205,7 +205,229 @@
                 </div>
             </form>
         </div>
-    </div>
+    </div> -->
+
+    <div class="main">
+        <h1>Thesis Submission Form</h1>
+        <form action="" method="post" enctype=multipart/form-data>
+            <div class="flex-container">
+                <div class="width">
+                    <span class="heading"> Name</span>
+                        <input class="ticket-form-input" type="text" name="Committee4_email" required>
+                </div>
+                <div>
+                    <span class="heading">Roll No.</span>
+                        <input class="ticket-form-input" type="text" name="Committee4_email" required>
+                </div>
+            </div>
+            <div class="flex-container">
+                <div class="width">
+                    <span class="heading">Academic Unit </span>
+                    <input class="ticket-form-input" type="text" name="Committee4_email" required>
+                </div>
+                <div >
+
+                    <span class="heading">Date of registration: </span>
+                    <input class="ticket-form-input" type="text" name="Committee4_email" required>
+                </div>
+            </div>
+            
+            <span class="heading">Gate/NET/TA: </span>
+            <p>
+                <input type="radio" name="GATE" value="Yes">Yes
+                <input type="radio" name="GATE" value="No">No
+            </p>
+            <br>
+            <span class="heading">Project Title: </span>
+            <input class="ticket-form-input" type="text" name="Committee4_email" required>
+            <br>
+            <div class="flex-container">
+            <div class="width">
+            <span class="heading">Date of IRB: </span>
+            <p>
+                <!-- 12/12/12 -->
+                <!-- {{ Ticket['DateOfIRB'] }} -->
+            </p>
+        </div>
+        <div>
+            <span class="heading">Date of progress presentation: </span>
+            <p>
+                <!-- 12/12/12 -->
+                <!-- {{ Ticket['DateOfProgressPresentation']}} -->
+            </p>
+        </div></div>
+            <br>
+            <span class="heading">presentation as PDF</span>
+            <div> <a href="{{ Ticket['FilePath']}}"> <img class="viewfile" src="../Images/viewfile.png" alt=""></a>
+            </div>
+            <br>
+            <div class="">
+                <div class="">
+                    <span class="heading">Supervisor(s):</span>
+                    <br>
+
+                </div>
+                <div class="flex-container">
+                    <div class="flex-container-2 width">
+
+                        <p class="heading">Name:</p>
+                        <p>
+        
+                            <input class="ticket-form-input" type="text" name="Committee4_email" required>
+                        </p>
+                    </div>
+                    <div class="flex-container-2">
+                        <p class="heading">Email-id:
+                        </p>
+                        <p>
+                            <input class="ticket-form-input" type="text" name="Committee4_email" required>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div>
+
+
+                <div class="flex-container">
+                    <div class="flex-container-2 width">
+                        <p class="heading">Name:</p>
+                        <p>
+                            <input class="ticket-form-input" type="text" name="Committee4_email" required>
+                        </p>
+                    </div>
+                    <div class="flex-container-2">
+                        <p class="heading">Email-id:
+                        </p>
+                        <p>
+                            <input class="ticket-form-input" type="text" name="Committee4_email" required>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="flex-container">
+                    <div class="flex-container-2 width">
+                        <p class="heading">Name:</p>
+                        <p>
+                            <input class="ticket-form-input" type="text" name="Committee4_email" required>
+                        </p>
+                    </div>
+                    <div class="flex-container-2">
+                        <p class="heading">Email-id:
+                        </p>
+                        <p>
+                            <input class="ticket-form-input" type="text" name="Committee4_email" required>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <div>
+                <div>
+                    <span class="heading">Doctoral Committee:</span>
+                    <br>
+                </div>
+                <div class="flex-container">
+                    <div class="flex-container-2 width">
+                        <p class="heading">Name:</p>
+                        <p>
+                            <input class="ticket-form-input" type="text" name="Committee4_email" required>
+                        </p>
+                    </div>
+                    <div class="flex-container-2">
+                        <p class="heading">Email-id:
+                        </p>
+                        <p>
+                            <input class="ticket-form-input" type="text" name="Committee4_email" required>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex-container">
+                <div class="flex-container-2 width">
+                    <p class="heading">Name:</p>
+                    <p>
+                        <input class="ticket-form-input" type="text" name="Committee4_email" required>
+                    </p>
+                </div>
+                <div class="flex-container-2">
+                    <p class="heading">Email-id:
+                    </p>
+                    <p><input class="ticket-form-input" type="text" name="Committee4_email" required>
+                    </p>
+                </div>
+            </div>
+
+            <div>
+                <div class="flex-container">
+                    <div class="flex-container-2 width">
+                        <p class="heading">Name:</p>
+                        <p>
+                            <input class="ticket-form-input" type="text" name="Committee4_email" required>
+                        </p>
+                    </div>
+                    <div class="flex-container-2">
+                        <p class="heading">Email-id:
+                        </p>
+                        <p>
+                        <input class="ticket-form-input" type="text" name="Committee4_email" required>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="flex-container">
+                    <div class="flex-container-2 width">
+                        <p class="heading">Name:</p>
+                        <p>
+                            <input class="ticket-form-input" type="text" name="Committee4_email" required>
+                        </p>
+                    </div>
+                    <div class="flex-container-2">
+                        <p class="heading">Email-id:
+                        </p>
+                        <p>
+                            <input class="ticket-form-input" type="text" name="Committee4_email" required>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="flex-container">
+                    <div class="flex-container-2 width">
+                        <p class="heading">Name:</p>
+                        <p>
+                        <input class="ticket-form-input" type="text" name="Committee4_email" required>
+                        </p>
+                    </div>
+                    <div class="flex-container-2">
+                        <p class="heading">Email-id:
+                        </p>
+                        <p>
+                            <input class="ticket-form-input" type="text" name="Committee4_email" required>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <div class="">
+                <div class="publication-content">
+                    <span class="heading">Scopus Publication </span>
+                    <textarea class="ticket-form-write" type="text" name="Publications" rows="5"></textarea>
+                </div>
+                <div class="publication-content">
+                    <span class="heading">Conference Presentation </span>
+                    <textarea class="ticket-form-write" type="text" name="Publications" rows="5"></textarea>
+                </div>
+            </div>
+            <br>
+            <div class="form-buttons">
+                <input class="ticket-form-button2" type="submit" value="Submit">
+            </div>
+        </form>
 </body>
 <script>
     function menuToggle() {
