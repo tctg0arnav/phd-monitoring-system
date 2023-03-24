@@ -47,12 +47,19 @@
   }
   .main{
     border: 1px solid black;
-    padding: 2rem;
+    padding: 4rem;
     line-height: 3em;
     margin: 5%;
 }
+.main-heading{
+    color: #640000;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 2.2em;
+    margin-bottom: 2rem;
+}
 .heading{
-    font-weight: 600;
+    font-weight: 500;
+    font-size: 1.1em;
     /* margin-right: 1%; */
 }
 .viewfile{
@@ -63,20 +70,68 @@
     width: 35%;
     display: flex;
     flex-direction: column;
+}
+.width2{
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 20%;
+}
+.width1{
+    margin-left: 20%;
+
   }
   .flex-container{
     display: flex;
-    gap: 40px;
-  }
-  .flex-container-2{
+    /* justify-content: space-between; */
+    /* gap: 40px; */
+}
+.flex-container-2{
     display: flex;
+    justify-content: space-between;
     flex-direction: column;
     line-height: normal;
   }
   .ticket-form-input1{
-    width: 10.5rem;
+    width: 22rem;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 6px;
+}
+.ticket-form-input{
+    width: 22rem;
+    margin-bottom: 2%;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 6px;
   }
-
+  .percentage-container-text{
+    width: 50%;
+    padding: 1%;
+  }
+  .publication-content{
+    display: flex;
+    flex-direction: column;
+  }
+  .button-container{
+    display: flex;
+    justify-content: center;
+  }
+  .button-submit{
+      color: white;
+      background-color: #640000;
+      /* width: 15%; */
+      /* height: 7rem; */
+      font-weight: 500;
+      box-shadow: none;
+      border: 1px solid #640000;
+      margin-top: 1.5rem;
+      margin-bottom: 2.5rem;
+      font-size: 1.5em ;
+      padding: 0.7% 17px 0.7% 28px;
+      letter-spacing: 7px;
+      cursor: pointer;
+  }
 @media screen and (max-width: 780px) {
 
     .navbar-name{
@@ -121,17 +176,52 @@
         width: 70%;
         justify-content: space-around;
     }
+    .ticket-form-input1{
+        width: 15rem;
+    }
+    .ticket-form-input{
+        width: 15rem;
+      }
+      .width{
+        margin-left: 0%;
+      }
+      .width1{
+        margin-left: 0%;
+      }
+      .width2{
+        margin-left: 0%;
+      }
+      .heading{
+        line-height: normal;
+      }
+      .flex-container{
+        margin-left: -3%;
+      }
+      .main-heading{
+        font-size: 2.0em;
+    }
+    .percentage-container-text{
+        width: 90%;
+        margin-bottom: 20px;
+      }
 }
 @media screen and (max-width: 780px){
     .navbar-name{
         font-size: 1rem;
      }
     }
-@media screen and (max-width: 615px){
+@media screen and (max-width: 911px){
     .flex-container{
         flex-direction: column;
         gap: 0px;
      }
+     .width2{
+        margin-left: 0%;
+    }
+    .width1{
+        margin-left: 0%;
+    
+      }
     }
 
 

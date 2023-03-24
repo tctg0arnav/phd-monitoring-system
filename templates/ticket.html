@@ -208,57 +208,62 @@
     </div> -->
 
     <div class="main">
-        <h1>Thesis Submission Form</h1>
+        <h1 class="main-heading">Thesis Submission Form</h1>
         <form action="" method="post" enctype=multipart/form-data>
             <div class="flex-container">
                 <div class="width">
                     <span class="heading"> Name</span>
                     <input class="ticket-form-input1" type="text" name="Name" required>
                 </div>
-                <div class="width">
+                <div class="width2">
                     <span class="heading">Roll No.</span>
-                    <input class="ticket-form-input1" type="text" name="Committee4_email" required>
-                    <input class="ticket-form-input" type="text" name="RollNo" required>
+                    <!-- <input class="ticket-form-input1" type="text" name="Committee4_email" required> -->
+                    <input class="ticket-form-input1" type="text" name="RollNo" required>
                 </div>
             </div>
             <div class="flex-container">
                 <div class="width">
-                    <span class="heading">Academic Unit </span>
-                    <input class="ticket-form-input1" type="text" name="Committee4_email" required>
-                    <input class="ticket-form-input" type="text" name="AU" required>
+                    <span class="heading" >Academic Unit </span>
+                    <!-- <input class="ticket-form-input1" type="text" name="Committee4_email" required> -->
+                    <input class="ticket-form-input1" type="text" name="AU" required>
                 </div>
-                <div class="width">
+                <div class="width2">
 
                     <span class="heading">Date of registration: </span>
-                    <input class="ticket-form-input1" type="text" name="Committee4_email" required>
-                    <input class="ticket-form-input" type="text" name="DateOfRegistration" required>
+                    <!-- <input class="ticket-form-input1" type="text" name="Committee4_email" required> -->
+                    <input class="ticket-form-input1 "  type="date" name="DateOfRegistration" required >
                 </div>
             </div>
-
+            <br>
+            <div class="">
             <span class="heading">Gate/NET/TA: </span>
             <p>
                 <input type="radio" name="GATE" value="Yes">Yes
                 <input type="radio" name="GATE" value="No">No
             </p>
+        </div>
             <br>
-            <span class="heading">Project Title: </span>
-            <input class="ticket-form-input" type="text" name="ProjectTitle" required>
+            <div class="width">
+                <span class="heading">Project Title: </span>
+                <input class="ticket-form-input1" type="text" name="ProjectTitle" required>
+            </div>
             <br>
             <div class="flex-container">
                 <div class="width">
                     <span class="heading">Date of IRB: </span>
                     <p>
-                        <input class="ticket-form-input" type="date" name="DateOfIRB" required >
+                        <input class="ticket-form-input1" type="date" name="DateOfIRB" required>
                     </p>
                 </div>
-                <div>
+                <div class="width1">
                     <span class="heading">Date of progress presentation: </span>
                     <p>
-                        <input class="ticket-form-input" type="date" name="DateOfProgressPresentation" required >
+                        <input class="ticket-form-input1" type="date" name="DateOfProgressPresentation" required>
                     </p>
                 </div>
             </div>
-            <!-- <br>
+            <br>
+            <!-- 
             <span class="heading">presentation as PDF</span>
             <div> <a href="{{ Ticket['FilePath']}}"> <img class="viewfile" src="../Images/viewfile.png" alt=""></a>
             </div>
@@ -278,7 +283,7 @@
                             <input class="ticket-form-input" type="text" name="Supervisor1" required>
                         </p>
                     </div>
-                    <div class="flex-container-2">
+                    <div class="flex-container-2 width1">
                         <p class="heading">Email-id:
                         </p>
                         <p>
@@ -292,13 +297,13 @@
 
                 <div class="flex-container">
                     <div class="flex-container-2 width">
-                        <p class="heading">Name:</p>
+                        <p class="heading">Name:(𝘪𝘧 𝘢𝘯𝘺)</p>
                         <p>
                             <input class="ticket-form-input" type="text" name="Supervisor2" required>
                         </p>
                     </div>
-                    <div class="flex-container-2">
-                        <p class="heading">Email-id:
+                    <div class="flex-container-2 width1">
+                        <p class="heading">Email-id:(𝘪𝘧 𝘢𝘯𝘺)
                         </p>
                         <p>
                             <input class="ticket-form-input" type="text" name="Supervisor2_email" required>
@@ -309,13 +314,13 @@
             <div>
                 <div class="flex-container">
                     <div class="flex-container-2 width">
-                        <p class="heading">Name:</p>
+                        <p class="heading">Name:(𝘪𝘧 𝘢𝘯𝘺)</p>
                         <p>
                             <input class="ticket-form-input" type="text" name="Supervisor3" required>
                         </p>
                     </div>
-                    <div class="flex-container-2">
-                        <p class="heading">Email-id:
+                    <div class="flex-container-2 width1">
+                        <p class="heading">Email-id:(𝘪𝘧 𝘢𝘯𝘺)
                         </p>
                         <p>
                             <input class="ticket-form-input" type="text" name="Supervisor3_email" required>
@@ -337,7 +342,7 @@
                             <input class="ticket-form-input" type="text" name="Committee1" required>
                         </p>
                     </div>
-                    <div class="flex-container-2">
+                    <div class="flex-container-2 width1">
                         <p class="heading">Email-id:
                         </p>
                         <p>
@@ -354,7 +359,7 @@
                         <input class="ticket-form-input" type="text" name="Committee2" required>
                     </p>
                 </div>
-                <div class="flex-container-2">
+                <div class="flex-container-2 width1">
                     <p class="heading">Email-id:
                     </p>
                     <p><input class="ticket-form-input" type="text" name="Committee2_email" required>
@@ -370,7 +375,7 @@
                             <input class="ticket-form-input" type="text" name="Committee3" required>
                         </p>
                     </div>
-                    <div class="flex-container-2">
+                    <div class="flex-container-2 width1">
                         <p class="heading">Email-id:
                         </p>
                         <p>
@@ -387,7 +392,7 @@
                             <input class="ticket-form-input" type="text" name="Committee4" required>
                         </p>
                     </div>
-                    <div class="flex-container-2">
+                    <div class="flex-container-2 width1">
                         <p class="heading">Email-id:
                         </p>
                         <p>
@@ -399,13 +404,13 @@
             <div>
                 <div class="flex-container">
                     <div class="flex-container-2 width">
-                        <p class="heading">Name:</p>
+                        <p class="heading">Name:(𝘪𝘧 𝘢𝘯𝘺)</p>
                         <p>
                             <input class="ticket-form-input" type="text" name="Committee5" required>
                         </p>
                     </div>
-                    <div class="flex-container-2">
-                        <p class="heading">Email-id:
+                    <div class="flex-container-2 width1">
+                        <p class="heading">Email-id:(𝘪𝘧 𝘢𝘯𝘺)
                         </p>
                         <p>
                             <input class="ticket-form-input" type="text" name="Committee5_email" required>
@@ -415,24 +420,24 @@
             </div>
 
             <br>
-            <span class="heading">presentation as PDF</span>
-            <div> <a href="{{ Ticket['FilePath']}}"> <img class="viewfile" src="../Images/viewfile.png" alt=""></a>
+            <span class="heading">Attachment of presentation as PDF</span>
+            <div> <a href="{{ Ticket['FilePath']}}"> <img class="viewfile" src="../Images/Upload file.png" alt=""></a>
             </div>
 
             <br>
-            <div class="">
+            <div class="publication-container">
                 <div class="publication-content">
                     <span class="heading">Scopus Publication </span>
-                    <textarea class="ticket-form-write" type="text" name="Publications" rows="5"></textarea>
+                    <textarea class="percentage-container-text" type="text" placeholder="𝘈𝘥𝘥 𝘵𝘦𝘹𝘵 𝘩𝘦𝘳𝘦" name="Publications" rows="5"></textarea>
                 </div>
                 <div class="publication-content">
                     <span class="heading">Conference Presentation </span>
-                    <textarea class="ticket-form-write" type="text" name="Publications" rows="5"></textarea>
+                    <textarea class="percentage-container-text" type="text" placeholder="𝘈𝘥𝘥 𝘵𝘦𝘹𝘵 𝘩𝘦𝘳𝘦" name="Publications" rows="5"></textarea>
                 </div>
             </div>
             <br>
-            <div class="form-buttons">
-                <input class="ticket-form-button2" type="submit" value="Submit">
+            <div class="button-container">
+                <button class="button-submit">SUBMIT</button>
             </div>
         </form>
 </body>
