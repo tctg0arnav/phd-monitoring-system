@@ -59,6 +59,23 @@
     height: 45px;
    
 }
+.width{
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+  }
+  .flex-container{
+    display: flex;
+    gap: 40px;
+  }
+  .flex-container-2{
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+  }
+  .ticket-form-input1{
+    width: 10.5rem;
+  }
 
 @media screen and (max-width: 780px) {
 
@@ -108,6 +125,12 @@
 @media screen and (max-width: 780px){
     .navbar-name{
         font-size: 1rem;
+     }
+    }
+@media screen and (max-width: 615px){
+    .flex-container{
+        flex-direction: column;
+        gap: 0px;
      }
     }
 
