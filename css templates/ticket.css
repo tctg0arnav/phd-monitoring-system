@@ -5,14 +5,6 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
-/* .flex-row{
-    display: flex;
-    flex-direction: row;
-} */
-.flex-column{
-    display: flex;
-    flex-direction: column;
-}
 .navbar {
     display: flex;
     flex-direction: row;
@@ -53,150 +45,21 @@
     display: block;
     margin-bottom: 0.5rem;
   }
-  .ticket-name-div{
-    margin-bottom: 1rem;
-  }
-  .ticket-name{
-    font-family: 'Times New Roman';
-    font-weight: 400;
-    font-size: 2.2em;
-    line-height: 121.99%;
-    color: #640000;
-    /* padding-bottom: 3rem;
-    margin-bottom: 7rem; */
+  .main{
+    border: 1px solid black;
+    padding: 2rem;
+    line-height: 3em;
+    margin: 5%;
 }
-.ticket-container{
-    display: flex;
-    flex-direction: column;
-    border: 2px solid black;
-    margin: 6%;
-    padding: 5%;
+.heading{
+    font-weight: 600;
+    /* margin-right: 1%; */
 }
-.ticket-form-label{
-    font-family: 'Poppins';
-    font-weight: 500;
-    font-size: 1.2em;
-    margin-bottom: 1%;
-    /* margin-left: 30%; */
+.viewfile{
+    height: 45px;
+   
 }
-.margin-left1{
-    margin-left: 28%;
-}
-.margin-left2{
-    margin-left: 10%;
-}
-.margin-right{
-    margin-right: 30%;
-}
-/* .form-sections{
-    display: flex;
-    flex-direction: column;
-} */
-.ticket-form-boxes{
-    display: flex;
-    flex-direction: row;
-}
-.form-input-single{
-    width: 50%;
-}
-.form-sections-date1{
-    margin-left: 30%;
-    padding: 4%;
-    border: 2px solid black;
-    border-radius: 6px;
-    margin-bottom: 1%;
-}
-.form-sections-date2{
-    margin-left: 11%;
-    padding: 4%;
-    border: 2px solid black;
-    border-radius: 6px;
-    margin-bottom: 1%;
-}
-.ticket-form-input{
-    /* width: 100%; */
-    /* display: inline-block; */
-    padding: 4% 10%;
-    border: 2px solid black;
-    border-radius: 6px;
-    margin-bottom: 1%;
-    /* padding-right: 50%; */
-    /* margin: 30%; */
-}
-.form-sections-email{
-    margin-left: 30%;
-}
-.ticket-form-radio{
-    margin-left: 5%;
-    font-size: 1.5em;
-    font-weight: 500;
-}
-.ticket-form-write{
-    /* width: 40%; */
-    /* padding: 4% 0.8%; */
-    border-radius: 6px;
-    margin-bottom: 1%;
-}
-/* .ticket-form-button1{
-    padding: 0.8% 5%;
-    border-radius: 0px;
-    border: 1.5px solid #640000;
-    background-color: white;
-    color: #640000;
-    letter-spacing: 7px;
-    font-family: 'Poppins';
-    font-size: 1.2em;
-    font-weight: 500;
-} */
-textarea{
-    border: 2px solid black;
-    border-radius: 6px;
-    margin-bottom: 1%; 
-    width: 40%;
-}
-.form-buttons{
-    display: flex;
-    justify-content: center;
-    margin: 5% 0%;
-}
-.ticket-form-button2{
-    padding: 0.8% 5%;
-    border-radius: 0px;
-    border: 1.5px solid #640000;
-    background-color: #640000;
-    color: white;
-    letter-spacing: 7px;
-    font-family: 'Poppins';
-    font-size: 1.4em;
-    font-weight: 500;
-}
-.input [type="file"]{
-    display: none;
-}
-.custom-file-upload{
-    display: flex;
-    flex-direction: row;
-    border: 1px solid #000000;
-    border-radius: 5px;
-    padding: 12px 12px 12px;
-    background-color: #D9D9D9;
-    width: 13%;
-    cursor: pointer;
-    justify-content: space-around;
-}
-.custom-file-upload img{
-    height: 1.8em;
-    width: 1.8em;
-    /* margin-left: 2.2rem; */
-}
-.choose-file{
-    content: 'Upload file';
-    font-weight: 500;
-    /* width: 13%; */
-    display: none;
-    cursor: pointer;
-    background: #D9D9D9;
-}
+
 @media screen and (max-width: 780px) {
 
     .navbar-name{
@@ -210,13 +73,7 @@ textarea{
       visibility: hidden;
     }
 }
-  @media screen and (max-width:650px) {
 
-    .ticket-form-boxes{
-        display: flex;
-        flex-direction: column;
-    }
-}
 @media screen and (max-width: 1170px){
     .custom-file-upload{
         width: 20%;
@@ -253,28 +110,6 @@ textarea{
         font-size: 1rem;
      }
     }
-@media screen and (max-width: 714px){
-        .buttons{
-            flex-wrap: wrap;
-         }
-        }
-@media screen and (max-width:390px){
-    .cancel{
-        width: 8rem;
-        letter-spacing: 4px;
-    }
-    .cancel-button{
-        padding: 0.5rem;
-    }
-    .submit{
-        width: 8rem;
-        letter-spacing: 4px;
 
-    }
-    .custom-file-upload{
-        width: 100%;
-        justify-content: space-around;
-    }
-}
 
     

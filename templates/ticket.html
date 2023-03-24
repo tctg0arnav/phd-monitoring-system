@@ -7,16 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='/css/ticket.css') }}">
     <link rel="stylesheet" href="/css templates/ticket.css">
-    <link rel="stylesheet" href="/css templates/ticket_static.css">
+    <!-- <link rel="stylesheet" href="/css templates/ticket_static.css"> -->
     <title>Ticket</title>
 </head>
 
 <body>
-        <div class="navbar">
-            <img class="navbar-logo" src="../archived-for-now/Images/TIET-logo.png" alt="" />
-            <p class="navbar-name">PhD PROGRESS MONITORING SYSTEM</p>
-        </div>
-        <!-- <div class="action">
+    <div class="navbar">
+        <img class="navbar-logo" src="../archived-for-now/Images/TIET-logo.png" alt="" />
+        <p class="navbar-name">PhD PROGRESS MONITORING SYSTEM</p>
+    </div>
+    <!-- <div class="action">
             <div class="profile" onclick="menuToggle();">
                 <img src="../archived-for-now/Images/User.png" />
             </div>
@@ -69,26 +69,26 @@
                 <div class="form-sections flex-column">
                     <label class="ticket-form-label">Project Title</label>
                      <input class="ticket-form-input" type="text" name="ProjectTitle" required> -->
-                    <!-- <textarea class="ticket-form-write" type="text" name="Publications" rows="2" style="width: 25%;"></textarea>
+    <!-- <textarea class="ticket-form-write" type="text" name="Publications" rows="2" style="width: 25%;"></textarea>
                 </div>
                 <br>
                 <div class="ticket-form-boxes flex-row">
                      <div class="form-sections">
                     <label class="ticket-form-label">Date Of IRB</label>
                      #date picker for date of IRB -->
-                    <!-- <input class="ticket-form-input" type="date" name="DateOfIRB" required style="width: 78%;" >
+    <!-- <input class="ticket-form-input" type="date" name="DateOfIRB" required style="width: 78%;" >
                 </div>
                 <div class="form-sections-email">
                     <label class="ticket-form-label margin-left2">Date Of Progress Present</label> -->
-                    <!-- #date picker for date of Progress Present -->
-                    <!-- <input class="form-sections-date2" type="date" name="DateOfProgressPresentation" required style="width: 47%; padding: 3%;">
+    <!-- #date picker for date of Progress Present -->
+    <!-- <input class="form-sections-date2" type="date" name="DateOfProgressPresentation" required style="width: 47%; padding: 3%;">
                 </div>
                 </div>
                
                 <br>
                 <div class="ticket-form-boxes flex-row">
                     <div class="form-sections"> -->
-                        <!-- <label class="ticket-form-label">Supervisor 1</label>
+    <!-- <label class="ticket-form-label">Supervisor 1</label>
                         <input class="ticket-form-input" type="text" name="Supervisor1" required>
                     </div>
                     <br>
@@ -213,11 +213,11 @@
             <div class="flex-container">
                 <div class="width">
                     <span class="heading"> Name</span>
-                        <input class="ticket-form-input" type="text" name="Committee4_email" required>
+                    <input class="ticket-form-input" type="text" name="Name" required>
                 </div>
                 <div>
                     <span class="heading">Roll No.</span>
-                        <input class="ticket-form-input" type="text" name="Committee4_email" required>
+                    <input class="ticket-form-input" type="text" name="Committee4_email" required>
                 </div>
             </div>
             <div class="flex-container">
@@ -225,13 +225,13 @@
                     <span class="heading">Academic Unit </span>
                     <input class="ticket-form-input" type="text" name="Committee4_email" required>
                 </div>
-                <div >
+                <div>
 
                     <span class="heading">Date of registration: </span>
                     <input class="ticket-form-input" type="text" name="Committee4_email" required>
                 </div>
             </div>
-            
+
             <span class="heading">Gate/NET/TA: </span>
             <p>
                 <input type="radio" name="GATE" value="Yes">Yes
@@ -242,25 +242,26 @@
             <input class="ticket-form-input" type="text" name="Committee4_email" required>
             <br>
             <div class="flex-container">
-            <div class="width">
-            <span class="heading">Date of IRB: </span>
-            <p>
-                <!-- 12/12/12 -->
-                <!-- {{ Ticket['DateOfIRB'] }} -->
-            </p>
-        </div>
-        <div>
-            <span class="heading">Date of progress presentation: </span>
-            <p>
-                <!-- 12/12/12 -->
-                <!-- {{ Ticket['DateOfProgressPresentation']}} -->
-            </p>
-        </div></div>
-            <br>
+                <div class="width">
+                    <span class="heading">Date of IRB: </span>
+                    <p>
+                        <!-- 12/12/12 -->
+                        <!-- {{ Ticket['DateOfIRB'] }} -->
+                    </p>
+                </div>
+                <div>
+                    <span class="heading">Date of progress presentation: </span>
+                    <p>
+                        <!-- 12/12/12 -->
+                        <!-- {{ Ticket['DateOfProgressPresentation']}} -->
+                    </p>
+                </div>
+            </div>
+            <!-- <br>
             <span class="heading">presentation as PDF</span>
             <div> <a href="{{ Ticket['FilePath']}}"> <img class="viewfile" src="../Images/viewfile.png" alt=""></a>
             </div>
-            <br>
+            <br> -->
             <div class="">
                 <div class="">
                     <span class="heading">Supervisor(s):</span>
@@ -272,7 +273,7 @@
 
                         <p class="heading">Name:</p>
                         <p>
-        
+
                             <input class="ticket-form-input" type="text" name="Committee4_email" required>
                         </p>
                     </div>
@@ -372,7 +373,7 @@
                         <p class="heading">Email-id:
                         </p>
                         <p>
-                        <input class="ticket-form-input" type="text" name="Committee4_email" required>
+                            <input class="ticket-form-input" type="text" name="Committee4_email" required>
                         </p>
                     </div>
                 </div>
@@ -399,7 +400,7 @@
                     <div class="flex-container-2 width">
                         <p class="heading">Name:</p>
                         <p>
-                        <input class="ticket-form-input" type="text" name="Committee4_email" required>
+                            <input class="ticket-form-input" type="text" name="Committee4_email" required>
                         </p>
                     </div>
                     <div class="flex-container-2">
@@ -410,6 +411,11 @@
                         </p>
                     </div>
                 </div>
+            </div>
+
+            <br>
+            <span class="heading">presentation as PDF</span>
+            <div> <a href="{{ Ticket['FilePath']}}"> <img class="viewfile" src="../Images/viewfile.png" alt=""></a>
             </div>
 
             <br>
