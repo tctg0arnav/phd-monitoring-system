@@ -148,6 +148,34 @@
 .footer{
     position: fixed;
     bottom: 0px;
+    display: flex;
+    flex-direction: row;
+    padding: 3%;
+    border: 1px solid #640000;
+    width: 100%;
+    justify-content: space-around;
+    background-color: #d9d9d9;
+}
+.footer-date{
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5em;
+}
+.date-name{
+  font-weight: 500;
+}
+.footer-text{
+  font-style: italic;
+  font-size: 1.2em;
+  width: 30%;
+
+}
+.footer button{
+  padding:  1.1% 2.2%;
+  font-size: 1.5em;
+  background-color: #640000;
+  color: white;
+  border: 1px solid #640000;
 }
   @media screen and (max-width: 780px) {
     .navbar-name{
