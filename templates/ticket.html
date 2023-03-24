@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='/css/ticket.css') }}">
     <link rel="stylesheet" href="/css templates/ticket.css">
     <!-- <link rel="stylesheet" href="/css templates/ticket_static.css"> -->
@@ -23,18 +22,18 @@
         <form action="" method="post" enctype=multipart/form-data>
             <div class="flex-container">
                 <div class="width">
-                    <span class="heading"> Name:</span>
+                    <span class="heading"> Name</span>
                     <input class="ticket-form-input1" type="text" name="Name" required>
                 </div>
                 <div class="width2">
-                    <span class="heading">Roll No.:</span>
+                    <span class="heading">Roll No.</span>
                     <!-- <input class="ticket-form-input1" type="text" name="Committee4_email" required> -->
                     <input class="ticket-form-input1" type="text" name="RollNo" required>
                 </div>
             </div>
             <div class="flex-container">
                 <div class="width">
-                    <span class="heading2">Academic Unit: </span>
+                    <span class="heading2">Academic Unit </span>
                     <!-- <input class="ticket-form-input1" type="text" name="Committee4_email" required> -->
                     <input class="ticket-form-input1" type="text" name="AU" required>
                 </div>
@@ -45,21 +44,13 @@
                     <input class="ticket-form-input1 " type="date" name="DateOfRegistration" required>
                 </div>
             </div>
-            
-            <div class="flex-container">
-
-            <div class="width">
-                <span class="heading">Email-id:</span>
-                <!-- <input class="ticket-form-input1" type="text" name="Committee4_email" required> -->
-                <input class="ticket-form-input1" type="text" name="RollNo" required>
-            </div>
-            <div class="width2 gate">
+            <br>
+            <div class="">
                 <span class="heading">Gate/NET/TA: </span>
-                <p class="">
+                <p>
                     <input type="radio" name="GATE" value="Yes">Yes
                     <input type="radio" name="GATE" value="No">No
                 </p>
-            </div>
             </div>
             <br>
             <div class="width3">
@@ -89,7 +80,7 @@
             <br> -->
             <div class="">
                 <div class="">
-                    <span class="heading">Supervisor(s)</span>
+                    <span class="heading">Supervisor(s):</span>
                     <br>
 
                 </div>
@@ -151,7 +142,7 @@
             <br>
             <div>
                 <div>
-                    <span class="heading">Doctoral Committee</span>
+                    <span class="heading">Doctoral Committee:</span>
                     <br>
                 </div>
                 <div class="flex-container">
