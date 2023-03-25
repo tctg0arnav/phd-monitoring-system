@@ -14,7 +14,6 @@ app = Flask(__name__)
 app.secret_key = 'secretkey'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
-
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 db = SQLAlchemy(app)
 
@@ -42,6 +41,13 @@ class Ticket(db.Model):
     Supervisor3_email = db.Column(db.String(50))
     Supervisor3_remarks = db.Column(db.String(100))
     Supervisor3_approval = db.Column(db.String(50))
+    #%workdonetillprev and %workdonetillpresent for each supervisor
+    workdonetillprev1 = db.Column(db.Integer)
+    workdonetillpresent1 = db.Column(db.Integer)
+    workdonetillprev2 = db.Column(db.Integer)
+    workdonetillpresent2 = db.Column(db.Integer)
+    workdonetillprev3 = db.Column(db.Integer)
+    workdonetillpresent3 = db.Column(db.Integer)
     Committee1 = db.Column(db.String(50))
     Committee1_email = db.Column(db.String(50))
     Committee1_remarks = db.Column(db.String(100))
@@ -66,10 +72,9 @@ class Ticket(db.Model):
     Publications = db.Column(db.String(100))
     Conferences = db.Column(db.String(100))
 
-#create a user table with email, password, name and role
+
 class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(50))
+    email = db.Column(db.String(50), primary_key=True)
     password = db.Column(db.String(50))
     name = db.Column(db.String(50))
     role = db.Column(db.String(50))
@@ -77,8 +82,6 @@ class User(db.Model):
 
 @app.route('/')
 def index():
-    #list of links to all the routes in the app
-    #routes are: login, ticket, supervisor/1, committee/1, admin_dashboard, AU_head_dashboard
     return """
     <h1>Routes</h1>
     <ul>
@@ -91,7 +94,7 @@ def index():
     </ul>
     """
 
-#login 
+
 @app.route('/login')
 def login():
     return render_template('login.html')
@@ -100,7 +103,6 @@ def login():
 def login_submit():
     email = request.form['email']
     password = request.form['password']
-    #if username and password match with the database then redirect to the dashboard based on the role
     user = User.query.filter_by(email=email).first()
     if user and user.password == password:
         session['user'] = user.email
@@ -108,7 +110,6 @@ def login_submit():
         if user.role == 'admin':
             return redirect(url_for('admin_dashboard'))
         elif user.role == 'AU_head':
-            #get AU from the database and store it in the session
             session['AU'] = user.AU
             return redirect(url_for('AU_dashboard'))
 
@@ -119,8 +120,9 @@ def ticket():
 
 @app.route('/ticket', methods=['POST'])
 def ticket_submit():
-    email_id = "tempmail.xlcsgo@gmail.com"
+    student_name = request.form['student_name']
     RollNo = request.form['RollNo']
+    student_email = request.form['student_email']
     AU = request.form['AU']
     DateOfRegistration = request.form['DateOfRegistration']
     DateOfRegistration = dparser.parse(DateOfRegistration, fuzzy=True)
@@ -155,25 +157,26 @@ def ticket_submit():
     file.save(FilePath)
     Publications = request.form.get('Publications')
     Conferences = request.form.get('Conferences')
-    #store data in database
-    new_ticket = Ticket(RollNo=RollNo, AU=AU, DateOfRegistration=DateOfRegistration, GATE=GATE, ProjectTitle=ProjectTitle, DateOfIRB=DateOfIRB, DateOfProgressPresentation=DateOfProgressPresentation, Supervisor1=Supervisor1, Supervisor1_email=Supervisor1_email, Supervisor2=Supervisor2, Supervisor2_email=Supervisor2_email, Supervisor3=Supervisor3, Supervisor3_email=Supervisor3_email, Committee1=Committee1, Committee1_email=Committee1_email, Committee2=Committee2, Committee2_email=Committee2_email, Committee3=Committee3, Committee3_email=Committee3_email, Committee4=Committee4, Committee4_email=Committee4_email, Committee5=Committee5, Committee5_email = Committee5_email, FilePath=FilePath, Publications=Publications, Conferences=Conferences)
+    new_ticket = Ticket(student_name=student_name, student_email=student_email, RollNo=RollNo, AU=AU, DateOfRegistration=DateOfRegistration, GATE=GATE, ProjectTitle=ProjectTitle, DateOfIRB=DateOfIRB, DateOfProgressPresentation=DateOfProgressPresentation, Supervisor1=Supervisor1, Supervisor1_email=Supervisor1_email, Supervisor2=Supervisor2, Supervisor2_email=Supervisor2_email, Supervisor3=Supervisor3, Supervisor3_email=Supervisor3_email, Committee1=Committee1, Committee1_email=Committee1_email, Committee2=Committee2, Committee2_email=Committee2_email, Committee3=Committee3, Committee3_email=Committee3_email, Committee4=Committee4, Committee4_email=Committee4_email, Committee5=Committee5, Committee5_email = Committee5_email, FilePath=FilePath, Publications=Publications, Conferences=Conferences)
     db.session.add(new_ticket)
     db.session.commit()
     projectID = Ticket.query.filter_by(RollNo=RollNo).first().projectid
     ticket = Ticket.query.get(projectID)
     ticket = ticket.__dict__
-    send_mail(email_id, "Ticket generated", ticket_static(projectID))
+    #create pdf from html using pdfkit
+    pdf = pdfkit.from_string(ticket_static(projectID), False, options={"enable-local-file-access": ""})
+    #save pdf to uploads folder
+    with open(f'./uploads/ticket_{projectID}.pdf', 'wb') as f:
+        f.write(pdf)
     return redirect(url_for('ticket_static', Ticket=ticket, projectid=projectID))
 
 @app.route('/view/<int:projectid>', methods=['GET', 'POST'])
 def ticket_static(projectid):
     ticket = Ticket.query.get(projectid)
     ticket = ticket.__dict__
-    #convert datetime to string in format YYYY-MM-DD
     ticket['DateOfRegistration'] = ticket['DateOfRegistration'].strftime('%Y-%m-%d')
     ticket['DateOfIRB'] = ticket['DateOfIRB'].strftime('%Y-%m-%d')
     ticket['DateOfProgressPresentation'] = ticket['DateOfProgressPresentation'].strftime('%Y-%m-%d')
-    #if GATE is true, add key gate_yes and set it to 'checked', else set gate_no to 'checked'
     if ticket['GATE']:
         ticket['gate_yes'] = 'checked'
         ticket['gate_no'] = ''
@@ -181,61 +184,66 @@ def ticket_static(projectid):
         ticket['gate_no'] = 'checked'
         ticket['gate_yes'] = ''
     print(ticket)
-    return render_template('ticket_static.html', Ticket=ticket)
+    return render_template('ticket_static.html', Ticket=ticket, projectid=projectid)
 
-
-def send_mail(receiver,subject,body,attachment):
+def send_mail(receiver,subject,body,attachment=None):
     yag = yagmail.SMTP('tempmail.xlcsgo@gmail.com', 'jjjthrbdtohkiomc')
     contents = [body]
     yag.send(receiver, subject, contents, attachments=attachment)
     return 0
 
-#setup route /supervisor/<int:projectid> that opens pdf file ticket_projectid.pdf in an embed then offers form with a field for supervisor name, email, remarks and button for approve or deny
 @app.route('/supervisor/<int:projectid>', methods=['GET', 'POST'])
 def supervisor(projectid):
-    #if get request, open pdf file in embed
     if request.method == 'GET':
-        return render_template('supervisor.html', pdf_path=f'/uploads/ticket_{projectid}.pdf')
-    #if post request, store supervisor name, email, remarks and approval status in database
-    else:
-        #get supervisor email from form, match it with database fields supervisor1_email, supervisor2_email, supervisor3_email and get supervisor number
+        ticket = Ticket.query.get(projectid)
+        ticket = ticket.__dict__
+        return render_template('supervisor.html', Ticket=ticket, projectid=projectid)
+    elif request.method == 'POST':
         supervisor_email = request.form['supervisor_email']
         if supervisor_email == Ticket.query.get(projectid).Supervisor1_email:
-            #store remarks and approval status in database
-            Ticket.query.get(projectid).Supervisor1_remarks = request.form['supervisor_remarks']
-            #if submit button value is approve, set approval status to true, else set it to false
-            if request.form['submit'] == 'approve':
+            Ticket.query.get(projectid).Supervisor1_remarks = request.form['remarks']
+            workdonetillprev1 = request.form['percentage_prev']
+            workdonetillnow1 = request.form['percentage_present']
+            #put in database
+            Ticket.query.get(projectid).workdonetillprev1 = workdonetillprev1
+            Ticket.query.get(projectid).workdonetillnow1 = workdonetillnow1
+            if request.form['approved'] == 'yes':
                 Ticket.query.get(projectid).Supervisor1_approval = True
             else:
                 Ticket.query.get(projectid).Supervisor1_approval = False
         elif supervisor_email == Ticket.query.get(projectid).Supervisor2_email:
-            Ticket.query.get(projectid).Supervisor2_remarks = request.form['supervisor_remarks']
-            if request.form['submit'] == 'approve':
+            Ticket.query.get(projectid).Supervisor2_remarks = request.form['remarks']
+            workdonetillprev2 = request.form['percentage_prev']
+            workdonetillnow2 = request.form['percentage_present']
+            #put in database
+            Ticket.query.get(projectid).workdonetillprev2 = workdonetillprev2
+            Ticket.query.get(projectid).workdonetillnow2 = workdonetillnow2
+            if request.form['approved'] == 'yes':
                 Ticket.query.get(projectid).Supervisor2_approval = True
             else:
                 Ticket.query.get(projectid).Supervisor2_approval = False
         elif supervisor_email == Ticket.query.get(projectid).Supervisor3_email:
-            Ticket.query.get(projectid).Supervisor3_remarks = request.form['supervisor_remarks']
-            if request.form['submit'] == 'approve':
+            Ticket.query.get(projectid).Supervisor3_remarks = request.form['remarks']
+            workdonetillprev3 = request.form['percentage_prev']
+            workdonetillnow3 = request.form['percentage_present']
+            #put in database
+            Ticket.query.get(projectid).workdonetillprev3 = workdonetillprev3
+            Ticket.query.get(projectid).workdonetillnow3 = workdonetillnow3
+            if request.form['approved'] == 'yes':
                 Ticket.query.get(projectid).Supervisor3_approval = True
             else:
                 Ticket.query.get(projectid).Supervisor3_approval = False
         db.session.commit()
+        return redirect(url_for('index'))
 
-#setup route /committee/<int:projectid> that opens pdf file ticket_projectid.pdf in an embed then offers form with a field for committee name, email, remarks and button for approve or deny
 @app.route('/committee/<int:projectid>', methods=['GET', 'POST'])
 def committee(projectid):
-    #if get request, open pdf file in embed
     if request.method == 'GET':
         return render_template('committee.html', pdf_path=f'/uploads/ticket_{projectid}.pdf')
-    #if post request, store committee name, email, remarks and approval status in database
     else:
-        #get committee email from form, match it with database fields committee1_email, committee2_email, committee3_email, committee4_email and committee5_email and get committee number
         committee_email = request.form['committee_email']
         if committee_email == Ticket.query.get(projectid).Committee1_email:
-            #store remarks and approval status in database
             Ticket.query.get(projectid).Committee1_remarks = request.form['committee_remarks']
-            #if submit button value is approve, set approval status to true, else set it to false
             if request.form['submit'] == 'approve':
                 Ticket.query.get(projectid).Committee1_approval = True
             else:
@@ -266,32 +274,25 @@ def committee(projectid):
                 Ticket.query.get(projectid).Committee5_approval = False
         db.session.commit()
 
-#setup route supervisor_dashboard that shows all projects that have the supervisor listed as supervisor1, supervisor2 or supervisor3
+
 @app.route('/supervisor_dashboard')
 def supervisor_dashboard():
-    #get supervisor email from session
     supervisor_email = session['email']
-    #get all projects that have supervisor email as supervisor1, supervisor2 or supervisor3
     projects = Ticket.query.filter((Ticket.Supervisor1_email == supervisor_email) | (Ticket.Supervisor2_email == supervisor_email) | (Ticket.Supervisor3_email == supervisor_email)).all()
     return render_template('supervisor_dashboard.html', projects=projects)
 
-#setup route committee_dashboard that shows all projects that have the committee listed as committee1, committee2, committee3, committee4 or committee5
+
 @app.route('/committee_dashboard')
 def committee_dashboard():
-    #get committee email from session
     committee_email = session['email']
-    #get all projects that have committee email as committee1, committee2, committee3, committee4 or committee5
     projects = Ticket.query.filter((Ticket.Committee1_email == committee_email) | (Ticket.Committee2_email == committee_email) | (Ticket.Committee3_email == committee_email) | (Ticket.Committee4_email == committee_email) | (Ticket.Committee5_email == committee_email)).all()
     return render_template('committee_dashboard.html', projects=projects)
 
-#setup route AU_dashboard that shows all projects that have AU in database = AU in session
+
 @app.route('/AU_dashboard')
 def AU_dashboard():
-    #get AU email from session
     AU = session['AU']
-    #get all projects that have AU in database = AU in session
     projects = Ticket.query.filter(Ticket.AU == AU).all()
-    #if Supervisor1_approval is true, add approved key to dictionary with value as Supervisor1. If Supervisor2_approval is true append "," + Supervisor2 to list and so on
     for project in projects:
         if project.Supervisor1_approval == True:
             project.approved = project.Supervisor1
@@ -309,13 +310,11 @@ def AU_dashboard():
             project.approved = project.Supervisor3
         else:
             project.approved = "None"
-    #turn projects into a list of dictionaries
     projects = [project.__dict__ for project in projects] 
     return render_template('AU_dashboard.html', projects=projects)
 
 @app.route('/AU_dashboard/filter', methods=['GET', 'POST'])
 def AU_dashboard_filter():
-    #if filter select option is 'all', show all projects, else if filter select option is 'approved', show all approved projects, else if filter select option is 'unapproved', show all unapproved projects where approval = approval status or any committee member or supervisor 
     if request.form['filter'] == 'all':
         projects = Ticket.query.filter(Ticket.AU == session['AU']).all()
         return render_template('AU_dashboard.html', projects=projects)
@@ -325,7 +324,6 @@ def AU_dashboard_filter():
     elif request.form['filter'] == 'unapproved':
         projects = Ticket.query.filter((Ticket.AU == session['AU']) & ((Ticket.Supervisor1_approval == False) | (Ticket.Supervisor2_approval == False) | (Ticket.Supervisor3_approval == False) | (Ticket.Committee1_approval == False) | (Ticket.Committee2_approval == False) | (Ticket.Committee3_approval == False) | (Ticket.Committee4_approval == False) | (Ticket.Committee5_approval == False))).all()
         return render_template('AU_dashboard.html', projects=projects)
-    #if supervisor1_approval is true, add approved key to dictionary with value as Supervisor1. If supervisor2_approval is true append "," + Supervisor2 to list and so on
     for project in projects:
         if project.Supervisor1_approval == True:
             project.approved = project.Supervisor1
@@ -343,24 +341,19 @@ def AU_dashboard_filter():
             project.approved = project.Supervisor3
         else:
             project.approved = "None"
-    #turn projects into a list of dictionaries
     projects = [project.__dict__ for project in projects]
 
-#setup route admin_dashboard that shows all projects
+
 @app.route('/admin_dashboard')
 def admin_dashboard():
-    #get all projects
     projects = Ticket.query.all()
-    #convert all projects into dictionaries within an array
     projects = [project.__dict__ for project in projects]
     return render_template('admin_dashboard.html', projects=projects)
 
 @app.route('/admin_dashboard/filter', methods=['GET', 'POST'])
 def admin_dashboard_filter():
-    #if filter select option is 'all', show all projects, else if filter select option is 'approved', show all approved projects, else if filter select option is 'unapproved', show all unapproved projects where approval = approval status or any committee member or supervisor 
     if request.form['filter_approval'] == 'all' and request.form['filter_AU'] == 'all':
         projects = Ticket.query.all()
-        #if supervisor1_approval is true, add approved key to dictionary with value as Supervisor1. If supervisor2_approval is true append "," + Supervisor2 to list and so on
         for project in projects:
             if project.Supervisor1_approval == True:
                 project.approved = project.Supervisor1
@@ -382,7 +375,6 @@ def admin_dashboard_filter():
         return render_template('admin_dashboard.html', projects=projects)
     elif request.form['filter_approval'] == 'approved' and request.form['filter_AU'] == 'all':
         projects = Ticket.query.filter((Ticket.Supervisor1_approval == True) & (Ticket.Supervisor2_approval == True) & (Ticket.Supervisor3_approval == True) & (Ticket.Committee1_approval == True) & (Ticket.Committee2_approval == True) & (Ticket.Committee3_approval == True) & (Ticket.Committee4_approval == True) & (Ticket.Committee5_approval == True)).all()
-        #if supervisor1_approval is true, add approved key to dictionary with value as Supervisor1. If supervisor2_approval is true append "," + Supervisor2 to list and so on
         for project in projects:
             if project.Supervisor1_approval == True:
                 project.approved = project.Supervisor1
@@ -486,5 +478,7 @@ def admin_dashboard_filter():
                 project.approved = "None"
         projects = [project.__dict__ for project in projects]
         return render_template('admin_dashboard.html', projects=projects)
+
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=5001)

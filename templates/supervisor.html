@@ -280,7 +280,9 @@
         </div>
     </div>
     <br>
-    <form class="percentage-container" action="" method="post" enctype=multipart/form-data>
+    <form class="percentage-container" action="/supervisor/{{ Ticket['projectid'] }}" method="post" enctype=multipart/form-data>
+
+        <input type="text" name="supervisor_email" id="">
 
         <p class="heading heading-height">Percentage of work done till previous presentation</p>
         <div class="percentage-input">
@@ -297,15 +299,15 @@
         <p class="heading">Remarks</p>
         <textarea class="percentage-container-text" name="remarks" cols="30" rows="8"></textarea>
         <br>
-    </form>
+
     <p class="heading1">Satisfied:</p>
     <input type="radio" name="approved" value="yes">Yes
     <input type="radio" name="approved" value="no">No
     <br>
     <div class="button-container">
-        <button class="button-submit">SUBMIT</button>
+        <button class="button-submit" type="submit">SUBMIT</button>
     </div>
-
+    </form>
 
     </body>
 

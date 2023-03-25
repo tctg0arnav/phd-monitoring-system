@@ -47,7 +47,7 @@
               <button class="" type="submit">FILTER</button>
           </form>
         </div>
-        {{ for each in projects }}
+        {% for each in projects %}
         <div class="container2">
             <div class="card">
               <div class="title">
@@ -63,6 +63,7 @@
                   <p class="card-right-para">Name:{{ each['student_name'] }}</p>
                   <p class="card-right-para">Roll No.: {{ each['RollNo'] }}</p>
                 </div>
+        {% endfor %}
             </div>
         </div>
 
