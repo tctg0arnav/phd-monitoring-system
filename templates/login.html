@@ -1,8 +1,134 @@
 <!-- form for flask action POST to url /login -->
-<form action="/login" method="post">
-    <label for="email">Email</label>
-    <input type="text" name="username" id="username" />
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password" />
-    <input type="submit" value="Login" />
-</form>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+    <link rel="stylesheet" href="../css templates/login.css">
+
+</head>
+
+<body>
+
+    <div class="header">
+        <img src="../archived-for-now/Images/TIET-logo.png" alt="">
+        <h1>Thapar Institute of Engineering and Technology</h1>
+    </div>
+    <hr>
+    <!-- <div class="form-container">
+        <div class="img">
+            <div>
+                <h2>
+                    welcome to
+                </h2>
+                <h2>
+                    PhD progress monitoring system
+                </h2>
+            </div>
+
+        </div>
+        <div>
+            <div>
+                <h1>LOG IN</h1>
+                <p>To Your Account</p>
+            </div>
+            <form action="/login" method="post">
+                <div class="input">
+                    <img src="../images/username.png" alt="">
+                    <input type="text" name="username" id="username" placeholder="username" />
+                </div>
+                <div class="input">
+                    <img src="../images/password.png" alt="">
+                
+                <input type="password" name="password" placeholder="password" id="password" /></div>
+                <input type="checkbox"> <label for="checkbox">Remeber username</label>
+                <input type="submit" value="Login" />
+            </form>
+        </div>
+    </div> -->
+
+    <div class="login2" id="login-form">
+        <div class="login2-bottom">
+            <div class="login2-left">
+                <div class="welcome">
+                    <p class="login2-left-para11">Welcome to</p>
+                    <p class="login2-left-para3">PhD progress</p>
+                    <p class="login2-left-para3">monitoring system</p>
+                </div>
+
+            </div>
+            <div class="login2-right">
+                <div class="login2-top">
+                    <p class="login2-top-para1">LOG IN</p>
+                    <p class="login2-top-para2">TO YOUR ACCOUNT</p>
+                </div>
+
+                <div class="">
+
+                    <!-- <p class="login2-right-para1">Already have an account?</p> -->
+                    <!-- <p class="login2-right-para2">TO YOUR ACCOUNT</p> -->
+                    <form class="login2-right-form" action="/login" method="post">
+                        <div class="username">
+                            <img class="login-form-images" src="../Images/username.png" alt="User">
+                            <input class="login-form-input" type="text" name="username" placeholder="Username">
+                        </div>
+                        <div class="password">
+                            <img class="login-form-images" src="../Images/password.png" alt="Pass">
+                            <input class="login-form-input" type="password" name="password" placeholder="Password">
+                        </div>
+                        <div class="login-form-username">
+                            <input type="checkbox" id="user-pass" name="remember" value="Bike">
+                            <label for="remember">Remember Username</label>
+                        </div>
+                        <button type="submit" class="login-form-button">LOG IN</button>
+                    </form>
+                    <!-- <p class="login2-right-para3"></p> -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mobile">
+        <h2>
+            welcome to
+        </h2>
+        <h1>
+            PhD progress monitoring system
+        </h1>
+    </div>
+    <div class="login2-right mobile">
+        <div class="login2-top">
+            <p class="login2-top-para1">LOG IN</p>
+            <p class="login2-top-para2">TO YOUR ACCOUNT</p>
+        </div>
+
+        <div class="">
+
+            <!-- <p class="login2-right-para1">Already have an account?</p> -->
+            <!-- <p class="login2-right-para2">TO YOUR ACCOUNT</p> -->
+            <form class="login2-right-form" action="/login" method="post">
+                <div class="username">
+                    <img class="login-form-images" src="../Images/username.png" alt="User">
+                    <input class="login-form-input" type="text" name="username" placeholder="Username">
+                </div>
+                <div class="password">
+                    <img class="login-form-images" src="../Images/password.png" alt="Pass">
+                    <input class="login-form-input" type="password" name="password" placeholder="Password">
+                </div>
+                <div class="login-form-username">
+                    <input type="checkbox" id="user-pass" name="remember" value="Bike">
+                    <label for="remember">Remember Username</label>
+                </div>
+                <button type="submit" class="login-form-button">LOG IN</button>
+            </form>
+            <!-- <p class="login2-right-para3"></p> -->
+
+        </div>
+    </div>
+    <div class="mobile space"></div>
+</body>
+
+
+</html>
