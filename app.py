@@ -98,10 +98,10 @@ def login():
 
 @app.route('/login', methods=['POST'])
 def login_submit():
-    username = request.form['username']
+    email = request.form['email']
     password = request.form['password']
     #if username and password match with the database then redirect to the dashboard based on the role
-    user = User.query.filter_by(email=username).first()
+    user = User.query.filter_by(email=email).first()
     if user and user.password == password:
         session['user'] = user.email
         session['role'] = user.role
