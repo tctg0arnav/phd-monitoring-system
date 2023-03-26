@@ -86,6 +86,7 @@ def index():
     <h1>Routes</h1>
     <ul>
         <li><a href="/login">Login</a></li>
+        <li><a href="/signup">Signup</a></li>
         <li><a href="/ticket">Ticket</a></li>
         <li><a href="/supervisor/1">Supervisor/1</a></li>
         <li><a href="/committee/1">Committee/1</a></li>
@@ -113,6 +114,21 @@ def login_submit():
             session['AU'] = user.AU
             return redirect(url_for('AU_dashboard'))
 
+@app.route('/signup')
+def signup():
+    return render_template('signup.html')
+
+@app.route('/signup', methods=['POST'])
+def signup_submit():
+    email = request.form['email']
+    name = request.form['name']
+    role = request.form['role']
+    AU = request.form['AU']
+    password = request.form['password']
+    user = User(email=email, name=name, role=role, AU=AU, password=password)
+    db.session.add(user)
+    db.session.commit()
+    return redirect(url_for('login'))
 
 @app.route('/ticket')
 def ticket():
