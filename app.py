@@ -185,11 +185,11 @@ def ticket_submit():
     with open(f'./uploads/ticket_{projectID}.pdf', 'wb') as f:
         f.write(pdf)
     send_mail(ticket['student_email'], 'Ticket Submission', 'Your ticket has been submitted successfully', [f'./uploads/ticket_{projectID}.pdf',f'./uploads/{RollNo}.pdf'])
-    send_mail(ticket['Supervisor1_email'], 'Ticket Submission', f'Eticket raised by student {student_name}, roll no: {RollNo}. Please visit the link: https://ce8c-2406-b400-60-fafb-91ed-36aa-ecf7-4341.in.ngrok.io/supervisor/{projectID}', [f'./uploads/ticket_{projectID}.pdf',f'./uploads/{RollNo}.pdf'])
+    send_mail(ticket['Supervisor1_email'], 'Ticket Submission', f'Eticket raised by student {student_name}, roll no: {RollNo}. Please visit the link: https://090d-2406-b400-60-fafb-58f9-a29c-5777-13f0.in.ngrok.io/supervisor/{projectID}', [f'./uploads/ticket_{projectID}.pdf',f'./uploads/{RollNo}.pdf'])
     if ticket['Supervisor2_email'] != None:
-        send_mail(ticket['Supervisor2_email'], 'Ticket Submission', f'Eticket raised by student {student_name}, roll no: {RollNo}. Please visit the link: https://ce8c-2406-b400-60-fafb-91ed-36aa-ecf7-4341.in.ngrok.io/supervisor/{projectID}', [f'./uploads/ticket_{projectID}.pdf',f'./uploads/{RollNo}.pdf'])
+        send_mail(ticket['Supervisor2_email'], 'Ticket Submission', f'Eticket raised by student {student_name}, roll no: {RollNo}. Please visit the link: https://090d-2406-b400-60-fafb-58f9-a29c-5777-13f0.in.ngrok.io/supervisor/{projectID}', [f'./uploads/ticket_{projectID}.pdf',f'./uploads/{RollNo}.pdf'])
     if ticket['Supervisor3_email'] != None:
-        send_mail(ticket['Supervisor3_email'], 'Ticket Submission', f'Eticket raised by student {student_name}, roll no: {RollNo}. Please visit the link: https://ce8c-2406-b400-60-fafb-91ed-36aa-ecf7-4341.in.ngrok.io/supervisor/{projectID}', [f'./uploads/ticket_{projectID}.pdf',f'./uploads/{RollNo}.pdf'])
+        send_mail(ticket['Supervisor3_email'], 'Ticket Submission', f'Eticket raised by student {student_name}, roll no: {RollNo}. Please visit the link: https://090d-2406-b400-60-fafb-58f9-a29c-5777-13f0.in.ngrok.io/supervisor/{projectID}', [f'./uploads/ticket_{projectID}.pdf',f'./uploads/{RollNo}.pdf'])
     return redirect(url_for('ticket_static', Ticket=ticket, projectid=projectID))
 
 @app.route('/view/<int:projectid>', methods=['GET', 'POST'])
@@ -391,139 +391,146 @@ def AU_dashboard_filter():
 
 @app.route('/admin_dashboard')
 def admin_dashboard():
-    projects = Ticket.query.all()
-    projects = [project.__dict__ for project in projects]
-    return render_template('admin_dashboard.html', projects=projects)
+    if 'email' not in session:
+        return redirect(url_for('login'))
+    elif session['role'] != 'admin':
+        return redirect(url_for('AU_dashboard'))
+    else:
+        projects = Ticket.query.all()
+        projects = [project.__dict__ for project in projects]
+        return render_template('admin_dashboard.html', projects=projects)
 
 @app.route('/admin_dashboard', methods=['POST'])
 def admin_dashboard_filter():
-    if request.form['filter_approval'] == 'all' and request.form['filter_AU'] == 'all':
-        projects = Ticket.query.all()
-        for project in projects:
-            if project.Supervisor1_approval == True:
-                project.approved = project.Supervisor1
-                if project.Supervisor2_approval == True:
-                    project.approved = project.approved + ", " + project.Supervisor2
+    if session['role'] == 'admin':
+        if request.form['filter_approval'] == 'all' and request.form['filter_AU'] == 'all':
+            projects = Ticket.query.all()
+            for project in projects:
+                if project.Supervisor1_approval == True:
+                    project.approved = project.Supervisor1
+                    if project.Supervisor2_approval == True:
+                        project.approved = project.approved + ", " + project.Supervisor2
+                        if project.Supervisor3_approval == True:
+                            project.approved = project.approved + ", " + project.Supervisor3
+                    elif project.Supervisor3_approval == True:
+                        project.approved = project.approved + ", " + project.Supervisor3
+                elif project.Supervisor2_approval == True:
+                    project.approved = project.Supervisor2
                     if project.Supervisor3_approval == True:
                         project.approved = project.approved + ", " + project.Supervisor3
                 elif project.Supervisor3_approval == True:
-                    project.approved = project.approved + ", " + project.Supervisor3
-            elif project.Supervisor2_approval == True:
-                project.approved = project.Supervisor2
-                if project.Supervisor3_approval == True:
-                    project.approved = project.approved + ", " + project.Supervisor3
-            elif project.Supervisor3_approval == True:
-                project.approved = project.Supervisor3
-            else:
-                project.approved = "None"
-        projects = [project.__dict__ for project in projects]
-        return render_template('admin_dashboard.html', projects=projects)
-    elif request.form['filter_approval'] == 'approved' and request.form['filter_AU'] == 'all':
-        projects = Ticket.query.filter((Ticket.Supervisor1_approval == True) & (Ticket.Supervisor2_approval == True) & (Ticket.Supervisor3_approval == True) & (Ticket.Committee1_approval == True) & (Ticket.Committee2_approval == True) & (Ticket.Committee3_approval == True) & (Ticket.Committee4_approval == True) & (Ticket.Committee5_approval == True)).all()
-        for project in projects:
-            if project.Supervisor1_approval == True:
-                project.approved = project.Supervisor1
-                if project.Supervisor2_approval == True:
-                    project.approved = project.approved + ", " + project.Supervisor2
+                    project.approved = project.Supervisor3
+                else:
+                    project.approved = "None"
+            projects = [project.__dict__ for project in projects]
+            return render_template('admin_dashboard.html', projects=projects)
+        elif request.form['filter_approval'] == 'approved' and request.form['filter_AU'] == 'all':
+            projects = Ticket.query.filter((Ticket.Supervisor1_approval == True) & (Ticket.Supervisor2_approval == True) & (Ticket.Supervisor3_approval == True) & (Ticket.Committee1_approval == True) & (Ticket.Committee2_approval == True) & (Ticket.Committee3_approval == True) & (Ticket.Committee4_approval == True) & (Ticket.Committee5_approval == True)).all()
+            for project in projects:
+                if project.Supervisor1_approval == True:
+                    project.approved = project.Supervisor1
+                    if project.Supervisor2_approval == True:
+                        project.approved = project.approved + ", " + project.Supervisor2
+                        if project.Supervisor3_approval == True:
+                            project.approved = project.approved + ", " + project.Supervisor3
+                    elif project.Supervisor3_approval == True:
+                        project.approved = project.approved + ", " + project.Supervisor3
+                elif project.Supervisor2_approval == True:
+                    project.approved = project.Supervisor2
                     if project.Supervisor3_approval == True:
                         project.approved = project.approved + ", " + project.Supervisor3
                 elif project.Supervisor3_approval == True:
-                    project.approved = project.approved + ", " + project.Supervisor3
-            elif project.Supervisor2_approval == True:
-                project.approved = project.Supervisor2
-                if project.Supervisor3_approval == True:
-                    project.approved = project.approved + ", " + project.Supervisor3
-            elif project.Supervisor3_approval == True:
-                project.approved = project.Supervisor3
-            else:
-                project.approved = "None"
-        projects = [project.__dict__ for project in projects]
-        return render_template('admin_dashboard.html', projects=projects)
-    elif request.form['filter_approval'] == 'unapproved' and request.form['filter_AU'] == 'all':
-        projects = Ticket.query.filter((Ticket.Supervisor1_approval == False) & (Ticket.Supervisor2_approval == False) & (Ticket.Supervisor3_approval == False) & (Ticket.Committee1_approval == False) & (Ticket.Committee2_approval == False) & (Ticket.Committee3_approval == False) & (Ticket.Committee4_approval == False) & (Ticket.Committee5_approval == False)).all()
-        for project in projects:
-            if project.Supervisor1_approval == True:
-                project.approved = project.Supervisor1
-                if project.Supervisor2_approval == True:
-                    project.approved = project.approved + ", " + project.Supervisor2
+                    project.approved = project.Supervisor3
+                else:
+                    project.approved = "None"
+            projects = [project.__dict__ for project in projects]
+            return render_template('admin_dashboard.html', projects=projects)
+        elif request.form['filter_approval'] == 'unapproved' and request.form['filter_AU'] == 'all':
+            projects = Ticket.query.filter((Ticket.Supervisor1_approval == False) & (Ticket.Supervisor2_approval == False) & (Ticket.Supervisor3_approval == False) & (Ticket.Committee1_approval == False) & (Ticket.Committee2_approval == False) & (Ticket.Committee3_approval == False) & (Ticket.Committee4_approval == False) & (Ticket.Committee5_approval == False)).all()
+            for project in projects:
+                if project.Supervisor1_approval == True:
+                    project.approved = project.Supervisor1
+                    if project.Supervisor2_approval == True:
+                        project.approved = project.approved + ", " + project.Supervisor2
+                        if project.Supervisor3_approval == True:
+                            project.approved = project.approved + ", " + project.Supervisor3
+                    elif project.Supervisor3_approval == True:
+                        project.approved = project.approved + ", " + project.Supervisor3
+                elif project.Supervisor2_approval == True:
+                    project.approved = project.Supervisor2
                     if project.Supervisor3_approval == True:
                         project.approved = project.approved + ", " + project.Supervisor3
                 elif project.Supervisor3_approval == True:
-                    project.approved = project.approved + ", " + project.Supervisor3
-            elif project.Supervisor2_approval == True:
-                project.approved = project.Supervisor2
-                if project.Supervisor3_approval == True:
-                    project.approved = project.approved + ", " + project.Supervisor3
-            elif project.Supervisor3_approval == True:
-                project.approved = project.Supervisor3
-            else:
-                project.approved = "None"
-        projects = [project.__dict__ for project in projects]
-        return render_template('admin_dashboard.html', projects=projects)
-    elif request.form['filter_approval'] == 'all' and request.form['filter_AU'] != 'all':
-        projects = Ticket.query.filter(Ticket.AU == request.form['filter_AU']).all()
-        for project in projects:
-            if project.Supervisor1_approval == True:
-                project.approved = project.Supervisor1
-                if project.Supervisor2_approval == True:
-                    project.approved = project.approved + ", " + project.Supervisor2
+                    project.approved = project.Supervisor3
+                else:
+                    project.approved = "None"
+            projects = [project.__dict__ for project in projects]
+            return render_template('admin_dashboard.html', projects=projects)
+        elif request.form['filter_approval'] == 'all' and request.form['filter_AU'] != 'all':
+            projects = Ticket.query.filter(Ticket.AU == request.form['filter_AU']).all()
+            for project in projects:
+                if project.Supervisor1_approval == True:
+                    project.approved = project.Supervisor1
+                    if project.Supervisor2_approval == True:
+                        project.approved = project.approved + ", " + project.Supervisor2
+                        if project.Supervisor3_approval == True:
+                            project.approved = project.approved + ", " + project.Supervisor3
+                    elif project.Supervisor3_approval == True:
+                        project.approved = project.approved + ", " + project.Supervisor3
+                elif project.Supervisor2_approval == True:
+                    project.approved = project.Supervisor2
                     if project.Supervisor3_approval == True:
                         project.approved = project.approved + ", " + project.Supervisor3
                 elif project.Supervisor3_approval == True:
-                    project.approved = project.approved + ", " + project.Supervisor3
-            elif project.Supervisor2_approval == True:
-                project.approved = project.Supervisor2
-                if project.Supervisor3_approval == True:
-                    project.approved = project.approved + ", " + project.Supervisor3
-            elif project.Supervisor3_approval == True:
-                project.approved = project.Supervisor3
-            else:
-                project.approved = "None"
-        projects = [project.__dict__ for project in projects]
-        return render_template('admin_dashboard.html', projects=projects)
-    elif request.form['filter_approval'] == 'approved' and request.form['filter_AU'] != 'all':
-        projects = Ticket.query.filter((Ticket.AU == request.form['filter_AU']) & (Ticket.Supervisor1_approval == True) & (Ticket.Supervisor2_approval == True) & (Ticket.Supervisor3_approval == True) & (Ticket.Committee1_approval == True) & (Ticket.Committee2_approval == True) & (Ticket.Committee3_approval == True) & (Ticket.Committee4_approval == True) & (Ticket.Committee5_approval == True)).all()
-        for project in projects:
-            if project.Supervisor1_approval == True:
-                project.approved = project.Supervisor1
-                if project.Supervisor2_approval == True:
-                    project.approved = project.approved + ", " + project.Supervisor2
+                    project.approved = project.Supervisor3
+                else:
+                    project.approved = "None"
+            projects = [project.__dict__ for project in projects]
+            return render_template('admin_dashboard.html', projects=projects)
+        elif request.form['filter_approval'] == 'approved' and request.form['filter_AU'] != 'all':
+            projects = Ticket.query.filter((Ticket.AU == request.form['filter_AU']) & (Ticket.Supervisor1_approval == True) & (Ticket.Supervisor2_approval == True) & (Ticket.Supervisor3_approval == True) & (Ticket.Committee1_approval == True) & (Ticket.Committee2_approval == True) & (Ticket.Committee3_approval == True) & (Ticket.Committee4_approval == True) & (Ticket.Committee5_approval == True)).all()
+            for project in projects:
+                if project.Supervisor1_approval == True:
+                    project.approved = project.Supervisor1
+                    if project.Supervisor2_approval == True:
+                        project.approved = project.approved + ", " + project.Supervisor2
+                        if project.Supervisor3_approval == True:
+                            project.approved = project.approved + ", " + project.Supervisor3
+                    elif project.Supervisor3_approval == True:
+                        project.approved = project.approved + ", " + project.Supervisor3
+                elif project.Supervisor2_approval == True:
+                    project.approved = project.Supervisor2
                     if project.Supervisor3_approval == True:
                         project.approved = project.approved + ", " + project.Supervisor3
                 elif project.Supervisor3_approval == True:
-                    project.approved = project.approved + ", " + project.Supervisor3
-            elif project.Supervisor2_approval == True:
-                project.approved = project.Supervisor2
-                if project.Supervisor3_approval == True:
-                    project.approved = project.approved + ", " + project.Supervisor3
-            elif project.Supervisor3_approval == True:
-                project.approved = project.Supervisor3
-            else:
-                project.approved = "None"
-        projects = [project.__dict__ for project in projects]
-        return render_template('admin_dashboard.html', projects=projects)
-    elif request.form['filter_approval'] == 'unapproved' and request.form['filter_AU'] != 'all':
-        projects = Ticket.query.filter((Ticket.AU == request.form['filter_AU']) & ((Ticket.Supervisor1_approval == False) | (Ticket.Supervisor2_approval == False) | (Ticket.Supervisor3_approval == False) | (Ticket.Committee1_approval == False) | (Ticket.Committee2_approval == False) | (Ticket.Committee3_approval == False) | (Ticket.Committee4_approval == False) | (Ticket.Committee5_approval == False))).all()
-        for project in projects:
-            if project.Supervisor1_approval == True:
-                project.approved = project.Supervisor1
-                if project.Supervisor2_approval == True:
-                    project.approved = project.approved + ", " + project.Supervisor2
+                    project.approved = project.Supervisor3
+                else:
+                    project.approved = "None"
+            projects = [project.__dict__ for project in projects]
+            return render_template('admin_dashboard.html', projects=projects)
+        elif request.form['filter_approval'] == 'unapproved' and request.form['filter_AU'] != 'all':
+            projects = Ticket.query.filter((Ticket.AU == request.form['filter_AU']) & ((Ticket.Supervisor1_approval == False) | (Ticket.Supervisor2_approval == False) | (Ticket.Supervisor3_approval == False) | (Ticket.Committee1_approval == False) | (Ticket.Committee2_approval == False) | (Ticket.Committee3_approval == False) | (Ticket.Committee4_approval == False) | (Ticket.Committee5_approval == False))).all()
+            for project in projects:
+                if project.Supervisor1_approval == True:
+                    project.approved = project.Supervisor1
+                    if project.Supervisor2_approval == True:
+                        project.approved = project.approved + ", " + project.Supervisor2
+                        if project.Supervisor3_approval == True:
+                            project.approved = project.approved + ", " + project.Supervisor3
+                    elif project.Supervisor3_approval == True:
+                        project.approved = project.approved + ", " + project.Supervisor3
+                elif project.Supervisor2_approval == True:
+                    project.approved = project.Supervisor2
                     if project.Supervisor3_approval == True:
                         project.approved = project.approved + ", " + project.Supervisor3
                 elif project.Supervisor3_approval == True:
-                    project.approved = project.approved + ", " + project.Supervisor3
-            elif project.Supervisor2_approval == True:
-                project.approved = project.Supervisor2
-                if project.Supervisor3_approval == True:
-                    project.approved = project.approved + ", " + project.Supervisor3
-            elif project.Supervisor3_approval == True:
-                project.approved = project.Supervisor3
-            else:
-                project.approved = "None"
-        projects = [project.__dict__ for project in projects]
-        return render_template('admin_dashboard.html', projects=projects)
-
+                    project.approved = project.Supervisor3
+                else:
+                    project.approved = "None"
+            projects = [project.__dict__ for project in projects]
+            return render_template('admin_dashboard.html', projects=projects)
+    else: 
+        redirect(url_for('login'))
 #route xl generates excel file of all projects in the database. Includes the following columns: projectid, RollNo, student_name, student_email, AU, DateOfRegistration, GATE, ProjectTitle, DateOfIRB, DateOfProgressPresentation, Publications, Conferences, Total Marks1, Total Marks2, Total Marks3, link to student submitted pdf.
 @app.route('/xl/<AU>', methods=['GET', 'POST'])
 def xl_au(AU):
