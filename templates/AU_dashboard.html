@@ -30,15 +30,9 @@
         </div>
       </div>
       <div class="main">
-        <h1 class="main-heading">ADoRD’s Window</h1>
+        <h1 class="main-heading">AU Window</h1>
         <div class="container1">
           <form action="/admin_dashboard" method="post" class="container1">
-            <select name="filter_AU" class="dropdowns">
-                <option value="all" selected>All Academic Units</option>
-                <option value="saab">Saab</option>
-                <option value="mercedes">Mercedes</option>
-                <option value="audi">Audi</option>
-              </select>
               <select name="filter_approval" class="dropdowns"></option>
                 <option value="all" selected>All Approval Status</option>
                 <option value="approved">Approved</option>
@@ -70,7 +64,7 @@
       </div>
     <div class="footer">
       <div class="footer-left">
-        <a href="/xl"><button>GENERATE XL/CSV SHEET</button></a>
+        <a href="/xl/{{ AU }}"><button>GENERATE XL/CSV SHEET</button></a>
         <div class="footer-date">
           <p class="date-name">LAST DATE :</p>
         <p>15/04/2023</p>

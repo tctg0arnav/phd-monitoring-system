@@ -6,14 +6,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login</title>
-    <link rel="stylesheet" href="../css templates/login.css">
-
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <style>
+        @media screen and (max-width: 850px){
+            body{
+            background-image: url("{{ url_for('static', filename='Images/loginimg2.png') }}");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+            height: 100vh;
+            width: 100%;
+        }
+    </style>
 </head>
 
 <body>
 
     <div class="header">
-        <img src="../archived-for-now/Images/TIET-logo.png" alt="">
+        <img src="{{ url_for('static', filename='Images/TIET-logo.png') }}" alt="">
         <h1>Thapar Institute of Engineering and Technology</h1>
     </div>
     <hr>
@@ -71,11 +82,11 @@
                     <!-- <p class="login2-right-para2">TO YOUR ACCOUNT</p> -->
                     <form class="login2-right-form" action="/login" method="post">
                         <div class="username">
-                            <img class="login-form-images" src="../Images/username.png" alt="User">
+                            <img class="login-form-images" src="{{ url_for('static', filename='Images/username.png') }}" alt="User">
                             <input class="login-form-input" type="text" name="username" placeholder="Username">
                         </div>
                         <div class="password">
-                            <img class="login-form-images" src="../Images/password.png" alt="Pass">
+                            <img class="login-form-images" src="{{ url_for('static', filename='Images/password.png') }}" alt="Pass">
                             <input class="login-form-input" type="password" name="password" placeholder="Password">
                         </div>
                         <div class="login-form-username">
@@ -110,11 +121,11 @@
             <!-- <p class="login2-right-para2">TO YOUR ACCOUNT</p> -->
             <form class="login2-right-form" action="/login" method="post">
                 <div class="username">
-                    <img class="login-form-images" src="../Images/username.png" alt="User">
+                    <img class="login-form-images" src="{{ url_for('static', filename='Images/username.png') }}" alt="User">
                     <input class="login-form-input" type="text" name="username" placeholder="Username">
                 </div>
                 <div class="password">
-                    <img class="login-form-images" src="../Images/password.png" alt="Pass">
+                    <img class="login-form-images" src="{{ url_for('static', filename='Images/password.png') }}" alt="Pass">
                     <input class="login-form-input" type="password" name="password" placeholder="Password">
                 </div>
                 <div class="login-form-username">

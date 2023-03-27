@@ -304,21 +304,8 @@
             {{ Ticket['Supervisor1_remarks']}}
         </p>
     </div>
-    {{ if Ticket['Supervisor2_remarks'] }}
-    <div>
-        <p class="heading">{{Name2}}</p>
-        <p class="supervisor-remarks">
-            {{ Ticket['Supervisor2_remarks']}}
-        </p>
-        {{ end }}
+
     </div>
-    {{ if Ticket['Supervisor3_remarks'] }}
-    <div>
-        <p class="heading">{{Name3}}</p>
-        <p class="supervisor-remarks">
-            {{ Ticket['Supervisor3_remarks']}}
-        </p>
-        {{ end }}
     </div>
     <br>
     <p class="heading1">Satisfied:</p>
@@ -326,7 +313,7 @@
     <input type="radio" name="approved" value="no">No
     <br>
     <div class="button-container">
-        <button class="button-submit">SUBMIT</button>
+        <button class="button-submit" type="submit">SUBMIT</button>
     </div>
     </body>
 

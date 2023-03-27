@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='/css/ticket.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ticket.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Ticket</title>
 </head>
@@ -32,10 +32,27 @@
             <div class="flex-container">
                 <div class="width">
                     <span class="heading2">Academic Unit: </span>
-                    <input class="ticket-form-input1" type="text" name="AU" required>
+                    <select name="AU" id=""> 
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                    </select>
                 </div>
                 <div class="width2">
-
                     <span class="heading2">Date of registration: </span>
                     <input class="ticket-form-input1 " type="date" name="DateOfRegistration" required>
                 </div>
@@ -105,14 +122,14 @@
                     <div class="flex-container-2 width">
                         <p class="heading">Name:(𝘪𝘧 𝘢𝘯𝘺)</p>
                         <p>
-                            <input class="ticket-form-input" type="text" name="Supervisor2" required>
+                            <input class="ticket-form-input" type="text" name="Supervisor2">
                         </p>
                     </div>
                     <div class="flex-container-2 width1">
                         <p class="heading">Email-id:(𝘪𝘧 𝘢𝘯𝘺)
                         </p>
                         <p>
-                            <input class="ticket-form-input" type="text" name="Supervisor2_email" required>
+                            <input class="ticket-form-input" type="text" name="Supervisor2_email" >
                         </p>
                     </div>
                 </div>
@@ -122,14 +139,14 @@
                     <div class="flex-container-2 width">
                         <p class="heading">Name:(𝘪𝘧 𝘢𝘯𝘺)</p>
                         <p>
-                            <input class="ticket-form-input" type="text" name="Supervisor3" required>
+                            <input class="ticket-form-input" type="text" name="Supervisor3" >
                         </p>
                     </div>
                     <div class="flex-container-2 width1">
                         <p class="heading">Email-id:(𝘪𝘧 𝘢𝘯𝘺)
                         </p>
                         <p>
-                            <input class="ticket-form-input" type="text" name="Supervisor3_email" required>
+                            <input class="ticket-form-input" type="text" name="Supervisor3_email" >
                         </p>
                     </div>
                 </div>
@@ -212,14 +229,14 @@
                     <div class="flex-container-2 width">
                         <p class="heading">Name:(𝘪𝘧 𝘢𝘯𝘺)</p>
                         <p>
-                            <input class="ticket-form-input" type="text" name="Committee5" required>
+                            <input class="ticket-form-input" type="text" name="Committee5" >
                         </p>
                     </div>
                     <div class="flex-container-2 width1">
                         <p class="heading">Email-id:(𝘪𝘧 𝘢𝘯𝘺)
                         </p>
                         <p>
-                            <input class="ticket-form-input" type="text" name="Committee5_email" required>
+                            <input class="ticket-form-input" type="text" name="Committee5_email">
                         </p>
                     </div>
                 </div>
