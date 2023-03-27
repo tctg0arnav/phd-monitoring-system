@@ -284,16 +284,16 @@
         </div>
         <p class="heading heading-height">Percentage of work done till previous presentation</p>
         <div class="percentage-input">
-            <input type="text" name="percentage_prev">
+            <input id="number1" type="text" name="percentage_prev">
             <p>%</p>
         </div>
         <p class="heading">Percentage of work done till present</p>
         <div class="percentage-input">
-            <input type="text" name="percentage_present">
+            <input id="number2" oninput="submit1()" type="text" name="percentage_present">
             <p>%</p>
         </div>
         <p class="heading">Total Marks</p>
-        <p> {{ Ticket['Total_Marks'] }} </p>
+        <p id="screen1"> {{ Ticket['Total_Marks'] }} </p>
         <p class="heading">Remarks</p>
         <textarea class="percentage-container-text" name="remarks" cols="30" rows="8"></textarea>
         <br>
@@ -306,7 +306,19 @@
         <button class="button-submit" type="submit">SUBMIT</button>
     </div>
     </form>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script>
+    $( document ).ready(function() {
+    
+    });
+    function submit1(){
+        var a =  document.getElementById("number1").value;
+        var b =  document.getElementById("number2").value;
+        var c = parseInt(a) + parseInt(b); 
+        document.getElementById("screen1").innerHTML=c;
+      }
+    </script>
     </body>
+  
 
     </html>
