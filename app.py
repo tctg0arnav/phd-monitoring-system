@@ -525,8 +525,8 @@ def admin_dashboard_filter():
         return render_template('admin_dashboard.html', projects=projects)
 
 #route xl generates excel file of all projects in the database. Includes the following columns: projectid, RollNo, student_name, student_email, AU, DateOfRegistration, GATE, ProjectTitle, DateOfIRB, DateOfProgressPresentation, Publications, Conferences, Total Marks1, Total Marks2, Total Marks3, link to student submitted pdf.
-@app.route('/xl/<str:AU>', methods=['GET', 'POST'])
-def xl_au():
+@app.route('/xl/<AU>', methods=['GET', 'POST'])
+def xl_au(AU):
 #export database where AU = AU to csv file
     projects = Ticket.query.filter(Ticket.AU == AU).all()
     projects = [project.__dict__ for project in projects]
@@ -541,5 +541,21 @@ def xl_au():
         headers={"Content-disposition":
                  "attachment; filename=au.csv"})
 
+@app.route('/xl', methods=['GET', 'POST'])
+def xl():
+#export database to csv file
+    projects = Ticket.query.all()
+    projects = [project.__dict__ for project in projects]
+    w = csv.writer(open("static/all.csv", "w"))
+    for key in projects[0].keys():
+        w.writerow([key])
+    for project in projects:
+        w.writerow(project.values())
+    return Response(
+        "static/all.csv",
+        mimetype="text/csv",
+        headers={"Content-disposition":
+                 "attachment; filename=all.csv"})
+
 if __name__ == '__main__':
-    app.run(debug=True, port=5001)
+    app.run(debug=True, host='0.0.0.0', port=80)
